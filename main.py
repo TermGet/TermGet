@@ -161,6 +161,7 @@ while True: #Starts a loop
             os.system("sudo zypper clean")
         if package == "eopkg":
             os.system("sudo eopkg clean")
+            os.system("sudo delete-cache")
         input("\nPress enter to continue")
         
     if user == "6":
