@@ -19,24 +19,21 @@ while setup == "True": #Repeats until setup is not true
         package = "apt-get"
     elif user == "2":
         setup = "false"
-        package = "pacman"
+        package = "xbps"
     elif user == "3":
         setup = "false"
-        package = "xbps"
+        package = "dnf"
     elif user == "4":
         setup = "false"
-        package = "dnf"
-    elif user == "5":
-        setup = "false"
         package = "zypper"
-    elif user == "6":
+    elif user == "5":
         setup = "false"
         package = "eopkg"
     else:
         clear()
         print("Error. Invaild package manager")
         time.sleep(1)
-        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. pacman (For Arch, and Arch based systems)\n3. xbps (For Void Linux, and Void Linux based systems)\n4. dnf (For Fedora, and Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. ecopkg (For Solus, and Solus based systems)")
+        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)")
 #Sets up the package manager
 
     clear()
