@@ -136,3 +136,6 @@ while True: #Starts a loop
         if package == "eopkg":
             os.system("sudo eopkg upgrade")
         input("\nPress enter to continue")
+        
+    if user == "6":
+        quit()
