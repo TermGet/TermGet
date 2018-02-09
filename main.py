@@ -7,7 +7,7 @@ def clear():
 #defines clear
 
 clear()
-print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)/n/npacman has been temporarily removed, sorry for the inconvenience")
+print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)/n6. pacman (For Arch, and Arch based systems)")
 setup = "True" #sets the var setup to true
 #Asks user which package manager to use
 
@@ -33,7 +33,7 @@ while setup == "True": #Repeats until setup is not true
         clear()
         print("Error. Invaild package manager")
         time.sleep(1)
-        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)/n/npacman has been temporarily removed, sorry for the inconvenience")
+        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)/n6. pacman (For Arch, and Arch based systems)")
 #Sets up the package manager
 
     clear()
@@ -41,8 +41,7 @@ while setup == "True": #Repeats until setup is not true
     if package == "apt-get":
         os.system("sudo apt-get update")
     elif package == "pacman":
-        print("Sorry")
-        #os.system("sudo pacman -Syy")
+        os.system("sudo pacman -Sy")
     elif package == "xbps":
         os.system("sudo xbps-install -S")
     elif package == "dnf":
@@ -51,8 +50,6 @@ while setup == "True": #Repeats until setup is not true
         os.system("sudo zypper refresh zypper ref")
     elif package == "eopkg":
         os.system("sudo eopkg ur")
-
-#Updates the system's repositories
 
 while True: #Starts a loop
     clear()
@@ -142,7 +139,7 @@ while True: #Starts a loop
             os.system("sudo eopkg upgrade")
         input("\nPress enter to continue")
         
-    if user == "5":
+    if user == "5"
         clear()
         if package == "apt-get":
             os.system("sudo apt-get autoremove")
@@ -164,5 +161,5 @@ while True: #Starts a loop
             os.system("sudo delete-cache")
         input("\nPress enter to continue")
         
-    if user == "6":
+    if user == "6"
         quit()
