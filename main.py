@@ -103,7 +103,12 @@ while True: #Starts a loop
         print("")
 
         if package == "apt-get":
-            os.system("sudo apt-get remove " + user)
+            user = input("How will you like to remove the package?\n\n1. remove, removes just the package (faster)\n2. purge, removes the package, and all it's configuration files (saves space)")
+            clear()
+            if user == "1":
+                os.system("sudo apt-get remove " + user)
+            if user == "2":
+                os.system("sudo apt-get purge " + user)
         if package == "pacman":
             os.system("sudo pacman -Rs " + user)
         if package == "xbps":
@@ -135,6 +140,27 @@ while True: #Starts a loop
             os.system("sudo zypper dup")
         if package == "eopkg":
             os.system("sudo eopkg upgrade")
+        input("\nPress enter to continue")
+        
+    if user == "5":
+        clear()
+        if package == "apt-get":
+            os.system("sudo apt-get autoremove")
+            os.system("sudo apt-get clean")
+        if package == "pacman":
+            os.system("sudo pacman -Qdtq | pacman -Rs -")
+            os.system("sudo pacman -Sc")
+        if package == "xbps":
+            os.system("sudo xbps-remove -o")
+            os.system("sudo xbps-remove -O")
+        if package == "dnf":
+            os.system("sudo dnf autoremove")
+            os.system("sudo dnf clean all")
+        if package == "zypper":
+            os.system("sudo zypper rm -u")
+            os.system("sudo zypper clean")
+        if package == "eopkg":
+            os.system("sudo eopkg clean")
         input("\nPress enter to continue")
         
     if user == "6":
