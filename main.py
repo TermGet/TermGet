@@ -83,7 +83,11 @@ while True: #Starts a loop
         if package == "apt-get":
             os.system("sudo apt-get install " + user)
         if package == "pacman":
-            os.system("sudo pacman -S " + user)
+            input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt")
+            if user == "1":
+                os.system("sudo pacman -S " + user)
+            if user == "2":
+                os.system("sudo yaourt -S " + user)
         if package == "xbps":
             os.system("sudo xbps-install " + user)
         if package == "dnf":
