@@ -7,7 +7,7 @@ def clear():
 #defines clear
 
 clear()
-print("Welcome to TermGet\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. pacman (For Arch, and Arch based systems)\n3. xbps (For Void Linux, and Void Linux based systems)\n4. dnf (For Fedora, and Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)")
+print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)/n/npacman has been temporarily removed, sorry for the inconvenience")
 setup = "True" #sets the var setup to true
 #Asks user which package manager to use
 
@@ -33,7 +33,7 @@ while setup == "True": #Repeats until setup is not true
         clear()
         print("Error. Invaild package manager")
         time.sleep(1)
-        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)")
+        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)/n/npacman has been temporarily removed, sorry for the inconvenience")
 #Sets up the package manager
 
     clear()
