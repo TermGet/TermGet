@@ -42,22 +42,9 @@ while setup == "True": #Repeats until setup is not true
 
     clear()
 
-#    if package == "apt-get":
-#        os.system("sudo apt-get update")
-#    elif package == "pacman":
-#        os.system("sudo pacman -Sy")
-#    elif package == "xbps":
-#        os.system("sudo xbps-install -S")
-#    elif package == "dnf":
-#        os.system("sudo dnf clean expire-cache && dnf check-update")
-#    elif package == "zypper":
-#        os.system("sudo zypper refresh zypper ref")
-#    elif package == "eopkg":
-#        os.system("sudo eopkg ur")
-
 while True: #Starts a loop
     clear()
-    print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Clean\n6. Exit")
+    print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Repo\n6. Clean\n7. Exit")
     user = input() #Asks for user input
 
     if user == "1":
@@ -87,7 +74,7 @@ while True: #Starts a loop
         if package == "apt-get":
             os.system("sudo apt-get install " + user)
         if package == "pacman":
-            input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt")
+            input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
             if user == "1":
                 os.system("sudo pacman -S " + user)
             if user == "2":
@@ -148,7 +135,25 @@ while True: #Starts a loop
         input("\nPress enter to continue")
 
     if user == "5":
-        
+        clear()
+        print("\n")
+
+        if package == "apt-get":
+            os.system("sudo apt-get update")
+        elif package == "pacman":
+            os.system("sudo pacman -Sy")
+        elif package == "xbps":
+            os.system("sudo xbps-install -S")
+        elif package == "dnf":
+            os.system("sudo dnf clean expire-cache && dnf check-update")
+        elif package == "zypper":
+            os.system("sudo zypper refresh zypper ref")
+        elif package == "eopkg":
+            os.system("sudo eopkg ur")
+        input("\nPress enter to continue")
+
+    if user == "6":
+
         clear()
 
         if package == "apt-get":
@@ -171,5 +176,5 @@ while True: #Starts a loop
             os.system("sudo delete-cache")
         input("\nPress enter to continue")
 
-    if user == "6":
+    if user == "7":
         quit()
