@@ -7,7 +7,7 @@ def clear():
 #defines clear
 
 clear()
-print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)/n6. pacman (For Arch, and Arch based systems)")
+print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
 setup = "True" #sets the var setup to true
 #Asks user which package manager to use
 
@@ -29,11 +29,14 @@ while setup == "True": #Repeats until setup is not true
     elif user == "5":
         setup = "false"
         package = "eopkg"
+    elif user == "6":
+        setup = "false"
+        package = "pacman"
     else:
         clear()
         print("Error. Invaild package manager")
         time.sleep(1)
-        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)/n6. pacman (For Arch, and Arch based systems)")
+        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
 #Sets up the package manager
 
     clear()
@@ -142,8 +145,8 @@ while True: #Starts a loop
         if package == "eopkg":
             os.system("sudo eopkg upgrade")
         input("\nPress enter to continue")
-        
-    if user == "5"
+
+    if user == "5":
         clear()
         if package == "apt-get":
             os.system("sudo apt-get autoremove")
@@ -164,6 +167,6 @@ while True: #Starts a loop
             os.system("sudo eopkg clean")
             os.system("sudo delete-cache")
         input("\nPress enter to continue")
-        
-    if user == "6"
+
+    if user == "6":
         quit()
