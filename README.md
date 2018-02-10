@@ -162,8 +162,8 @@ Cleaning helps save hard drive space. It does this by deleting cache, and deleti
 	  Do you want to continue? (yes/no)yes
 	  Removing package irrlicht
 	  Removed irrlicht
-		  [✓] Syncing filesystems    			                                            success
-		  [✓] Updating dynamic library cache                                     success
+		  [✓] Syncing filesystems    			                 	success
+		  [✓] Updating dynamic library cache                                   success
 
 	  Press enter to continue
 
