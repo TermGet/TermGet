@@ -4,18 +4,20 @@ import sys
 package = " "
 #Imports libraries and sets variables
 
-if sys.argv[1] == "apt-get":
-    package = "apt-get"
-elif sys.argv[1] == "pacman":
-    package = "pacman"
-elif sys.argv[1] == "xbps":
-    package = "xbps"
-elif sys.argv[1] == "dnf":
-    package = "dnf"
-elif sys.argv[1] == "zypper":
-    package = "zypper"
-elif sys.argv[1] == "eopkg":
-    package = "eopkg"
+if len(sys.argv) == 2:
+    if sys.argv[1] == "apt-get":
+        package = "apt-get"
+    elif sys.argv[1] == "pacman":
+        package = "pacman"
+    elif sys.argv[1] == "xbps":
+        package = "xbps"
+    elif sys.argv[1] == "dnf":
+        package = "dnf"
+    elif sys.argv[1] == "zypper":
+        package = "zypper"
+    elif sys.argv[1] == "eopkg":
+        package = "eopkg"
+
 #Checks for command line argument
 
 def clear():
@@ -44,19 +46,19 @@ while setup == "True": #Repeats until setup is not true
         package = "apt-get" #Sets package manager to apt-get
     elif user == "2":
         setup = "false"
-        package = "xbps" #Set
+        package = "xbps" #Sets package manager to xbps
     elif user == "3":
         setup = "false"
-        package = "dnf"
+        package = "dnf" #Sets package manager to dnf
     elif user == "4":
         setup = "false"
-        package = "zypper"
+        package = "zypper" #Sets package manager to zypper
     elif user == "5":
         setup = "false"
-        package = "eopkg"
+        package = "eopkg" #Sets package manager to eopkg
     elif user == "6":
         setup = "false"
-        package = "pacman"
+        package = "pacman" #Sets pac(k)age manager to pacman
     else:
         clear()
         print("Error. Invaild package manager")
