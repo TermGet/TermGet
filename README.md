@@ -186,7 +186,7 @@ To temporally change the package manager used, use an argument. For example, if 
 ### Permanently
 run the following command in a terminal, then the first setup script will start next time you run termget.
 
-    rm -rf ~/.termget/termget-package-manager && > termget-package-manager
+    rm -rf ~/.termget/termget-package-manager && > ~/.termget/termget-package-manager
 
 
 ## Installing TermGet on Windows
