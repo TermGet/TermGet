@@ -39,8 +39,6 @@ else:
 
 #Asks user which package manager to use
 
-print(os.popen('echo test').read())
-
 while setup == "True": #Repeats until setup is not true
     user = input() #Asks for user input
     if user == "1":
@@ -115,7 +113,7 @@ while True: #Starts a loop
             if user1 == "1":
                 os.system("sudo pacman -S " + user)
             if user1 == "2":
-                os.system("sudo yaourt -S " + user)
+                os.system("yaourt -S " + user)
         if package == "xbps":
             os.system("sudo xbps-install " + user)
         if package == "dnf":
