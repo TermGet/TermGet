@@ -27,7 +27,7 @@ def clear():
 clear()
 
 if package == " ": #Checks for command line argument
-    print("Welcome to TermGet. This is a beta, so expect bugs.\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
+    print("Welcome to TermGet. This is a beta, so expect bugs.\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. eopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
     setup = "True"
     #Sets the variable 'setup' to True
 else:
@@ -63,7 +63,7 @@ while setup == "True": #Repeats until setup is not true
         clear()
         print("Error. Invaild package manager")
         time.sleep(1)
-        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
+        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. eopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
         #Sets up the package manager
 
     clear()
