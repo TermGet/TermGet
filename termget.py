@@ -1,7 +1,9 @@
 import os
 import time
 import sys
+import getpass
 package = " "
+package_file_read = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager","r").read()
 #Imports libraries and sets variables
 
 if len(sys.argv) == 2:
@@ -18,6 +20,21 @@ if len(sys.argv) == 2:
     elif sys.argv[1] == "eopkg":
         package = "eopkg"
 
+if package == " ":
+    if package_file_read == "apt-get":
+        package = "apt-get"
+    elif package_file_read == "pacman":
+        package = "pacman"
+    elif package_file_read == "xbps":
+        package = "xbps"
+    elif package_file_read == "dnf":
+        package = "dnf"
+    elif package_file_read == "zypper":
+        package = "zypper"
+    elif package_file_read == "eopkg":
+        package = "eopkg"
+    print("package manager set to " + package)
+
 #Checks for command line argument
 
 def clear():
@@ -27,7 +44,7 @@ def clear():
 clear()
 
 if package == " ": #Checks for command line argument
-    print("Welcome to TermGet. This is a alpha, so expect bugs.\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
+    print("Welcome to TermGet. This is a alpha, so expect bugs.\n\nFirst Time Setup:\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. eopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
     setup = "True"
     #Sets the variable 'setup' to True
 else:
@@ -40,31 +57,32 @@ else:
 #Asks user which package manager to use
 
 while setup == "True": #Repeats until setup is not true
+    package_file_write = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager","a")
     user = input() #Asks for user input
     if user == "1":
         setup = "false"
         package = "apt-get" #Sets package manager to apt-get
-        os.system("echo \"apt-get\" >> ~/.termget/termget-package-manager")
+        package_file_write.write("apt-get")
     elif user == "2":
         setup = "false"
-        package = "xbps" #Sets package manager to xbp
-        os.system("echo \"xbps\" >> ~/.termget/termget-package-manager")
+        package = "xbps" #Sets package manager to xbps
+        package_file_write.write("xbps")
     elif user == "3":
         setup = "false"
         package = "dnf" #Sets package manager to dnf
-        os.system("echo \"dnf\" >> ~/.termget/termget-package-manager")
+        package_file_write.write("dnf")
     elif user == "4":
         setup = "false"
         package = "zypper" #Sets package manager to zypper
-        os.system("echo \"zypper\" >> ~/.termget/termget-package-manager")
+        package_file_write.write("zypper")
     elif user == "5":
         setup = "false"
         package = "eopkg" #Sets package manager to eopkg
-        os.system("echo \"eopkg\" >> ~/.termget/termget-package-manager")
+        package_file_write.write("eopkg")
     elif user == "6":
         setup = "false"
         package = "pacman" #Sets package manager to pacman
-        os.system("echo \"pacman\" >> ~/.termget/termget-package-manager")
+        package_file_write.write("pacman")
     else:
         clear()
         print("Error. Invaild package manager")
@@ -128,7 +146,6 @@ while True: #Starts a loop
         clear()
         user = input("Please enter which package(s) to remove: ")
         print("")
-
         if package == "apt-get":
             user1 = input("How will you like to remove the package?\n\n1. remove, removes just the package (faster)\n2. purge, removes the package, and all it's configuration files (saves space)")
             clear()
