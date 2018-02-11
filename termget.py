@@ -27,11 +27,11 @@ def clear():
 clear()
 
 if package == " ": #Checks for command line argument
-    print("Welcome to TermGet. This is a beta, so expect bugs.\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. eopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
+    print("Welcome to TermGet. This is a alpha, so expect bugs.\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
     setup = "True"
     #Sets the variable 'setup' to True
 else:
-    print("Welcome to TermGet. This is a beta, so expect bugs")
+    print("Welcome to TermGet. This is a alpha, so expect bugs")
     time.sleep(1)
     clear()
     setup = "False"
@@ -44,21 +44,27 @@ while setup == "True": #Repeats until setup is not true
     if user == "1":
         setup = "false"
         package = "apt-get" #Sets package manager to apt-get
+        os.system("echo \"apt-get\" >> ~/.termget/termget-package-manager")
     elif user == "2":
         setup = "false"
-        package = "xbps" #Sets package manager to xbps
+        package = "xbps" #Sets package manager to xbp
+        os.system("echo \"xbps\" >> ~/.termget/termget-package-manager")
     elif user == "3":
         setup = "false"
         package = "dnf" #Sets package manager to dnf
+        os.system("echo \"dnf\" >> ~/.termget/termget-package-manager")
     elif user == "4":
         setup = "false"
         package = "zypper" #Sets package manager to zypper
+        os.system("echo \"zypper\" >> ~/.termget/termget-package-manager")
     elif user == "5":
         setup = "false"
         package = "eopkg" #Sets package manager to eopkg
+        os.system("echo \"eopkg\" >> ~/.termget/termget-package-manager")
     elif user == "6":
         setup = "false"
-        package = "pacman" #Sets pac(k)age manager to pacman
+        package = "pacman" #Sets package manager to pacman
+        os.system("echo \"pacman\" >> ~/.termget/termget-package-manager")
     else:
         clear()
         print("Error. Invaild package manager")
@@ -80,11 +86,11 @@ while True: #Starts a loop
         if package == "apt-get":
             os.system("sudo apt-cache search " + user)
         elif package == "pacman":
-            input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
-            if user == "1":
+            user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+            if user1 == "1":
                 os.system("sudo pacman -Ss " + user)
-            if user == "2":
-                os.system("sudo yaourt -Ss " + user)
+            if user1 == "2":
+                os.system("yaourt -Ss " + user)
         elif package == "xbps":
             os.system("sudo xbps-query -Rs " + user)
         elif package == "dnf":
@@ -103,11 +109,11 @@ while True: #Starts a loop
         if package == "apt-get":
             os.system("sudo apt-get install " + user)
         if package == "pacman":
-            input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
-            if user == "1":
+            user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+            if user1 == "1":
                 os.system("sudo pacman -S " + user)
-            if user == "2":
-                os.system("sudo yaourt -S " + user)
+            if user1 == "2":
+                os.system("yaourt -S " + user)
         if package == "xbps":
             os.system("sudo xbps-install " + user)
         if package == "dnf":
@@ -124,11 +130,11 @@ while True: #Starts a loop
         print("")
 
         if package == "apt-get":
-            user = input("How will you like to remove the package?\n\n1. remove, removes just the package (faster)\n2. purge, removes the package, and all it's configuration files (saves space)")
+            user1 = input("How will you like to remove the package?\n\n1. remove, removes just the package (faster)\n2. purge, removes the package, and all it's configuration files (saves space)")
             clear()
-            if user == "1":
+            if user1 == "1":
                 os.system("sudo apt-get remove " + user)
-            if user == "2":
+            if user1 == "2":
                 os.system("sudo apt-get purge " + user)
         if package == "pacman":
             os.system("sudo pacman -Rs " + user)
