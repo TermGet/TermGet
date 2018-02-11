@@ -27,11 +27,11 @@ def clear():
 clear()
 
 if package == " ": #Checks for command line argument
-    print("Welcome to TermGet. This is a beta, so expect bugs.\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
+    print("Welcome to TermGet. This is a alpha, so expect bugs.\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. zypper (For OpenSUSE, and OpenSUSE based systems)\n5. ecopkg (For Solus, and Solus based systems)\n6. pacman (For Arch, and Arch based systems)")
     setup = "True"
     #Sets the variable 'setup' to True
 else:
-    print("Welcome to TermGet. This is a beta, so expect bugs")
+    print("Welcome to TermGet. This is a alpha, so expect bugs")
     time.sleep(1)
     clear()
     setup = "False"
@@ -92,7 +92,7 @@ while True: #Starts a loop
             if user1 == "1":
                 os.system("sudo pacman -Ss " + user)
             if user1 == "2":
-                os.system("sudo yaourt -Ss " + user)
+                os.system("yaourt -Ss " + user)
         elif package == "xbps":
             os.system("sudo xbps-query -Rs " + user)
         elif package == "dnf":
