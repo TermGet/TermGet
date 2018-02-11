@@ -14,6 +14,8 @@ rm -rf ~/.termget/
 mkdir ~/.termget/
 echo ">>> copying program to ~/.termget"
 cp termget.py ~/.termget/termget.py
+echo ">>> generating empty file"
+> ~/.termget/termget-package-manager
 echo ">>> creating alias into .bashrc"
 echo 'alias termget="python3 ~/.termget/termget.py"' >> ~/.bashrc
 alias termget="python3 ~/.termget/termget.py"
