@@ -78,15 +78,19 @@ while True: #Starts a loop
         user = input("Please enter search query: ")
         print(" ")
         if package == "apt-get":
-            os.system("apt-cache search " + user)
+            os.system("sudo apt-cache search " + user)
         elif package == "pacman":
-            os.system("pacman -Sy " + user)
+            input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+            if user == "1":
+                os.system("sudo pacman -Ss " + user)
+            if user == "2":
+                os.system("sudo yaourt -Ss " + user)
         elif package == "xbps":
-            os.system("xbps-query -Rs " + user)
+            os.system("sudo xbps-query -Rs " + user)
         elif package == "dnf":
-            os.system("dnf search " + user)
+            os.system("sudo dnf search " + user)
         elif package == "zypper":
-            os.system("zypper search " + user)
+            os.system("sudo zypper search " + user)
         elif package == "eopkg":
             os.system("eopkg search " + user)
         input("\nPress enter to continue")
