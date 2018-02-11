@@ -92,7 +92,7 @@ while True: #Starts a loop
             if user1 == "1":
                 os.system("sudo pacman -Ss " + user)
             if user1 == "2":
-                os.system("yaourt -Ss " + user)
+                os.system("sudo yaourt -Ss " + user)
         elif package == "xbps":
             os.system("sudo xbps-query -Rs " + user)
         elif package == "dnf":
@@ -115,7 +115,7 @@ while True: #Starts a loop
             if user1 == "1":
                 os.system("sudo pacman -S " + user)
             if user1 == "2":
-                os.system("sudo yaourt -S " + user)
+                os.system("yaourt -S " + user)
         if package == "xbps":
             os.system("sudo xbps-install " + user)
         if package == "dnf":
