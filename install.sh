@@ -6,7 +6,7 @@
 # root@localhost ~ $ ./install.sh
 echo "Getting ready to install in 5 seconds"
 echo ""
-echo "Press CTRL+X to abort if this was an accident"
+echo "Press CTRL+C to abort if this was an accident"
 echo ""
 sleep 5
 echo ">>> setting up directories"
