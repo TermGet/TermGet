@@ -124,10 +124,10 @@ Installing a package downloads and installs a package. This is what it looks lik
 	  minetest
 	  Removing package minetest
 	  Removed minetest
-		  [✓] Syncing filesystems                                                success
-		  [✓] Updating icon theme cache: hicolor                                 success
-		  [✓] Updating desktop database                                          success
-		  [✓] Updating manpages database                                         success
+	     [✓] Syncing filesystems                                                success
+	     [✓] Updating icon theme cache: hicolor                                 success
+	     [✓] Updating desktop database                                          success
+	     [✓] Updating manpages database                                    	    success
 
 	  Press enter to continue
 
@@ -170,8 +170,8 @@ Cleaning helps save hard drive space. It does this by deleting cache, and deleti
 	  Do you want to continue? (yes/no)yes
 	  Removing package irrlicht
 	  Removed irrlicht
-		  [✓] Syncing filesystems    			                                            success
-		  [✓] Updating dynamic library cache                                     success
+	     [✓] Syncing filesystems    			                    success
+	     [✓] Updating dynamic library cache                                     success
 	
 	  Press enter to continue
 
