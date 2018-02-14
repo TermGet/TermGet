@@ -168,8 +168,8 @@ if package != "pip":
             input("\nPress enter to continue")
 
         if user == "4": #Updates Packages
-                clear()
-                print("\n")
+            clear()
+            print("\n")
             if package == "apt-get":
                 os.system("sudo apt-get upgrade")
                 os.system("sudo apt-get dist-upgrade")
