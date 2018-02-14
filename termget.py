@@ -130,10 +130,10 @@ if package != "pip":
                 os.system("sudo apt-get install " + user)
             if package == "pacman":
                 user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
-            if user1 == "1":
-                os.system("sudo pacman -S " + user)
-            if user1 == "2":
-                os.system("yaourt -S " + user)
+                if user1 == "1":
+                    os.system("sudo pacman -S " + user)
+                if user1 == "2":
+                    os.system("yaourt -S " + user)
             if package == "xbps":
                 os.system("sudo xbps-install " + user)
             if package == "dnf":
