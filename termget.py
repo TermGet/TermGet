@@ -167,7 +167,7 @@ if package != "pip":
                 os.system("sudo eopkg remove " + user)
             input("\nPress enter to continue")
 
-            if user == "4": #Updates Packages
+        if user == "4": #Updates Packages
                 clear()
                 print("\n")
             if package == "apt-get":
