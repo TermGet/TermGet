@@ -141,7 +141,7 @@ if package != "pip":
             elif package == "eopkg": os.system("eopkg search " + user)
             elif package == "emerge": os.system("emerge -S " + user)
             elif package == "pkg": os.system("pkg search " + user)
-            elif package == "chromebrew": os.system("crew search")
+            elif package == "chromebrew": os.system("crew search " + user)
             input("\nPress enter to continue")
 
         if user == "2": #Install
@@ -266,13 +266,13 @@ if package != "pip":
 
 if package == "pip": #Starts a loop
     while True:
-	    user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. List packages installed with pip5. Credits\n6. Exit\n\n")
+	    user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. List packages installed with pip\n5. Credits\n6. Exit\n\n")
 
 	    if user == "1": #Search
 		    clear()
 		    user = input("Please enter search query: ")
 		    print(" ")
-		    os.system("sudo pip install " + user)
+		    os.system("pip install " + user)
 
 		    input("\nPress enter to continue")
 
@@ -280,7 +280,7 @@ if package == "pip": #Starts a loop
 		    clear()
 		    user = input("Please enter which package(s) to install: ")
 		    print("")
-		    os.system("sudo pip search \"" + user + "\"")
+		    os.system("pip search \"" + user + "\"")
 
 		    input("\nPress enter to continue")
 
@@ -288,16 +288,16 @@ if package == "pip": #Starts a loop
 		    clear()
 		    user = input("Please enter which package(s) to remove: ")
 		    print("")
-		    os.system("sudo pip uninstall " + user)
+		    os.system("pip uninstall " + user)
 
 	    if user == "4": #List
 		    clear()
 		    print("")
 		    user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
 		    if user == "1":
-			    os.system("sudo pip list ")
+			    os.system("pip list ")
 		    if user == "2":
-			    os.system("sudo pip list --outdated")
+			    os.system("pip list --outdated")
 
 	    if user == "5": #Credits
 		    print(credit)
