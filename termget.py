@@ -137,7 +137,7 @@ if package != "pip":
             print("")
 
             if package == "apt-get": os.system("sudo apt-get install " + user)
-            if package == "pacman":
+            elif package == "pacman":
                 user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
                 if user1 == "1": os.system("sudo pacman -S " + user)
                 if user1 == "2": os.system("yaourt -S " + user)
@@ -155,7 +155,7 @@ if package != "pip":
             clear()
             user = input("Please enter which package(s) to remove: ")
             print("")
-            elif package == "apt-get":
+            if package == "apt-get":
                 user1 = input("How will you like to remove the package?\n\n1. remove, removes just the package (faster)\n2. purge, removes the package, and all it's configuration files (saves space)")
                 clear()
                 if user1 == "1": os.system("sudo apt-get remove " + user)
@@ -174,7 +174,7 @@ if package != "pip":
         if user == "4": #Updates Packages
             clear()
             print("\n")
-            elif package == "apt-get":
+            if package == "apt-get":
                 os.system("sudo apt-get upgrade")
                 os.system("sudo apt-get dist-upgrade")
             elif package == "pacman": os.system("sudo pacman -Syu")
