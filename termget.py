@@ -128,7 +128,7 @@ if package != "pip":
             elif package == "eopkg": os.system("eopkg search " + user)
             elif package == "emerge": os.system("emerge -S " + user)
             elif package == "pkg": os.system("pkg search " + user)
-            elif package == "chromebrew": os.system("chromebrew search")
+            elif package == "chromebrew": os.system("crew search")
             input("\nPress enter to continue")
 
         if user == "2": #Install
@@ -168,7 +168,7 @@ if package != "pip":
             elif package == "eopkg": os.system("sudo eopkg remove " + user)
             elif package == "emerge": os.system("emerge -C" + user)
             elif package == "pkg": os.system("sudo pkg delete " + user)
-            elif package == "chromebrew": os.system("sudo chromebrew remove")
+            elif package == "chromebrew": os.system("sudo crew remove")
             input("\nPress enter to continue")
 
         if user == "4": #Updates Packages
@@ -191,7 +191,7 @@ if package != "pip":
                 os.system("sudo emerge -u world")
                 os.system("sudo emerge -uDN world")
             elif package == "pkg": os.system("sudo pkg upgrade " + user)
-            elif package == "chromebrew": os.system("sudo chromebrew upgrade")
+            elif package == "chromebrew": os.system("sudo crew upgrade")
             input("\nPress enter to continue")
 
         if user == "5": #Updates Database
@@ -255,7 +255,7 @@ if package != "pip":
 
 if package == "pip": #Starts a loop
     while True:
-	    print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. List packages installed with pip5. Credits\n6. Exit")
+	    user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. List packages installed with pip5. Credits\n6. Exit\n\n")
 
 	    if user == "1": #Search
 		    clear()
