@@ -4,11 +4,15 @@ import sys
 import getpass
 
 package = " "
-package_file_read = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager","r").read()
-#Imports libraries and sets variables
+
+try:
+    package_file_read = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager","r").read()
+except ValueError:
+    print("Warning: No package manager file found?")
 
 version = "2.0"
 credit = "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SudoLinux\n- Dylan Cruz"
+#Imports libraries and sets variables
 
 if len(sys.argv) == 2:
     if sys.argv[1] == "apt-get": package = "apt-get"
