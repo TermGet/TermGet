@@ -205,7 +205,7 @@ if package != "pip":
             elif package == "eopkg": os.system("sudo eopkg ur")
             elif package == "emerge": os.system("sudo layman -f")
             elif package == "yum": os.system("sudo yum yum check-update")
-            elif package == "pkg": os.system("sudo pkg update)
+            elif package == "pkg": os.system("sudo pkg update")
             elif package == "chromebrew": print("This feature is unavailable for chromebrew\n")
             input("\nPress enter to continue")
 
