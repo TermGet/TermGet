@@ -21,6 +21,7 @@ if len(sys.argv) == 2:
     elif sys.argv[1] == "pip": package = "pip"
     elif sys.argv[1] == "emerge": package = "emerge"
     elif sys.argv[1] == "pkg": package = "pkg"
+    elif sys.argv[1] == "chromebrew": package = "chromebrew"
 
 if package == " ":
     if package_file_read == "apt-get": package = "apt-get"
@@ -32,6 +33,7 @@ if package == " ":
     elif package_file_read == "eopkg": package = "eopkg"
     elif package_file_read == "emerge": package = "emerge"
     elif package_file_read == "pkg": package = "pkg"
+    elif package_file_read == "chromebrew": package = "chromebrew"
 
 print("package manager set to " + package)
 
@@ -43,7 +45,7 @@ def clear(): os.system("clear")
 clear()
 
 if package == " ": #Checks for command line argument
-    print("Welcome to TermGet. This is version " + version + "\n\nFirst Time Setup:\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)\n9. pkg (for FreeBSD, and FreeBSD based systems.)")
+    print("Welcome to TermGet. This is version " + version + "\n\nFirst Time Setup:\n\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)\n9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, and CloudReady)")
     setup = "True"
 else:
     print("Welcome to TermGet. This is version " + version)
@@ -92,19 +94,23 @@ while setup == "True": #Repeats until setup is not true
     elif user == "9":
         setup = "false"
         package = "pkg" #Sets package manager to emerge
-        package_file_write.write("emerge")
+        package_file_write.write("pkg")
+    elif user == "10":
+        setup = "false"
+        package = "chromebrew" #Sets package manager to emerge
+        package_file_write.write("chromebrew")
     else:
         clear()
         print("Error. Invaild package manager")
         time.sleep(1)
         clear()
-        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)")
+        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, and CloudReady)")
         #Sets up the package manager
 
 if package != "pip":
     while True: #Starts a loop
         clear()
-        print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Repo\n6. Clean\n7. Credits\n8. Exit")
+        print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit")
         user = input() #Asks for user input
         if user == "1": #Search
             clear()
@@ -122,6 +128,7 @@ if package != "pip":
             elif package == "eopkg": os.system("eopkg search " + user)
             elif package == "emerge": os.system("emerge -S " + user)
             elif package == "pkg": os.system("pkg search " + user)
+            elif package == "chromebrew": os.system("chromebrew search")
             input("\nPress enter to continue")
 
         if user == "2": #Install
@@ -141,6 +148,7 @@ if package != "pip":
             elif package == "eopkg": os.system("sudo eopkg install " + user)
             elif package == "emerge": os.system("emerge " + user)
             elif package == "pkg": os.system("sudo pkg install " + user)
+            elif package == "chromebrew": os.system("sudo chromebrew install")
             input("\nPress enter to continue")
 
         if user == "3": #Remove
@@ -160,6 +168,7 @@ if package != "pip":
             elif package == "eopkg": os.system("sudo eopkg remove " + user)
             elif package == "emerge": os.system("emerge -C" + user)
             elif package == "pkg": os.system("sudo pkg delete " + user)
+            elif package == "chromebrew": os.system("sudo chromebrew remove")
             input("\nPress enter to continue")
 
         if user == "4": #Updates Packages
@@ -182,9 +191,10 @@ if package != "pip":
                 os.system("sudo emerge -u world")
                 os.system("sudo emerge -uDN world")
             elif package == "pkg": os.system("sudo pkg upgrade " + user)
+            elif package == "chromebrew": os.system("sudo chromebrew upgrade")
             input("\nPress enter to continue")
 
-        if user == "5": #Updates Repo
+        if user == "5": #Updates Database
             clear()
             print("\n")
             if package == "apt-get": os.system("sudo apt-get update")
@@ -196,6 +206,7 @@ if package != "pip":
             elif package == "emerge": os.system("sudo layman -f")
             elif package == "yum": os.system("sudo yum yum check-update")
             elif package == "pkg": os.system("sudo pkg update)
+            elif package == "chromebrew": print("This feature is unavailable for chromebrew\n")
             input("\nPress enter to continue")
 
         if user == "6": #Cleans
@@ -230,6 +241,7 @@ if package != "pip":
             elif package == "pkg":
                 os.system("sudo pkg clean")
                 os.system("sudo pkg autoremove")
+            elif package == "chromebrew": print("This feature is unavailable on chromebrew\n")
 
             input("\nPress enter to continue")
 
