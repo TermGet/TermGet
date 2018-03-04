@@ -21,9 +21,23 @@ def setpack(var):
         print("Warning: No package manager file found")
 #Imports libraries and sets variables
 
+if getpass.getuser() == "chronos":
+    os.system("clear")
+    setup = "True"
+    while setup == "True":
+        user = input("TermGet has detected this is Chrome OS, Chromium OS, CloudReady, or Nayu OS... is this true?\n\n1. Yes\n2. No\n\n")
+        if user == "1":
+            setup = "False"
+            package = "chromebrew"
+        elif user == "2":
+            setup = "False"
+        else:
+            print("Error. Invaild answer")
+            #Checks for Chromebook
+
 if len(sys.argv) == 2:
-    if sys.argv[1] == "apt-get": package = "apt-get"
-    elif sys.argv[1] == "pacman": package = "pacman"
+    if sys.argv[1] == "apt-get" or sys.argv[1] == "apt": package = "apt-get"
+    elif sys.argv[1] == "pacman" or sys.argv[1] == "yaourt": package = "pacman"
     elif sys.argv[1] == "xbps": package = "xbps"
     elif sys.argv[1] == "dnf": package = "dnf"
     elif sys.argv[1] == "yum": package = "yum"
@@ -54,12 +68,12 @@ print("package manager set to " + package)
 #Checks for command line argument
 
 def clear(): os.system("clear")
-    #Runs "clear" over shell to clear the screen.
+#Runs "clear" over shell to clear the screen.
 
 clear()
 
 if package == " " or package == "null": #Checks for command line argument
-    print("Welcome to TermGet. This is version " + version + " Please choose a package manager:\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge (For Gentoo, and Gentoo based systems)\n9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, and CloudReady)")
+    print("Welcome to TermGet. This is version " + version + " Please choose a package manager:\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)\n9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)\n")
     setup = "True"
 else:
     print("Welcome to TermGet. This is version " + version)
@@ -117,13 +131,13 @@ while setup == "True": #Repeats until setup is not true
         print("Error. Invaild package manager")
         time.sleep(1)
         clear()
-        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge (For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, and CloudReady)")
+        print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS)\n")
         #Sets up the package manager
 
 if package != "pip":
     while True: #Starts a loop
         clear()
-        print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit")
+        print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit\n")
         user = input() #Asks for user input
         if user == "1": #Search
             clear()
@@ -257,10 +271,11 @@ if package != "pip":
             input("\nPress enter to continue")
 
         if user == "7": #Credits
+            
+            clear()
             print(credit)
             time.sleep(3)
-            #If you contribute, please add your name.
-
+            
         if user == "8": quit()
 
 
@@ -289,18 +304,19 @@ if package == "pip": #Starts a loop
 		    user = input("Please enter which package(s) to remove: ")
 		    print("")
 		    os.system("pip uninstall " + user)
-
+            
+     
 	    if user == "4": #List
-		    clear()
-		    print("")
-		    user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
-		    if user == "1":
-			    os.system("pip list ")
-		    if user == "2":
-			    os.system("pip list --outdated")
+	        clear()
+	        print("")
+	        user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
+	        if user == "1": os.system("pip list ")
+	        if user == "2": os.system("pip list --outdated")
 
-	    if user == "5": #Credits
-		    print(credit)
-		    time.sleep(3)
+	    if user == "5":
+	            clear()
+	            print(credit)
+	            time.sleep(3)
+	            clear()
 
 	    if user == "6": quit()
