@@ -18,7 +18,7 @@ def setpack(var):
         package_file_write = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager","a")
         if package != "null": package_file_write.write(var)
     except:
-        print("Warning: No package manager file found")
+        print("Warning: Missing Package File...")
 #Imports libraries and sets variables
 
 if getpass.getuser() == "chronos":
@@ -203,7 +203,10 @@ if package != "pip":
             if package == "apt-get":
                 os.system("sudo apt-get upgrade")
                 os.system("sudo apt-get dist-upgrade")
-            elif package == "pacman": os.system("sudo pacman -Syu")
+            elif package == "pacman":
+                user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+                if user1 == "1": os.system("sudo pacman -Syu")
+                if user1 == "2": os.system("yaourt -Syu")
             elif package == "xbps": os.system("sudo xbps-install -Su")
             elif package == "dnf":
                 os.system("sudo dnf upgrade")
@@ -223,7 +226,10 @@ if package != "pip":
         if user == "5": #Updates Database
             clear()
             if package == "apt-get": os.system("sudo apt-get update")
-            elif package == "pacman": os.system("sudo pacman -Sy")
+            elif package == "pacman":
+                user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+                if user1 == "1": os.system("sudo pacman -Syy)
+                if user1 == "2": os.system("yaourt -Syy)
             elif package == "xbps": os.system("sudo xbps-install -S")
             elif package == "dnf": os.system("sudo dnf clean expire-cache && sudo dnf check-update")
             elif package == "zypper": os.system("sudo zypper refresh zypper ref")
