@@ -10,7 +10,7 @@ try:
 except:
     print("Warning: No package manager file found?")
 
-version = "2.0"
+version = "2.0.1"
 credit = "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SudoLinux\n- Dylan Cruz"
 
 def setpack(var):
@@ -32,7 +32,7 @@ if getpass.getuser() == "chronos":
         elif user == "2":
             setup = "False"
         else:
-            print("Error. Invaild answer")
+            print("Error. Invalid answer")
             #Checks for Chromebook
 
 if len(sys.argv) == 2:
@@ -128,7 +128,7 @@ while setup == "True": #Repeats until setup is not true
         setpack("chromebrew")
     else:
         clear()
-        print("Error. Invaild package manager")
+        print("Error. Invalid package manager")
         time.sleep(1)
         clear()
         print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS)\n")
