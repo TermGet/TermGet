@@ -228,8 +228,8 @@ if package != "pip":
             if package == "apt-get": os.system("sudo apt-get update")
             elif package == "pacman":
                 user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
-                if user1 == "1": os.system("sudo pacman -Syy)
-                if user1 == "2": os.system("yaourt -Syy)
+                if user1 == "1": os.system("sudo pacman -Syy")
+                if user1 == "2": os.system("yaourt -Syy")
             elif package == "xbps": os.system("sudo xbps-install -S")
             elif package == "dnf": os.system("sudo dnf clean expire-cache && sudo dnf check-update")
             elif package == "zypper": os.system("sudo zypper refresh zypper ref")
