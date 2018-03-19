@@ -10,7 +10,7 @@ try:
 except:
     print("Warning: No package manager file found?")
 
-version = "2.0.1"
+version = "2.0.0 Beta1"
 credit = "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SudoLinux\n- Dylan Cruz"
 
 def setpack(var):
@@ -73,7 +73,7 @@ def clear(): os.system("clear")
 clear()
 
 if package == " " or package == "null": #Checks for command line argument
-    print("Welcome to TermGet. This is version " + version + " Please choose a package manager:\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)\n9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)\n")
+    print("Welcome to TermGet. This is version " + version + " Please choose a package manager:\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)\n9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)\n
     setup = "True"
 else:
     print("Welcome to TermGet. This is version " + version)
@@ -115,16 +115,16 @@ while setup == "True": #Repeats until setup is not true
         package = "pacman" #Sets package manager to pacman
         setpack("pacman")
     elif user == "8":
-        setup = "false"
+        setup = "false
         package = "emerge" #Sets package manager to emerge
         setpack("emerge")
     elif user == "9":
         setup = "false"
-        package = "pkg" #Sets package manager to emerge
+        package = "pkg" #Sets package manager to pkg
         setpack("pkg")
     elif user == "10":
         setup = "false"
-        package = "chromebrew" #Sets package manager to emerge
+        package = "chromebrew" #Sets package manager to chromebrew
         setpack("chromebrew")
     else:
         clear()
@@ -132,9 +132,9 @@ while setup == "True": #Repeats until setup is not true
         time.sleep(1)
         clear()
         print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS)\n")
-        #Sets up the package manager
+		#Sets up the package manager
 
-if package != "pip":
+if package != "pip" or package != "apm":
     while True: #Starts a loop
         clear()
         print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit\n")
