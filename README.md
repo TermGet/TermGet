@@ -60,7 +60,7 @@ Choose your distribution's package manager using the number. My package manager 
 
 ## How do I use TermGet on Linux
 
-This section gets updated with every release, if you are using an alpha build, there might be extra features that aren't on this section of the README file.
+This section gets updated with every release, if you are using an alpha or beta build, there might be extra features that aren't on this section of the README file.
 
 TermGet is really easy to use. To run it, all you have to do is open a terminal, and type:
 
