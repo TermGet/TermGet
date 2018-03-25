@@ -6,20 +6,22 @@ import getpass
 package = " "
 
 try:
-    package_file_read = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager","r").read()
-except:
+    package_file_read = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "r").read()
+except Exception:
     print("Warning: No package manager file found?")
 
 version = "2.0.0 Beta1"
 credit = "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SudoLinux\n- Dylan Cruz"
 
+
 def setpack(var):
     try:
-        package_file_write = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager","a")
+        package_file_write = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "a")
         if package != "null": package_file_write.write(var)
-    except:
+    except Exception:
         print("Warning: Missing Package File...")
-#Imports libraries and sets variables
+# Imports libraries and sets variables
+
 
 if getpass.getuser() == "chronos":
     os.system("clear")
@@ -33,9 +35,9 @@ if getpass.getuser() == "chronos":
             setup = "False"
         else:
             print("Error. Invalid answer")
-            #Checks for Chromebook
+            # Checks for Chromebook
 
-if len(sys.argv) == 2:
+if package == " " and len(sys.argv) == 2:
     if sys.argv[1] == "apt-get" or sys.argv[1] == "apt": package = "apt-get"
     elif sys.argv[1] == "pacman" or sys.argv[1] == "yaourt": package = "pacman"
     elif sys.argv[1] == "xbps": package = "xbps"
@@ -44,6 +46,7 @@ if len(sys.argv) == 2:
     elif sys.argv[1] == "zypper": package = "zypper"
     elif sys.argv[1] == "eopkg": package = "eopkg"
     elif sys.argv[1] == "pip": package = "pip"
+    elif sys.argv[1] == "pip": package = "apm"
     elif sys.argv[1] == "emerge": package = "emerge"
     elif sys.argv[1] == "pkg": package = "pkg"
     elif sys.argv[1] == "chromebrew": package = "chromebrew"
@@ -60,71 +63,73 @@ try:
         elif package_file_read == "emerge": package = "emerge"
         elif package_file_read == "pkg": package = "pkg"
         elif package_file_read == "chromebrew": package = "chromebrew"
-except:
+except Exception:
     print("Warning: Missing Package File...")
     if package == " ": package = "null"
 print("package manager set to " + package)
 
-#Checks for command line argument
+# Checks for command line argument
+
 
 def clear(): os.system("clear")
-#Runs "clear" over shell to clear the screen.
+# Runs "clear" over shell to clear the screen.
+
 
 clear()
 
-if package == " " or package == "null": #Checks for command line argument
-    print("Welcome to TermGet. This is version " + version + " Please choose a package manager:\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)\n9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)\n
+if package == " " or package == "null":  # Checks for command line argument
+    print("Welcome to TermGet. This is version " + version + " Please choose a package manager:\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)\n9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS\n\n")
     setup = "True"
 else:
     print("Welcome to TermGet. This is version " + version)
     time.sleep(1)
     clear()
     setup = "False"
-    #Sets the variable 'setup' to False
+    # Sets the variable 'setup' to False
 
-#Asks user which package manager to use
+# Asks user which package manager to use
 
-while setup == "True": #Repeats until setup is not true
-    user = input() #Asks for user input
+while setup == "True":  # Repeats until setup is not true
+    user = input()  # Asks for user input
     if user == "1":
         setup = "false"
-        package = "apt-get" #Sets package manager to apt-get
+        package = "apt-get"  # Sets package manager to apt-get
         setpack("apt-get")
     elif user == "2":
         setup = "false"
-        package = "xbps" #Sets package manager to xbps
+        package = "xbps"  # Sets package manager to xbps
         setpack("xbps")
     elif user == "3":
         setup = "false"
-        package = "dnf" #Sets package manager to dnf
+        package = "dnf"  # Sets package manager to dnf
         setpack("dnf")
     elif user == "4":
         setup = "false"
-        package = "yum" #Sets package manager to yum
+        package = "yum"  # Sets package manager to yum
         setpack("yum")
     elif user == "5":
         setup = "false"
-        package = "zypper" #Sets package manager to zypper
+        package = "zypper"  # Sets package manager to zypper
         setpack("zypper")
     elif user == "6":
         setup = "false"
-        package = "eopkg" #Sets package manager to eopkg
+        package = "eopkg"  # Sets package manager to eopkg
         setpack("eopkg")
     elif user == "7":
         setup = "false"
-        package = "pacman" #Sets package manager to pacman
+        package = "pacman"  # Sets package manager to pacman
         setpack("pacman")
     elif user == "8":
-        setup = "false
-        package = "emerge" #Sets package manager to emerge
+        setup = "false"
+        package = "emerge"  # Sets package manager to emerge
         setpack("emerge")
     elif user == "9":
         setup = "false"
-        package = "pkg" #Sets package manager to pkg
+        package = "pkg"  # Sets package manager to pkg
         setpack("pkg")
     elif user == "10":
         setup = "false"
-        package = "chromebrew" #Sets package manager to chromebrew
+        package = "chromebrew"  # Sets package manager to chromebrew
         setpack("chromebrew")
     else:
         clear()
@@ -132,14 +137,14 @@ while setup == "True": #Repeats until setup is not true
         time.sleep(1)
         clear()
         print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS)\n")
-		#Sets up the package manager
+        # Sets up the package manager
 
 if package != "pip" or package != "apm":
-    while True: #Starts a loop
+    while True:  # Starts a loop
         clear()
         print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit\n")
-        user = input() #Asks for user input
-        if user == "1": #Search
+        user = input()  # Asks for user input
+        if user == "1":  # Search
             clear()
             user = input("Please enter search query: ")
             print(" ")
@@ -158,7 +163,7 @@ if package != "pip" or package != "apm":
             elif package == "chromebrew": os.system("crew search " + user)
             input("\nPress enter to continue")
 
-        if user == "2": #Install
+        if user == "2":  # Install
             clear()
             user = input("Please enter which package(s) to install: ")
             print("")
@@ -178,7 +183,7 @@ if package != "pip" or package != "apm":
             elif package == "chromebrew": os.system("crew install " + user)
             input("\nPress enter to continue")
 
-        if user == "3": #Remove
+        if user == "3":  # Remove
             clear()
             user = input("Please enter which package(s) to remove: ")
             print("")
@@ -198,7 +203,7 @@ if package != "pip" or package != "apm":
             elif package == "chromebrew": os.system("crew remove " + user)
             input("\nPress enter to continue")
 
-        if user == "4": #Updates Packages
+        if user == "4":  # Updates Packages
             clear()
             if package == "apt-get":
                 os.system("sudo apt-get upgrade")
@@ -223,7 +228,7 @@ if package != "pip" or package != "apm":
             elif package == "chromebrew": os.system("crew upgrade")
             input("\nPress enter to continue")
 
-        if user == "5": #Updates Database
+        if user == "5":  # Updates Database
             clear()
             if package == "apt-get": os.system("sudo apt-get update")
             elif package == "pacman":
@@ -240,7 +245,7 @@ if package != "pip" or package != "apm":
             elif package == "chromebrew": print("This feature is unavailable for chromebrew\n")
             input("\nPress enter to continue")
 
-        if user == "6": #Cleans
+        if user == "6":  # Cleans
 
             clear()
 
@@ -276,53 +281,111 @@ if package != "pip" or package != "apm":
 
             input("\nPress enter to continue")
 
-        if user == "7": #Credits
-            
+        if user == "7":  # Credits
+
             clear()
             print(credit)
             time.sleep(3)
-            
+
         if user == "8": quit()
 
 
-if package == "pip": #Starts a loop
+if package == "pip":  # Starts a loop
     while True:
-	    user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. List packages installed with pip\n5. Credits\n6. Exit\n\n")
+        user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
 
-	    if user == "1": #Search
-		    clear()
-		    user = input("Please enter search query: ")
-		    print(" ")
-		    os.system("pip install " + user)
+        if user == "1":  # Search
+            clear()
+            user = input("Please enter search query: ")
+            print(" ")
+            os.system("pip search \"" + user + "\"")
 
-		    input("\nPress enter to continue")
+            input("\nPress enter to continue")
 
-	    if user == "2": #Install
-		    clear()
-		    user = input("Please enter which package(s) to install: ")
-		    print("")
-		    os.system("pip search \"" + user + "\"")
+        if user == "2":  # Install
+            clear()
+            user = input("Please enter which package(s) to install: ")
+            print("")
+            os.system("pip install \"" + user + "\"")
 
-		    input("\nPress enter to continue")
+            input("\nPress enter to continue")
 
-	    if user == "3": #Remove
-		    clear()
-		    user = input("Please enter which package(s) to remove: ")
-		    print("")
-		    os.system("pip uninstall " + user)
-            
-     
-	    if user == "4": #List
-	        clear()
-	        print("")
-	        user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
-	        if user == "1": os.system("pip list ")
-	        if user == "2": os.system("pip list --outdated")
+        if user == "3":  # Upgrade
+            clear()
+            user = input("Please enter which package(s) to upgrade: ")
+            print("")
+            os.system("pip install --upgrade " + user)
 
-	    if user == "5":
-	            clear()
-	            print(credit)
-	            time.sleep(3)
-	            clear()
+            input("\nPress enter to continue")
 
-	    if user == "6": quit()
+        if user == "4":  # Remove
+            clear()
+            user = input("Please enter which package(s) to remove: ")
+            print("")
+            os.system("pip uninstall \"" + user + "\"")
+
+        if user == "5":  # List
+            clear()
+            print("")
+            user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
+            if user == "1": os.system("pip list ")
+            if user == "2": os.system("pip list --outdated")
+
+        if user == "6":  # Credits
+            clear()
+            print(credit)
+            time.sleep(3)
+            clear()
+
+        if user == "7": quit()
+
+if package == "apm":  # Starts a loop
+    while True:
+        user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with apm\n6. Credits\n7. Exit\n\n")
+
+        if user == "1":  # Search
+            clear()
+            user = input("Please enter search query: ")
+            print(" ")
+            os.system("apm search " + user)
+
+            input("\nPress enter to continue")
+
+        if user == "2":  # Install
+            clear()
+            user = input("Please enter which package(s) to install: ")
+            print("")
+            os.system("apm install " + user)
+
+            input("\nPress enter to continue")
+
+        if user == "3":  # Upgrade
+            clear()
+            user = input("Please enter which package(s) to upgrade: ")
+            print("")
+            os.system("apm upgrade " + user)
+
+            input("\nPress enter to continue")
+
+        if user == "4":  # Remove
+            clear()
+            user = input("Please enter which package(s) to remove: ")
+            print("")
+            os.system("apm uninstall" + user)
+
+            input("\nPress enter to continue")
+
+        if user == "5":  # List
+            clear()
+            print("")
+            user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
+            if user == "1": os.system("apm list ")
+            if user == "2": os.system("apm outdated")
+
+        if user == "6":  # Credits
+            clear()
+            print(credit)
+            time.sleep(3)
+            clear()
+
+        if user == "7": quit()
