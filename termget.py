@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os
 import time
 import sys
@@ -10,8 +11,8 @@ try:
 except Exception:
     print("Warning: No package manager file found?")
 
-version = "2.0.0 Beta1"
-credit = "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SudoLinux\n- Dylan Cruz"
+version = "2.0.0 Beta2"
+credit = "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz"
 
 
 def setpack(var):
@@ -35,7 +36,7 @@ if getpass.getuser() == "chronos":
             setup = "False"
         else:
             print("Error. Invalid answer")
-            # Checks for Chromebook
+            # Checks for Chromebook 
 
 if package == " " and len(sys.argv) == 2:
     if sys.argv[1] == "apt-get" or sys.argv[1] == "apt": package = "apt-get"
@@ -46,7 +47,7 @@ if package == " " and len(sys.argv) == 2:
     elif sys.argv[1] == "zypper": package = "zypper"
     elif sys.argv[1] == "eopkg": package = "eopkg"
     elif sys.argv[1] == "pip": package = "pip"
-    elif sys.argv[1] == "pip": package = "apm"
+    elif sys.argv[1] == "apm": package = "apm"
     elif sys.argv[1] == "emerge": package = "emerge"
     elif sys.argv[1] == "pkg": package = "pkg"
     elif sys.argv[1] == "chromebrew": package = "chromebrew"
@@ -139,156 +140,156 @@ while setup == "True":  # Repeats until setup is not true
         print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS)\n")
         # Sets up the package manager
 
-if package != "pip" or package != "apm":
-    while True:  # Starts a loop
-        clear()
-        print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit\n")
-        user = input()  # Asks for user input
-        if user == "1":  # Search
+if package != "pip":
+    if package != "apm":
+        while True:  # Starts a loop
             clear()
-            user = input("Please enter search query: ")
-            print(" ")
-            if package == "apt-get": os.system("sudo apt-cache search " + user)
-            elif package == "pacman":
-                user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
-                if user1 == "1": os.system("sudo pacman -Ss " + user)
-                if user1 == "2": os.system("yaourt -Ss " + user)
-            elif package == "xbps": os.system("sudo xbps-query -Rs " + user)
-            elif package == "dnf": os.system("sudo dnf search " + user)
-            elif package == "yum": os.system("sudo yum search " + user)
-            elif package == "zypper": os.system("sudo zypper search " + user)
-            elif package == "eopkg": os.system("eopkg search " + user)
-            elif package == "emerge": os.system("emerge -S " + user)
-            elif package == "pkg": os.system("pkg search " + user)
-            elif package == "chromebrew": os.system("crew search " + user)
-            input("\nPress enter to continue")
-
-        if user == "2":  # Install
-            clear()
-            user = input("Please enter which package(s) to install: ")
-            print("")
-
-            if package == "apt-get": os.system("sudo apt-get install " + user)
-            elif package == "pacman":
-                user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
-                if user1 == "1": os.system("sudo pacman -S " + user)
-                if user1 == "2": os.system("yaourt -S " + user)
-            elif package == "xbps": os.system("sudo xbps-install " + user)
-            elif package == "dnf": os.system("sudo dnf install " + user)
-            elif package == "yum": os.system("sudo yum install " + user)
-            elif package == "zypper": os.system("sudo zypper install " + user)
-            elif package == "eopkg": os.system("sudo eopkg install " + user)
-            elif package == "emerge": os.system("emerge " + user)
-            elif package == "pkg": os.system("sudo pkg install " + user)
-            elif package == "chromebrew": os.system("crew install " + user)
-            input("\nPress enter to continue")
-
-        if user == "3":  # Remove
-            clear()
-            user = input("Please enter which package(s) to remove: ")
-            print("")
-            if package == "apt-get":
-                user1 = input("How will you like to remove the package?\n\n1. remove, removes just the package (faster)\n2. purge, removes the package, and all it's configuration files (saves space)")
+            print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit\n")
+            user = input()  # Asks for user input
+            if user == "1":  # Search
                 clear()
-                if user1 == "1": os.system("sudo apt-get remove " + user)
-                if user1 == "2": os.system("sudo apt-get purge " + user)
-            elif package == "pacman": os.system("sudo pacman -Rs " + user)
-            elif package == "xbps": os.system("sudo xbps-remove " + user)
-            elif package == "dnf": os.system("sudo dnf erase " + user)
-            elif package == "yum": os.system("sudo yum remove " + user)
-            elif package == "zypper": os.system("sudo zypper remove " + user)
-            elif package == "eopkg": os.system("sudo eopkg remove " + user)
-            elif package == "emerge": os.system("emerge -C" + user)
-            elif package == "pkg": os.system("sudo pkg delete " + user)
-            elif package == "chromebrew": os.system("crew remove " + user)
-            input("\nPress enter to continue")
+                user = input("Please enter search query: ")
+                print(" ")
+                if package == "apt-get": os.system("sudo apt-cache search " + user)
+                elif package == "pacman":
+                    user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+                    if user1 == "1": os.system("sudo pacman -Ss " + user)
+                    if user1 == "2": os.system("yaourt -Ss " + user)
+                elif package == "xbps": os.system("sudo xbps-query -Rs " + user)
+                elif package == "dnf": os.system("sudo dnf search " + user)
+                elif package == "yum": os.system("sudo yum search " + user)
+                elif package == "zypper": os.system("sudo zypper search " + user)
+                elif package == "eopkg": os.system("eopkg search " + user)
+                elif package == "emerge": os.system("emerge -S " + user)
+                elif package == "pkg": os.system("pkg search " + user)
+                elif package == "chromebrew": os.system("crew search " + user)
+                input("\nPress enter to continue")
 
-        if user == "4":  # Updates Packages
-            clear()
-            if package == "apt-get":
-                os.system("sudo apt-get upgrade")
-                os.system("sudo apt-get dist-upgrade")
-            elif package == "pacman":
-                user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
-                if user1 == "1": os.system("sudo pacman -Syu")
-                if user1 == "2": os.system("yaourt -Syu")
-            elif package == "xbps": os.system("sudo xbps-install -Su")
-            elif package == "dnf":
-                os.system("sudo dnf upgrade")
-                os.system("sudo dnf distro-sync")
-            elif package == "yum": os.system("sudo yum update")
-            elif package == "zypper":
-                os.system("sudo zypper update && zypper up")
-                os.system("sudo zypper dup")
-            elif package == "eopkg": os.system("sudo eopkg upgrade")
-            elif package == "emerge":
-                os.system("sudo emerge -u world")
-                os.system("sudo emerge -uDN world")
-            elif package == "pkg": os.system("sudo pkg upgrade")
-            elif package == "chromebrew": os.system("crew upgrade")
-            input("\nPress enter to continue")
+            if user == "2":  # Install
+                clear()
+                user = input("Please enter which package(s) to install: ")
+                print("")
 
-        if user == "5":  # Updates Database
-            clear()
-            if package == "apt-get": os.system("sudo apt-get update")
-            elif package == "pacman":
-                user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
-                if user1 == "1": os.system("sudo pacman -Syy")
-                if user1 == "2": os.system("yaourt -Syy")
-            elif package == "xbps": os.system("sudo xbps-install -S")
-            elif package == "dnf": os.system("sudo dnf clean expire-cache && sudo dnf check-update")
-            elif package == "zypper": os.system("sudo zypper refresh zypper ref")
-            elif package == "eopkg": os.system("sudo eopkg ur")
-            elif package == "emerge": os.system("sudo layman -f")
-            elif package == "yum": os.system("sudo yum yum check-update")
-            elif package == "pkg": os.system("sudo pkg update")
-            elif package == "chromebrew": print("This feature is unavailable for chromebrew\n")
-            input("\nPress enter to continue")
+                if package == "apt-get": os.system("sudo apt-get install " + user)
+                elif package == "pacman":
+                    user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+                    if user1 == "1": os.system("sudo pacman -S " + user)
+                    if user1 == "2": os.system("yaourt -S " + user)
+                elif package == "xbps": os.system("sudo xbps-install " + user)
+                elif package == "dnf": os.system("sudo dnf install " + user)
+                elif package == "yum": os.system("sudo yum install " + user)
+                elif package == "zypper": os.system("sudo zypper install " + user)
+                elif package == "eopkg": os.system("sudo eopkg install " + user)
+                elif package == "emerge": os.system("emerge " + user)
+                elif package == "pkg": os.system("sudo pkg install " + user)
+                elif package == "chromebrew": os.system("crew install " + user)
+                input("\nPress enter to continue")
 
-        if user == "6":  # Cleans
+            if user == "3":  # Remove
+                clear()
+                user = input("Please enter which package(s) to remove: ")
+                print("")
+                if package == "apt-get":
+                    user1 = input("How will you like to remove the package?\n\n1. remove, removes just the package (faster)\n2. purge, removes the package, and all it's configuration files (saves space)")
+                    clear()
+                    if user1 == "1": os.system("sudo apt-get remove " + user)
+                    if user1 == "2": os.system("sudo apt-get purge " + user)
+                elif package == "pacman": os.system("sudo pacman -Rs " + user)
+                elif package == "xbps": os.system("sudo xbps-remove " + user)
+                elif package == "dnf": os.system("sudo dnf erase " + user)
+                elif package == "yum": os.system("sudo yum remove " + user)
+                elif package == "zypper": os.system("sudo zypper remove " + user)
+                elif package == "eopkg": os.system("sudo eopkg remove " + user)
+                elif package == "emerge": os.system("emerge -C" + user)
+                elif package == "pkg": os.system("sudo pkg delete " + user)
+                elif package == "chromebrew": os.system("crew remove " + user)
+                input("\nPress enter to continue")
 
-            clear()
+            if user == "4":  # Updates Packages
+                clear()
+                if package == "apt-get":
+                    os.system("sudo apt-get upgrade")
+                    os.system("sudo apt-get dist-upgrade")
+                elif package == "pacman":
+                    user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+                    if user1 == "1": os.system("sudo pacman -Syu")
+                    if user1 == "2": os.system("yaourt -Syu")
+                elif package == "xbps": os.system("sudo xbps-install -Su")
+                elif package == "dnf":
+                    os.system("sudo dnf upgrade")
+                    os.system("sudo dnf distro-sync")
+                elif package == "yum": os.system("sudo yum update")
+                elif package == "zypper":
+                    os.system("sudo zypper update && zypper up")
+                    os.system("sudo zypper dup")
+                elif package == "eopkg": os.system("sudo eopkg upgrade")
+                elif package == "emerge":
+                    os.system("sudo emerge -u world")
+                    os.system("sudo emerge -uDN world")
+                elif package == "pkg": os.system("sudo pkg upgrade")
+                elif package == "chromebrew": os.system("crew upgrade")
+                input("\nPress enter to continue")
 
-            if package == "apt-get":
-                os.system("sudo apt-get autoremove")
-                os.system("sudo apt-get autoclean")
-                os.system("sudo apt-get clean")
-            elif package == "pacman":
-                os.system("sudo pacman -Qdtq | pacman -Rs -")
-                os.system("sudo pacman -Sc")
-            elif package == "xbps":
-                os.system("sudo xbps-remove -o")
-                os.system("sudo xbps-remove -O")
-            elif package == "dnf":
-                os.system("sudo dnf autoremove")
-                os.system("sudo dnf clean all")
-            elif package == "yum":
-                os.system("sudo yum clean all")
-                os.system("sudo yum autoremove")
-            elif package == "zypper":
-                os.system("sudo zypper rm -u")
-                os.system("sudo zypper clean")
-            elif package == "eopkg":
-                os.system("sudo eopkg delete-cache")
-                os.system("sudo eopkg remove-orphans")
-            elif package == "emerge":
-                os.system("sudo emerge --depclean")
-                os.system("sudo eclean distfiles")
-            elif package == "pkg":
-                os.system("sudo pkg clean")
-                os.system("sudo pkg autoremove")
-            elif package == "chromebrew": print("This feature is unavailable on chromebrew\n")
+            if user == "5":  # Updates Database
+                clear()
+                if package == "apt-get": os.system("sudo apt-get update")
+                elif package == "pacman":
+                    user1 = input("Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+                    if user1 == "1": os.system("sudo pacman -Syy")
+                    if user1 == "2": os.system("yaourt -Syy")
+                elif package == "xbps": os.system("sudo xbps-install -S")
+                elif package == "dnf": os.system("sudo dnf clean expire-cache && sudo dnf check-update")
+                elif package == "zypper": os.system("sudo zypper refresh zypper ref")
+                elif package == "eopkg": os.system("sudo eopkg ur")
+                elif package == "emerge": os.system("sudo layman -f")
+                elif package == "yum": os.system("sudo yum yum check-update")
+                elif package == "pkg": os.system("sudo pkg update")
+                elif package == "chromebrew": print("This feature is unavailable for chromebrew\n")
+                input("\nPress enter to continue")
 
-            input("\nPress enter to continue")
+            if user == "6":  # Cleans
 
-        if user == "7":  # Credits
+                clear()
 
-            clear()
-            print(credit)
-            time.sleep(3)
+                if package == "apt-get":
+                    os.system("sudo apt-get autoremove")
+                    os.system("sudo apt-get autoclean")
+                    os.system("sudo apt-get clean")
+                elif package == "pacman":
+                    os.system("sudo pacman -Qdtq | pacman -Rs -")
+                    os.system("sudo pacman -Sc")
+                elif package == "xbps":
+                    os.system("sudo xbps-remove -o")
+                    os.system("sudo xbps-remove -O")
+                elif package == "dnf":
+                    os.system("sudo dnf autoremove")
+                    os.system("sudo dnf clean all")
+                elif package == "yum":
+                    os.system("sudo yum clean all")
+                    os.system("sudo yum autoremove")
+                elif package == "zypper":
+                    os.system("sudo zypper rm -u")
+                    os.system("sudo zypper clean")
+                elif package == "eopkg":
+                    os.system("sudo eopkg delete-cache")
+                    os.system("sudo eopkg remove-orphans")
+                elif package == "emerge":
+                    os.system("sudo emerge --depclean")
+                    os.system("sudo eclean distfiles")
+                elif package == "pkg":
+                    os.system("sudo pkg clean")
+                    os.system("sudo pkg autoremove")
+                elif package == "chromebrew": print("This feature is unavailable on chromebrew\n")
 
-        if user == "8": quit()
+                input("\nPress enter to continue")
 
+            if user == "7":  # Credits
+
+                clear()
+                print(credit)
+                time.sleep(3)
+
+            if user == "8": quit()
 
 if package == "pip":  # Starts a loop
     while True:
