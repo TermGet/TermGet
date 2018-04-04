@@ -4,15 +4,25 @@ import time
 import sys
 import getpass
 
+# Colors (Thanks to Linux /usr/ for this code)
+bold = "\033[1m"
+reset = "\033[0m"
+red = "\033[31m"
+green = "\033[32m"
+yellow = "\033[33m"
+blue = "\033[34m"
+magenta = "\033[35m"
+cyan = "\033[36m"
+
 package = " "
 
 try:
     package_file_read = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "r").read()
 except Exception:
-    print("Warning: No package manager file found?")
+    print(red + "Warning: No package manager file found")
 
 version = "2.0.0 Beta2"
-credit = "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz"
+credit = reset + "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz\n- Linux /usr/"
 
 
 def setpack(var):
@@ -20,7 +30,7 @@ def setpack(var):
         package_file_write = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "a")
         if package != "null": package_file_write.write(var)
     except Exception:
-        print("Warning: Missing Package File...")
+        print(yellow + "Warning: Missing Package File...")
 # Imports libraries and sets variables
 
 
@@ -28,14 +38,14 @@ if getpass.getuser() == "chronos":
     os.system("clear")
     setup = "True"
     while setup == "True":
-        user = input("TermGet has detected this is Chrome OS, Chromium OS, CloudReady, or Nayu OS... is this true?\n\n1. Yes\n2. No\n\n")
+        user = input(reset + "TermGet has detected this is Chrome OS, Chromium OS, CloudReady, or Nayu OS... is this true?\n\n1. Yes\n2. No\n\n")
         if user == "1":
             setup = "False"
             package = "chromebrew"
         elif user == "2":
             setup = "False"
         else:
-            print("Error. Invalid answer")
+            print(red + "Error. Invalid answer")
             # Checks for Chromebook 
 
 if package == " " and len(sys.argv) == 2:
@@ -67,7 +77,7 @@ try:
         elif package_file_read == "pkg": package = "pkg"
         elif package_file_read == "chromebrew": package = "chromebrew"
 except Exception:
-    print("Warning: Missing Package File...")
+    print(yellow + "Warning: Missing Package File...")
     if package == " ": package = "null"
 print("package manager set to " + package)
 
@@ -106,7 +116,7 @@ while setup == "True":  # Repeats until setup is not true
         setup = "false"
         package = "dnf"  # Sets package manager to dnf
         setpack("dnf")
-    elif user == "4":
+    elif user == "4" or user == "yum":
         setup = "false"
         package = "yum"  # Sets package manager to yum
         setpack("yum")
@@ -136,7 +146,7 @@ while setup == "True":  # Repeats until setup is not true
         setpack("chromebrew")
     else:
         clear()
-        print("Error. Invalid package manager")
+        print(red + "Error. Invalid package manager")
         time.sleep(1)
         clear()
         print("\nPlease choose a package manager\n\n1. apt-get (For Debian, and Debian based systems.)\n2. xbps (For Void Linux, and Void Linux based systems)\n3. dnf (For Fedora, and Fedora based systems)\n4. yum (For older versions of Fedora, and older Fedora based systems)\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n6. eopkg (For Solus, and Solus based systems)\n7. pacman (For Arch, and Arch based systems)\n8. emerge(For Gentoo, and Gentoo based systems)9. pkg (for FreeBSD, and FreeBSD based systems.)\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS)\n")
@@ -148,11 +158,11 @@ if package != "pip":
             if package != "apm":
                 while True:  # Starts a loop
                     clear()
-                    print("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit\n")
+                    print(reset + "Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Remove an application\n4. Update all packages\n5. Update Database\n6. Clean\n7. Credits\n8. Exit\n")
                     user = input()  # Asks for user input
                     if user == "1":  # Search
                         clear()
-                        user = input("Please enter search query: ")
+                        user = input(reset + "Please enter search query: ")
                         print(" ")
                         if package == "apt-get": os.system("sudo apt-cache search " + user + " |"+ user)
                         elif package == "pacman":
@@ -171,7 +181,7 @@ if package != "pip":
 
                     if user == "2":  # Install
                         clear()
-                        user = input("Please enter which package(s) to install: ")
+                        user = input(reset + "Please enter which package(s) to install: ")
                         print("")
 
                         if package == "apt-get": os.system("sudo apt-get install " + user)
