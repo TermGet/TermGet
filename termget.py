@@ -46,6 +46,8 @@ if package == " " and len(sys.argv) == 2:
     elif sys.argv[1] == "yum": package = "yum"
     elif sys.argv[1] == "zypper": package = "zypper"
     elif sys.argv[1] == "eopkg": package = "eopkg"
+    elif sys.argv[1] == "pip3": package = "pip3"
+    elif sys.argv[1] == "pip2": package = "pip2"
     elif sys.argv[1] == "pip": package = "pip"
     elif sys.argv[1] == "apm": package = "apm"
     elif sys.argv[1] == "emerge": package = "emerge"
@@ -293,55 +295,6 @@ if package != "pip":
 
                     if user == "8": quit()
 
-if package == "pip3":  # Starts a loop
-    while True:
-        user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
-
-        if user == "1":  # Search
-            clear()
-            user = input("Please enter search query: ")
-            print(" ")
-            os.system("pip3 search \"" + user + "\"")
-
-            input("\nPress enter to continue")
-
-        if user == "2":  # Install
-            clear()
-            user = input("Please enter which package(s) to install: ")
-            print("")
-            os.system("pip3 install \"" + user + "\"")
-
-            input("\nPress enter to continue")
-
-        if user == "3":  # Upgrade
-            clear()
-            user = input("Please enter which package(s) to upgrade: ")
-            print("")
-            os.system("pip3 install --upgrade " + user)
-
-            input("\nPress enter to continue")
-
-        if user == "4":  # Remove
-            clear()
-            user = input("Please enter which package(s) to remove: ")
-            print("")
-            os.system("pip3 uninstall \"" + user + "\"")
-
-        if user == "5":  # List
-            clear()
-            print("")
-            user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
-            if user == "1": os.system("pip3 list ")
-            if user == "2": os.system("pip3 list --outdated")
-
-        if user == "6":  # Credits
-            clear()
-            print(credit)
-            time.sleep(3)
-            clear()
-
-        if user == "7": quit()
-
 if package == "pip":  # Starts a loop
     while True:
         user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
@@ -440,101 +393,7 @@ if package == "pip2":  # Starts a loop
 
         if user == "7": quit()
 
-
-            
-if package == "apm":  # Starts a loop
-    while True:
-        user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with apm\n6. Credits\n7. Exit\n\n")
-
-        if user == "1":  # Search
-            clear()
-            user = input("Please enter search query: ")
-            print(" ")
-            os.system("apm search " + user)
-
-            input("\nPress enter to continue")
-
-        if user == "2":  # Install
-            clear()
-            user = input("Please enter which package(s) to install: ")
-            print("")
-            os.system("apm install " + user)
-
-            input("\nPress enter to continue")
-
-        if user == "3":  # Upgrade
-            clear()
-            user = input("Please enter which package(s) to upgrade: ")
-            print("")
-            os.system("apm upgrade " + user)
-
-            input("\nPress enter to continue")
-
-        if user == "4":  # Remove
-            clear()
-            user = input("Please enter which package(s) to remove: ")
-            print("")
-            os.system("apm uninstall" + user)
-
-            input("\nPress enter to continue")
-
-        if user == "5":  # List
-            clear()
-            print("")
-            user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
-            if user == "1": os.system("apm list ")
-            if user == "2": os.system("apm outdated")
-
-        if user == "6":  # Credits
-            clear()
-            print(credit)
-            time.sleep(3)
-            clear()
-
-        if user == "7": quit()
-
-
-                    if package == "apt-get":
-                        os.system("sudo apt-get autoremove")
-                        os.system("sudo apt-get autoclean")
-                        os.system("sudo apt-get clean")
-                    elif package == "pacman":
-                        os.system("sudo pacman -Qdtq | pacman -Rs -")
-                        os.system("sudo pacman -Sc")
-                    elif package == "xbps":
-                        os.system("sudo xbps-remove -o")
-                        os.system("sudo xbps-remove -O")
-                    elif package == "dnf":
-                        os.system("sudo dnf autoremove")
-                        os.system("sudo dnf clean all")
-                    elif package == "yum":
-                        os.system("sudo yum clean all")
-                        os.system("sudo yum autoremove")
-                    elif package == "zypper":
-                        os.system("sudo zypper rm -u")
-                        os.system("sudo zypper clean")
-                    elif package == "eopkg":
-                        os.system("sudo eopkg delete-cache")
-                        os.system("sudo eopkg remove-orphans")
-                    elif package == "emerge":
-                        os.system("sudo emerge --depclean")
-                        os.system("sudo eclean distfiles")
-                    elif package == "pkg":
-                        os.system("sudo pkg clean")
-                        os.system("sudo pkg autoremove")
-                    elif package == "chromebrew": print("This feature is unavailable on chromebrew\n")
-
-                    input("\nPress enter to continue")
-
-                if user == "7":  # Credits
-
-                    clear()
-                    print(credit)
-                    time.sleep(3)
-
-                if user == "8": quit()
-
-if package == "pip":  # Starts a loop
+if package == "pip3":  # Starts a loop
     while True:
         user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
 
@@ -542,7 +401,7 @@ if package == "pip":  # Starts a loop
             clear()
             user = input("Please enter search query: ")
             print(" ")
-            os.system("pip search \"" + user + "\"")
+            os.system("pip3 search \"" + user + "\"")
 
             input("\nPress enter to continue")
 
@@ -550,7 +409,7 @@ if package == "pip":  # Starts a loop
             clear()
             user = input("Please enter which package(s) to install: ")
             print("")
-            os.system("pip install \"" + user + "\"")
+            os.system("pip3 install \"" + user + "\"")
 
             input("\nPress enter to continue")
 
@@ -558,7 +417,7 @@ if package == "pip":  # Starts a loop
             clear()
             user = input("Please enter which package(s) to upgrade: ")
             print("")
-            os.system("pip install --upgrade " + user)
+            os.system("pip3 install --upgrade " + user)
 
             input("\nPress enter to continue")
 
@@ -566,115 +425,14 @@ if package == "pip":  # Starts a loop
             clear()
             user = input("Please enter which package(s) to remove: ")
             print("")
-            os.system("pip uninstall \"" + user + "\"")
+            os.system("pip3 uninstall \"" + user + "\"")
 
         if user == "5":  # List
             clear()
             print("")
             user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
-            if user == "1": os.system("pip list ")
-            if user == "2": os.system("pip list --outdated")
-
-        if user == "6":  # Credits
-            clear()
-            print(credit)
-            time.sleep(3)
-            clear()
-
-        if user == "7": quit()
-
-if package == "pip":  # Starts a loop
-    while True:
-        user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
-
-        if user == "1":  # Search
-            clear()
-            user = input("Please enter search query: ")
-            print(" ")
-            os.system("pip search \"" + user + "\"")
-
-            input("\nPress enter to continue")
-
-        if user == "2":  # Install
-            clear()
-            user = input("Please enter which package(s) to install: ")
-            print("")
-            os.system("pip install \"" + user + "\"")
-
-            input("\nPress enter to continue")
-
-        if user == "3":  # Upgrade
-            clear()
-            user = input("Please enter which package(s) to upgrade: ")
-            print("")
-            os.system("pip install --upgrade " + user)
-
-            input("\nPress enter to continue")
-
-        if user == "4":  # Remove
-            clear()
-            user = input("Please enter which package(s) to remove: ")
-            print("")
-            os.system("pip uninstall \"" + user + "\"")
-
-        if user == "5":  # List
-            clear()
-            print("")
-            user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
-            if user == "1": os.system("pip list ")
-            if user == "2": os.system("pip list --outdated")
-
-        if user == "6":  # Credits
-            clear()
-            print(credit)
-            time.sleep(3)
-            clear()
-
-        if user == "7": quit()
-
-            
-if package == "apm":  # Starts a loop
-    while True:
-        user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with apm\n6. Credits\n7. Exit\n\n")
-
-        if user == "1":  # Search
-            clear()
-            user = input("Please enter search query: ")
-            print(" ")
-            os.system("apm search " + user)
-
-            input("\nPress enter to continue")
-
-        if user == "2":  # Install
-            clear()
-            user = input("Please enter which package(s) to install: ")
-            print("")
-            os.system("apm install " + user)
-
-            input("\nPress enter to continue")
-
-        if user == "3":  # Upgrade
-            clear()
-            user = input("Please enter which package(s) to upgrade: ")
-            print("")
-            os.system("apm upgrade " + user)
-
-            input("\nPress enter to continue")
-
-        if user == "4":  # Remove
-            clear()
-            user = input("Please enter which package(s) to remove: ")
-            print("")
-            os.system("apm uninstall" + user)
-
-            input("\nPress enter to continue")
-
-        if user == "5":  # List
-            clear()
-            print("")
-            user = input("Please choose an action:\n1. List all packages\n2. List outdated packages")
-            if user == "1": os.system("apm list ")
-            if user == "2": os.system("apm outdated")
+            if user == "1": os.system("pip3 list ")
+            if user == "2": os.system("pip3 list --outdated")
 
         if user == "6":  # Credits
             clear()
