@@ -402,7 +402,7 @@ if package == "pip2":  # Starts a loop
             clear()
 
         if user == "7": quit()
-
+            
 if package == "pip3":  # Starts a loop
     while True:
         user = input("Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
