@@ -80,7 +80,7 @@ try:
 except Exception:
     print(yellow + "Warning: Missing Package File...")
     if package == " ": package = "null"
-	print(reset + yellow + "package manager set to " + package)
+        print(reset + yellow + "package manager set to " + package)
 # Checks for command line argument
 
 
