@@ -171,7 +171,7 @@ if package != "pip":
                             if user1 == "2": os.system("yaourt -Ss " + user)
                         elif package == "xbps": os.system("sudo xbps-query -Rs " + user)
                         elif package == "dnf": os.system("sudo dnf search " + user)
-                        elif package == "yum": os.system("sudo yum search " + user)
+                        elif package == "yum": os.system("yum search " + user)
                         elif package == "zypper": os.system("sudo zypper search " + user)
                         elif package == "eopkg": os.system("eopkg search " + user)
                         elif package == "emerge": os.system("emerge -S " + user)
