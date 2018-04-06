@@ -338,7 +338,7 @@ if package == "pip":  # Starts a loop
             user = input(reset + "Please enter which package(s) to remove: ")
             print(reset + "")
             os.system(reset + "pip uninstall \"" + user + "\"")
-			input(reset + "\nPress enter to continue")
+            input(reset + "\nPress enter to continue")
 
         if user == "5":  # List
             clear()
@@ -346,7 +346,7 @@ if package == "pip":  # Starts a loop
             user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
             if user == "1": os.system(reset + "pip list ")
             if user == "2": os.system(reset + "pip list --outdated")
-			input(reset + "\nPress enter to continue")
+            input(reset + "\nPress enter to continue")
 			
         if user == "6":  # Credits
             clear()
@@ -389,7 +389,7 @@ if package == "pip2":  # Starts a loop
             user = input(reset + "Please enter which package(s) to remove: ")
             print(reset + "")
             os.system(reset + "pip2 uninstall \"" + user + "\"")
-			input(reset + "\nPress enter to continue")
+            input(reset + "\nPress enter to continue")
 
         if user == "5":  # List
             clear()
@@ -397,7 +397,7 @@ if package == "pip2":  # Starts a loop
             user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
             if user == "1": os.system(reset + "pip2 list ")
             if user == "2": os.system(reset + "pip2 list --outdated")
-			input(reset + "\nPress enter to continue")
+            input(reset + "\nPress enter to continue")
 
         if user == "6":  # Credits
             clear()
@@ -440,7 +440,7 @@ if package == "pip3":  # Starts a loop
             user = input(reset + "Please enter which package(s) to remove: ")
             print(reset + "")
             os.system(reset + "pip3 uninstall \"" + user + "\"")
-			input(reset + "\nPress enter to continue")
+            input(reset + "\nPress enter to continue")
 
         if user == "5":  # List
             clear()
@@ -448,7 +448,7 @@ if package == "pip3":  # Starts a loop
             user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
             if user == "1": os.system(reset + "pip3 list ")
             if user == "2": os.system(reset + "pip3 list --outdated")
-			input(reset + "\nPress enter to continue")
+            input(reset + "\nPress enter to continue")
 
         if user == "6":  # Credits
             clear()
