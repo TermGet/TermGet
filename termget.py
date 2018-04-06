@@ -76,7 +76,7 @@ try:
         elif package_file_read == "emerge": package = "emerge"
         elif package_file_read == "pkg": package = "pkg"
         elif package_file_read == "chromebrew": package = "chromebrew"
-	print(reset + "package manager set to " + package)
+        print(reset + "package manager set to " + package)
 except Exception:
     print(yellow + "Warning: Missing Package File...")
     if package == " ": package = "null"
