@@ -166,7 +166,7 @@ if package != "pip":
                         print(reset + " ")
                         if package == "apt-get": os.system(reset + "sudo apt-cache search " + user + " |"+ user)
                         elif package == "pacman":
-                            user1 = input(reset + bold "Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
+                            user1 = input(reset + bold + "Which package manager would you like to use?\n\n1. pacman\n2. yaourt\n")
                             if user1 == "1": os.system(reset + "sudo pacman -Ss " + user)
                             if user1 == "2": os.system(reset + "yaourt -Ss " + user)
                         elif package == "xbps": os.system(reset + "sudo xbps-query -Rs " + user)
