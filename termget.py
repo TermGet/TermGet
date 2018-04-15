@@ -21,7 +21,7 @@ try:
 except Exception:
     print(red + "Warning: No package manager file found")
 
-version = "2.0.0 Beta5"
+version = "2.0.0"
 credit = magenta + "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz\n- Linux /usr/"
 
 
@@ -33,6 +33,8 @@ def setpack(var):
         print(yellow + "Warning: Missing Package File...")
 # Imports libraries and sets variables
 
+def pickManager():
+    print(reset + bold + "Welcome to TermGet. This is version " + version + "\n\nPlease choose a package manager:\n\n" + magenta + "1. apt-get (For Debian, and Debian based systems.)" + cyan + "\n2. xbps (For Void Linux, and Void Linux based systems)" + magenta + "\n3. dnf (For Fedora, and Fedora based systems)" + cyan + "\n4. yum (For older versions of Fedora, and older Fedora based systems)" + magenta + "\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n" + cyan + "6. eopkg (For Solus, and Solus based systems)" + magenta + "\n7. pacman (For Arch, and Arch based systems)" + cyan + "\n8. emerge(For Gentoo, and Gentoo based systems)" + magenta + "\n9. pkg (for FreeBSD, and FreeBSD based systems.)" + cyan + "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)" + magenta + "\n11. Homebrew (for macOS/Mac OS X)\n\n")
 
 if getpass.getuser() == "chronos":
     os.system("clear")
@@ -46,7 +48,7 @@ if getpass.getuser() == "chronos":
             setup = "False"
         else:
             print(red + "Error. Invalid answer")
-            # Checks for Chromebook 
+            # Checks for Chromebook
 
 if package == " " and len(sys.argv) == 2:
     if sys.argv[1] == "apt-get" or sys.argv[1] == "apt": package = "apt-get"
@@ -63,6 +65,7 @@ if package == " " and len(sys.argv) == 2:
     elif sys.argv[1] == "emerge": package = "emerge"
     elif sys.argv[1] == "pkg": package = "pkg"
     elif sys.argv[1] == "chromebrew": package = "chromebrew"
+    elif sys.argv[1] == "homebrew": package = "homebrew"
 
 try:
     if package == " ":
@@ -76,6 +79,7 @@ try:
         elif package_file_read == "emerge": package = "emerge"
         elif package_file_read == "pkg": package = "pkg"
         elif package_file_read == "chromebrew": package = "chromebrew"
+        elif package_file_read == "homebrew": package = "homebrew"
         print(reset + "package manager set to " + package)
 except Exception:
     print(yellow + "Warning: Missing Package File...")
@@ -91,7 +95,7 @@ def clear(): os.system("clear")
 clear()
 
 if package == " " or package == "null":  # Checks for command line argument
-    print(reset + bold + "Welcome to TermGet. This is version " + version + "\n\nPlease choose a package manager:\n\n" + magenta + "1. apt-get (For Debian, and Debian based systems.)" + cyan + "\n2. xbps (For Void Linux, and Void Linux based systems)" + magenta + "\n3. dnf (For Fedora, and Fedora based systems)" + cyan + "\n4. yum (For older versions of Fedora, and older Fedora based systems)" + magenta + "\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n" + cyan + "6. eopkg (For Solus, and Solus based systems)" + magenta + "\n7. pacman (For Arch, and Arch based systems)" + cyan + "\n8. emerge(For Gentoo, and Gentoo based systems)" + magenta + "\n9. pkg (for FreeBSD, and FreeBSD based systems.)" + cyan + "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)\n\n")
+    pickManager()
     setup = "True"
 else:
     print(reset + bold + "Welcome to TermGet. This is version " + version)
@@ -144,13 +148,17 @@ while setup == "True":  # Repeats until setup is not true
         setup = "false"
         package = "chromebrew"  # Sets package manager to chromebrew
         setpack("chromebrew")
+    elif user == "11":
+        setup = "false"
+        package = "homebrew"
+        setpack("homebrew")
     else:
         clear()
         print(red + "Error. Invalid package manager")
         time.sleep(1)
         clear()
-        print(reset + "Please choose a package manager:\n\n" + magenta + "1. apt-get (For Debian, and Debian based systems.)" + cyan + "\n2. xbps (For Void Linux, and Void Linux based systems)" + magenta + "\n3. dnf (For Fedora, and Fedora based systems)" + cyan + "\n4. yum (For older versions of Fedora, and older Fedora based systems)" + magenta + "\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n" + cyan + "6. eopkg (For Solus, and Solus based systems)" + magenta + "\n7. pacman (For Arch, and Arch based systems)" + cyan + "\n8. emerge(For Gentoo, and Gentoo based systems)" + magenta + "\n9. pkg (for FreeBSD, and FreeBSD based systems.)" + cyan + "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)\n\n")
-        # Sets up the package manager
+        pickManager()
+        # Sets package manager lolz
 
 if package != "pip":
     if package != "pip2":
@@ -177,6 +185,7 @@ if package != "pip":
                         elif package == "emerge": os.system("emerge -S " + user)
                         elif package == "pkg": os.system("pkg search " + user)
                         elif package == "chromebrew": os.system("crew search " + user)
+                        elif package == "homebrew": os.system("brew search " + user)
                         input(reset + "\nPress enter to continue")
 
                     if user == "2":  # Install
@@ -197,6 +206,7 @@ if package != "pip":
                         elif package == "emerge": os.system("emerge " + user)
                         elif package == "pkg": os.system("sudo pkg install " + user)
                         elif package == "chromebrew": os.system("crew install " + user)
+                        elif package == "homebrew": os.system("brew install " + user)
                         input(reset + "\nPress enter to continue")
 
                     if user == "3":  # Remove
@@ -214,9 +224,10 @@ if package != "pip":
                         elif package == "yum": os.system("sudo yum remove " + user)
                         elif package == "zypper": os.system("sudo zypper remove " + user)
                         elif package == "eopkg": os.system("sudo eopkg remove " + user)
-                        elif package == "emerge": os.system("emerge -C" + user)
+                        elif package == "emerge": os.system("emerge -C " + user)
                         elif package == "pkg": os.system("sudo pkg delete " + user)
                         elif package == "chromebrew": os.system("crew remove " + user)
+                        elif package == "homebrew": os.system("brew uninstall " + user)
                         input(reset + "\nPress enter to continue")
 
                     if user == "4":  # Updates Packages
@@ -242,6 +253,7 @@ if package != "pip":
                             os.system("sudo emerge -uDN world")
                         elif package == "pkg": os.system("sudo pkg upgrade")
                         elif package == "chromebrew": os.system("crew upgrade")
+                        elif package == "homebrew": os.system("brew upgrade")
                         input(reset + "\nPress enter to continue")
 
                     if user == "5":  # Updates Database
@@ -259,6 +271,7 @@ if package != "pip":
                         elif package == "yum": os.system("sudo yum yum check-update")
                         elif package == "pkg": os.system("sudo pkg update")
                         elif package == "chromebrew": print(reset + "This feature is unavailable for chromebrew\n")
+                        elif package == "homebrew": os.system("brew update")
                         input(reset + "\nPress enter to continue")
 
                     if user == "6":  # Cleans
@@ -294,7 +307,7 @@ if package != "pip":
                             os.system("sudo pkg clean")
                             os.system("sudo pkg autoremove")
                         elif package == "chromebrew": print(reset + "This feature is unavailable on chromebrew\n")
-
+                        elif package == "homebrew": print(reset + "Homebrew already does this automagically. :)\n")
                         input(reset + "\nPress enter to continue")
 
                     if user == "7":  # Credits
@@ -303,7 +316,9 @@ if package != "pip":
                         print(credit)
                         time.sleep(3)
 
-                    if user == "8": quit()
+                    if user == "8":
+                        print(reset)
+                        quit()
 
 if package == "pip":  # Starts a loop
     while True:
@@ -347,15 +362,17 @@ if package == "pip":  # Starts a loop
             if user == "1": os.system("pip list ")
             if user == "2": os.system("pip list --outdated")
             input(reset + "\nPress enter to continue")
-			
+
         if user == "6":  # Credits
             clear()
             print(credit)
             time.sleep(3)
             clear()
 
-        if user == "7": quit()
-          
+        if user == "7":
+            print(reset)
+            quit()
+
 if package == "pip2":  # Starts a loop
     while True:
         user = input(reset + "Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
@@ -456,4 +473,7 @@ if package == "pip3":  # Starts a loop
             time.sleep(3)
             clear()
 
-        if user == "7": quit()
+        if user == "7":
+            # This little bit prevents the whole terminal session staying in that color
+            print(reset)
+            quit()
