@@ -1,5 +1,6 @@
 ﻿# What is TermGet?
-TermGet is a project made by PizzaLovingNerd
+TermGet is a project made by PizzaLovingNerd, several others.
+
 TermGet is a frontend for:
 
  - apt-get
@@ -46,7 +47,7 @@ If this is a first time install, type:
 
     sh update.sh #Do not run as root
 
-## First Time Setup On Linux
+## First Time Setup On Linux / Mac
 After installing, run TermGet using
 
     sudo termget
@@ -65,7 +66,7 @@ you should get a message that sort of looks like this:
 
 Choose your distribution's package manager using the number. My package manager is eopkg, so I would type "5" and press enter.
 
-## How do I use TermGet on Linux or Mac
+## How do I use TermGet on Linux, BSD, or Mac
 
 This section gets updated with every release, if you are using an alpha or beta build, there might be extra features that aren't on this section of the README file.
 
@@ -81,12 +82,13 @@ Once your package manager has been chosen, you will get a message like this:
     Please choose an action
 
     1. Search for packages
-    2. Install a package
-    3. Remove a package
+    2. Install an application
+    3. Remove an application
     4. Update all packages
-    5. Update repository
+    5. Update Database
     6. Clean
-    7. Exit
+    7. Credits
+    8. Exit
 
 *We will be using "eopkg" in the examples below.*
 *Results may vary for other package managers*
@@ -115,10 +117,10 @@ Installing a package downloads and installs a package. This is what it looks lik
     Installing minetest, version 0.4.16, release 4
     Extracting the files of minetest
     Installed minetest
-	    [✓] Syncing filesystems                                                success
-	    [✓] Updating icon theme cache: hicolor                                 success
-	    [✓] Updating desktop database                                          success
-	    [✓] Updating manpages database                                         success
+	    [✓] Syncing filesystems                                                 success
+	    [✓] Updating icon theme cache: hicolor                                  success
+	    [✓] Updating desktop database                                           success
+	    [✓] Updating manpages database                                          success
 
     Press enter to continue
 
@@ -177,7 +179,7 @@ Cleaning helps save hard drive space. It does this by deleting cache, and deleti
 	  Do you want to continue? (yes/no)yes
 	  Removing package irrlicht
 	  Removed irrlicht
-	     [✓] Syncing filesystems    			                    success
+	     [✓] Syncing filesystems    			                                      success
 	     [✓] Updating dynamic library cache                                     success
 
 	  Press enter to continue
