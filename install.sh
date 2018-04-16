@@ -16,11 +16,7 @@ echo ">>> copying program to ~/.termget"
 cp termget.py ~/.termget/termget.py
 echo ">>> generating empty file"
 > ~/.termget/termget-package-manager
-echo ">>> creating alias into .bashrc"
-echo 'alias termget="python3 ~/.termget/termget.py"' >> ~/.bashrc
-alias termget="python3 ~/.termget/termget.py"
-echo ""
-echo "Note: From now on, any changes made to the code"
-echo "must be ran under ./update.sh"
+echo ">>> installing"
+sudo cp ~/.termget/termget.py /usr/bin/termget
 echo ""
 echo ">>> Done!"
