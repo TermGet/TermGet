@@ -17,6 +17,9 @@ cp termget.py ~/.termget/termget.py
 echo ">>> generating empty file"
 > ~/.termget/termget-package-manager
 echo ">>> installing"
-sudo cp ~/.termget/termget.py /usr/bin/termget
+echo "#!/bin/bash
+python3 ~/.termget/termget.py" >> ~/.termget/termget.sh
+chmod +x ~/.termget/termget.sh
+sudo cp ~/.termget/termget.sh /usr/bin/termget
 echo ""
 echo ">>> Done!"

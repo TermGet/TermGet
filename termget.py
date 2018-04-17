@@ -22,7 +22,7 @@ try:
     except Exception:
         print(red + "Warning: No package manager file found")
 
-    version = "2.0.0"
+    version = "2.0.0b7"
     credit = magenta + "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz\n- Linux /usr/"
 
 
