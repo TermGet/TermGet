@@ -64,20 +64,27 @@ you should get a message that sort of looks like this:
 Choose your distribution's package manager using the number. My package manager is eopkg, so I would type "5" and press enter.
 
 ## How do I install TermGet on ChromeOS
-### Warning lots of features are missing on ChromeOS
+### Warning: Not fully tested
 
 First put your Chromebook in [developer mode](https://www.howtogeek.com/210817/how-to-enable-developer-mode-on-your-chromebook/ "developer mode").
 
-Once your Chromebook is in developer mode, open Crosh with CTRT+ALT+T, and type
+Check if Python3 is already installed on your system. Do so by typing
 
-    shell
+    python3
 
-This will enter you into a bash shell. 
-Now we need to install python3. To do this type
+If you are brought to a prompt, then it is installed, you may now type exit() to leave Python3
 
-    sudo dev_install
+If not, then [watch this video](https://www.youtube.com/watch?v=X7Y8b2S3nEA)
 
+If you would rather read instead of a video, [click here](https://wsvincent.com/install-python3-chromebook/)
 
+Now download Termget and cd into it, then run
+
+    bash install.sh
+
+and it will install, if you get errors report it to the github issues.
+
+That's it, type "termget" into the prompt and you should be good
 
 ## First Time Setup On macOS
 
@@ -218,9 +225,9 @@ Cleaning helps save hard drive space. It does this by deleting cache, and deleti
 
 ## Changing the package manager
 
-### Temporally (On Linux, BSD, and macOS.)
+### Temporarily (On Linux, BSD, and macOS.)
 
-To temporally change the package manager used, use an argument. For example, if I wanted to temporally change it to apt-get, I would type
+To Temporarily change the package manager used, use an argument. For example, if I wanted to temporally change it to apt-get, I would type
 
     sudo termget apt-get
 

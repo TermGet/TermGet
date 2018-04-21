@@ -1,14 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
-#Install Script made by SudoLinux
-#If you want to update your program if you made changes. Please run:
-# root@localhost ~ $ chmod +x install.sh
-# root@localhost ~ $ ./install.sh
-echo "Getting ready to install in 5 seconds"
-echo ""
-echo "Press CTRL+C to abort if this was an accident"
-echo ""
-sleep 5
+if [ -e /usr/bin/termget ];
+then
+  echo "Old termget build found, please remove /usr/bin/termget."
+  echo "I won't remove it for you..."
+  echo "Try removing with: sudo rm -rf /usr/bin/termget"
+  exit
+fi
+
 echo ">>> setting up directories"
 rm -rf ~/.termget/
 mkdir ~/.termget/
@@ -18,8 +17,8 @@ echo ">>> generating empty file"
 > ~/.termget/termget-package-manager
 echo ">>> installing"
 echo "#!/bin/bash
-python3 ~/.termget/termget.py" >> ~/.termget/termget.sh
+python3 ~/.termget/termget.py \$1 \$2 \$3 \$4" >> ~/.termget/termget.sh
 chmod +x ~/.termget/termget.sh
-sudo cp ~/.termget/termget.sh /usr/bin/termget
+sudo cp ~/.termget/termget.sh /usr/local/bin/termget
 echo ""
 echo ">>> Done!"

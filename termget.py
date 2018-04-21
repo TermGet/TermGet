@@ -20,15 +20,23 @@ try:
     try:
         package_file_read = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "r").read()
     except Exception:
-        print(red + "Warning: No package manager file found")
-
-    version = "2.0.0b7"
+        try:
+            package_file_read = open("/Users/" + getpass.getuser() + "/.termget/termget-package-manager", "r").read()
+        except Exception:
+            print(yellow + "Warning: Missing Package File...")
+    version = "2.0.0"
     credit = magenta + "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz\n- Linux /usr/"
 
 
     def setpack(var):
         try:
-            package_file_write = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "a")
+            try:
+                package_file_write = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "a")
+            except Exception:
+                try:
+                    package_file_write = open("/Users/" + getpass.getuser() + "/.termget/termget-package-manager", "a")
+                except Exception:
+                    pass
             if package != "null": package_file_write.write(var)
         except Exception:
             print(yellow + "Warning: Missing Package File...")
@@ -161,15 +169,17 @@ try:
             pickManager()
             # Sets package manager lolz
 
+    # MEOW!
+
     if package != "pip":
         if package != "pip2":
             if package != "pip3":
                 if package != "apm":
                     while True:  # Starts a loop
                         clear()
-                        print(reset + bold + "Please choose an action\n\n" + magenta + "1. Search for packages\n" + cyan + "2. Install an application\n" + magenta + "3. Remove an application" + cyan + "\n4. Update all packages" + magenta + "\n5. Update Database" + cyan + "\n6. Clean" + magenta + "\n7. Credits" + cyan + "\n8. Exit\n")
+                        print(reset + bold + "Please choose an action\n\n" + magenta + "1. Search for packages\n" + cyan + "2. Install an application\n" + magenta + "3. Remove an application" + cyan + "\n4. Update all packages" + magenta + "\n5. Update Database" + cyan + "\n6. Clean" + magenta + "\n7. Credits" + cyan + "\n8. Exit" + magenta + "\n9. Enter shell\n")
                         user = input()  # Asks for user input
-                        if user == "1":  # Search
+                        if user == "1":  # Searc-meow
                             clear()
                             user = input(reset + "Please enter search query: ")
                             print(reset + " ")
@@ -210,7 +220,7 @@ try:
                             elif package == "homebrew": os.system("brew install " + user)
                             input(reset + "\nPress enter to continue")
 
-                        if user == "3":  # Remove
+                        if user == "3":  # Remove MEOW
                             clear()
                             user = input(reset + "Please enter which package(s) to remove: ")
                             print(reset + "")
@@ -257,7 +267,7 @@ try:
                             elif package == "homebrew": os.system("brew upgrade")
                             input(reset + "\nPress enter to continue")
 
-                        if user == "5":  # Updates Database
+                        if user == "5":  # Updates Database MEOW
                             clear()
                             if package == "apt-get": os.system("sudo apt-get update")
                             elif package == "pacman":
@@ -311,7 +321,7 @@ try:
                             elif package == "homebrew": print(reset + "Homebrew already does this automagically. :)\n")
                             input(reset + "\nPress enter to continue")
 
-                        if user == "7":  # Credits
+                        if user == "7":  # Credits QUACK!!
 
                             clear()
                             print(credit)
@@ -320,6 +330,25 @@ try:
                         if user == "8":
                             print(reset)
                             quit()
+
+                        if user == "9":
+                            clear()
+                            print(reset+"Entering bash...")
+                            print(reset+"Press CTRL+D or type \"exit\" to return to termget.")
+                            os.system("bash")
+                            print(reset+"Returning to termget...")
+                            clear()
+
+                        if user == "42":
+                            clear()
+                            print(reset+"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                            input(reset+"Press enter to leave this boring easter egg...")
+                            input("I SAID... PRESS ENTER!")
+                            print(reset+"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                            input("this program is broken now")
+                            input("programprogramprogramress enter to continue")
+                            print("saderror wasnt involved with this easter egg")
+                            input("wonder if anyone will find it?")
 
     if package == "pip":  # Starts a loop
         while True:
@@ -487,7 +516,7 @@ try:
     if package == "apm":  # Starts a loop
         while True:
             clear()
-            user = input(reset + "Please choose an action\n" + cyan + "\n1. Search for packages" + magenta + "\n2. Install an application" + cyan + "\n3. Upgrade a package" + magenta + "\n4. Remove an application" + cyan + "\n5. List packages installed with pip" + magenta + "\n6. Credits" + cyan + "\n7. Exit\n\n")
+            user = input(reset + "Please choose an action\n" + cyan + "\n1. Search for packages" + magenta + "\n2. Install an application" + cyan + "\n3. Upgrade a package" + magenta + "\n4. Remove an application" + cyan + "\n5. List packages installed" + magenta + "\n6. Credits" + cyan + "\n7. Exit\n\n")
             if user == "1":  # Search
                 clear()
                 user = input(reset + "Please enter search query: ")
@@ -502,7 +531,7 @@ try:
                 print("")
                 os.system("apm install " + user)
 
-                input("reset + \nPress enter to continue")
+                input(reset + "\nPress enter to continue")
 
             if user == "3":  # Upgrade
                 clear()
@@ -510,7 +539,7 @@ try:
                 print("")
                 os.system(reset + "apm upgrade " + user)
 
-                input("\nPress enter to continue")
+                input(reset + "\nPress enter to continue")
 
             if user == "4":  # Remove
                 clear()
@@ -518,16 +547,17 @@ try:
                 print("")
                 os.system(reset + "apm uninstall" + user)
 
-                input("\nPress enter to continue")
+                input(reset + "\nPress enter to continue")
 
             if user == "5":  # List
                 clear()
                 print("")
-                user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
-                if user == "1": os.system("apm list ")
+                user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages\n\n")
+                if user == "1": os.system("apm list")
                 if user == "2": os.system("apm outdated")
+                input(reset + "\nPress enter to continue")
 
-            if user == "6":  # Credits
+            if user == "6":  # Credits - Meooow
                 clear()
                 print(credit)
                 time.sleep(3)
@@ -539,5 +569,5 @@ try:
 
 except KeyboardInterrupt:
         clear()
-        print(red + "Error: Keyboard Interuption. Quitting" + reset)
+        print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
         quit()
