@@ -36,21 +36,18 @@ To get an alpha build, please clone the [TermGet GitHub repository](https://gith
 
 To get a beta or release build, please go to the releases tab, of the [TermGet GitHub repository](https://github.com/PizzaLovingNerd/TermGet/releases)
 
-## How do I install TermGet on Linux
+## How do I install TermGet on Linux, and BSD
 
 First install python3. Once you've done that, download and unzip TermGet. Now open a terminal, and go to your downloads folder (Or where ever you have unzipped it).
 
-If this is a first time install, type:
+If this is a first time install or your upgrading TermGet, type:
+    bash install.sh
 
-    sh install.sh #Do not run as root
- If you are updating TermGet to a newer version, type:
+## First Time Setup On Linux, and BSD
 
-    sh update.sh #Do not run as root
-
-## First Time Setup On Linux / Mac
 After installing, run TermGet using
 
-    sudo termget
+    termget
 
 you should get a message that sort of looks like this:
 
@@ -66,6 +63,41 @@ you should get a message that sort of looks like this:
 
 Choose your distribution's package manager using the number. My package manager is eopkg, so I would type "5" and press enter.
 
+## How do I install TermGet on ChromeOS
+### Warning lots of features are missing on ChromeOS
+
+First put your Chromebook in [developer mode](https://www.howtogeek.com/210817/how-to-enable-developer-mode-on-your-chromebook/ "developer mode").
+
+Once your Chromebook is in developer mode, open Crosh with CTRT+ALT+T, and type
+
+    shell
+
+This will enter you into a bash shell. 
+Now we need to install python3. To do this type
+
+    sudo dev_install
+
+
+
+## First Time Setup On macOS
+
+After installing, run TermGet using
+
+    termget
+
+you should get a message that sort of looks like this:
+
+    Please choose a package manager
+
+    1. apt-get (For Debian, and Debian based systems.)
+    2. xbps (For Void Linux, and Void Linux based systems)
+    3. dnf (For Fedora, and Fedora based systems)
+    4. zypper (For OpenSUSE, and OpenSUSE based systems)
+    5. eopkg (For Solus, and Solus based systems)
+    6. pacman (For Arch, and Arch based systems)
+    .....list goes on
+
+Choose homebrew by typing "11".
 ## How do I use TermGet on Linux, BSD, or Mac
 
 This section gets updated with every release, if you are using an alpha or beta build, there might be extra features that aren't on this section of the README file.
@@ -184,15 +216,15 @@ Cleaning helps save hard drive space. It does this by deleting cache, and deleti
 
 	  Press enter to continue
 
-## Changing the package manager (on Linux)
+## Changing the package manager
 
-### Temporally
+### Temporally (On Linux, BSD, and macOS.)
 
 To temporally change the package manager used, use an argument. For example, if I wanted to temporally change it to apt-get, I would type
 
     sudo termget apt-get
 
-### Permanently
+### Permanently (On Linux, BSD, and macOS)
 run the following command in a terminal, then the first setup script will start next time you run termget.
 
     rm -rf ~/.termget/termget-package-manager && > ~/.termget/termget-package-manager
