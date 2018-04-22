@@ -185,7 +185,7 @@ try:
                             print(reset + " ")
                             if package == "apt-get": os.system("sudo apt-cache search " + user + " |"+ user)
                             elif package == "pacman":
-                                user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan +"\n1. pacman" + megenta + "\n2. yaourt\n" + reset)
+                                user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan +"\n1. pacman" + magenta + "\n2. yaourt\n" + reset)
                                 if user1 == "1": os.system("sudo pacman -Ss " + user)
                                 if user1 == "2": os.system("yaourt -Ss " + user)
                             elif package == "xbps": os.system("sudo xbps-query -Rs " + user)
@@ -206,7 +206,7 @@ try:
 
                             if package == "apt-get": os.system("sudo apt-get install " + user)
                             elif package == "pacman":
-                                user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan +"\n1. pacman" + megenta + "\n2. yaourt\n" + reset)
+                                user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan +"\n1. pacman" + magenta + "\n2. yaourt\n" + reset)
                                 if user1 == "1": os.system("sudo pacman -S " + user)
                                 if user1 == "2": os.system("yaourt -S " + user)
                             elif package == "xbps": os.system("sudo xbps-install " + user)
@@ -247,7 +247,7 @@ try:
                                 os.system("sudo apt-get upgrade")
                                 os.system("sudo apt-get dist-upgrade")
                             elif package == "pacman":
-                                user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan + "\n1. pacman" + megenta + "\n2. yaourt\n" + reset)
+                                user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan + "\n1. pacman" + magenta + "\n2. yaourt\n" + reset)
                                 if user1 == "1": os.system("sudo pacman -Syu")
                                 if user1 == "2": os.system("yaourt -Syu")
                             elif package == "xbps": os.system("sudo xbps-install -Su")
@@ -271,7 +271,7 @@ try:
                             clear()
                             if package == "apt-get": os.system("sudo apt-get update")
                             elif package == "pacman":
-                                user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan +"\n1. pacman" + megenta + "\n2. yaourt\n" + reset)
+                                user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan +"\n1. pacman" + magenta + "\n2. yaourt\n" + reset)
                                 if user1 == "1": os.system("sudo pacman -Syy")
                                 if user1 == "2": os.system("yaourt -Syy")
                             elif package == "xbps": os.system("sudo xbps-install -S")
