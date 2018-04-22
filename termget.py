@@ -177,7 +177,7 @@ try:
                 if package != "apm":
                     while True:  # Starts a loop
                         clear()
-                        print(reset + bold + "Please choose an action\n\n" + magenta + "1. Search for packages\n" + cyan + "2. Install an application\n" + magenta + "3. Remove an application" + cyan + "\n4. Update all packages" + magenta + "\n5. Update Database" + cyan + "\n6. Clean" + magenta + "\n7. Credits" + cyan + "\n8. Exit" + magenta + "\n9. Enter shell\n")
+                        print(reset + bold + "Please choose an action\n\n" + magenta + "1. Search for packages\n" + cyan + "2. Install an application\n" + magenta + "3. Remove an application" + cyan + "\n4. Update all packages" + magenta + "\n5. Update Database" + cyan + "\n6. Clean" + magenta + "\n7. Credits" + cyan + "\n8. Exit" + magenta + "\n9. Enter shell\n" + reset)
                         user = input()  # Asks for user input
                         if user == "1":  # Searc-meow
                             clear()
