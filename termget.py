@@ -18,13 +18,13 @@ package = " "
 
 try:
     try:
-        package_file_read = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "r").read()
+        package_file_read = open("/usr/local/share/termget/termget-package-manager", "r").read()
     except Exception:
         try:
             package_file_read = open("/Users/" + getpass.getuser() + "/.termget/termget-package-manager", "r").read()
         except Exception:
             print(yellow + "Warning: Missing Package File...")
-    version = "2.0.0"
+    version = "2.0.1"
     credit = magenta + "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz\n- Linux /usr/"
 
 
