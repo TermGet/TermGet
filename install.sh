@@ -1,11 +1,13 @@
 #!/bin/bash
 
-if [ -e /usr/local/bin/termget ];
+# NOTE: Do NOT change if statement to /usr/local/bin/termget. This is to remove a build that was installed by an older version of the installer.
+if [ -e /usr/bin/termget ];
 then
   echo "Old build of TermGet found. Removing it ..."
-  sudo rm -rf /usr/local/bin/termget
+  sudo rm -rf /usr/bin/termget
 fi
 
+# autodetection. If the incorrect one shows, it is possible that you have a program on your system that has the same name as a package manager.
 if [[ $(which apt-get 2> /dev/null) ]]; then
 	echo -n "A Debian or Debian-based system has been detected. Apt-get will be used. Is this correct? [y/n] "
 	pm=apt-get
@@ -58,14 +60,14 @@ you to set a package manager manually on first launch. Proceed to install? [y/n]
 fi
 
 echo ">>> setting up directories"
-rm -rf ~/.termget/
-sudo mkdir /usr/local/share/termget
-echo ">>> copying program to ~/.termget"
-sudo cp termget.py /usr/local/bin/
+rm -rf ~/.termget/ # remove old config directories
+sudo mkdir /usr/local/share/termget # create new config directory (will only show warning if it already exists)
+echo ">>> copying program to /usr/local/bin"
+sudo cp termget.py /usr/local/bin/ # copy program to PATH (will only show warning if it needs to overwrite)
 echo ">>> generating package file"
-sudo bash -c "echo -n $pm > ~/.termget/termget-package-manager"
+sudo bash -c "echo -n $pm > /usr/local/share/termget/termget-package-manager" # copy package file to config direcotry
 echo ">>> installing"
 chmod +x termget
-sudo cp termget /usr/local/bin/
+sudo cp termget /usr/local/bin/ # copy link program to /usr/local/bin
 echo ""
 echo ">>> Done!"
