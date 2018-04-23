@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ -e /usr/bin/termget ];
+if [ -e /usr/local/bin/termget ];
 then
   echo "Old build of TermGet found. Removing it ..."
-  sudo rm -rf /usr/bin/termget
+  sudo rm -rf /usr/local/bin/termget
 fi
 
 if [[ $(which apt-get 2> /dev/null) ]]; then
@@ -50,7 +50,7 @@ elif [ $answer != "y" ] && [ -n $pm ]; then
 you to set a package manager manually on first launch. Proceed to install? [y/n] "
 	read answer2
 	if [ $answer2 != "y" ]; then
-		echo "Intallation aborted."
+		echo "Installation aborted."
 		exit
 	else
 		pm=
