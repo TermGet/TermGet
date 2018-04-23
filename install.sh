@@ -63,7 +63,7 @@ sudo mkdir /usr/local/share/termget
 echo ">>> copying program to ~/.termget"
 sudo cp termget.py /usr/local/bin/
 echo ">>> generating package file"
-sudo bash -c "echo -n $pm > /usr/local/share/termget/termget-package-manager"
+sudo bash -c "echo -n $pm > ~/.termget/termget-package-manager"
 echo ">>> installing"
 chmod +x termget
 sudo cp termget /usr/local/bin/
