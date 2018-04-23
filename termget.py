@@ -24,7 +24,7 @@ try:
             package_file_read = open("/Users/" + getpass.getuser() + "/.termget/termget-package-manager", "r").read()
         except Exception:
             print(yellow + "Warning: Missing Package File...")
-    version = "2.0.1"
+    version = "2.0.2"
     credit = magenta + "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz\n- Linux /usr/"
 
 
