@@ -32,26 +32,13 @@ try:
     try:
         package_file_read = open("/usr/local/share/termget/termget-package-manager", "r").read()
     except Exception:
-        try:
-            package_file_read = open("/Users/" + getpass.getuser() + "/.termget/termget-package-manager", "r").read()
-        except Exception:
-            print(yellow + "Warning: Missing Package File...")
+        print(yellow + "Warning: Missing Package File...")
     version = "2.1.0"
     credit = magenta + "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz\n- Linux /usr/"
 
 
     def setpack(var):
-        try:
-            try:
-                package_file_write = open("/home/" + getpass.getuser() + "/.termget/termget-package-manager", "a")
-            except Exception:
-                try:
-                    package_file_write = open("/Users/" + getpass.getuser() + "/.termget/termget-package-manager", "a")
-                except Exception:
-                    pass
-            if package != "null": package_file_write.write(var)
-        except Exception:
-            print(yellow + "Warning: Missing Package File...")
+        os.system('sudo bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
     # Imports libraries and sets variables
 
     def pickManager():
