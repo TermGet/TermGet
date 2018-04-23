@@ -15,6 +15,18 @@ magenta = "\033[35m"
 cyan = "\033[36m"
 print(reset)
 package = " "
+termgetBig = """
+_________ _______  _______  _______  _______  _______ _________
+\__   __/(  ____ \(  ____ )(       )(  ____ \(  ____ \\__   __/
+   ) (   | (    \/| (    )|| () () || (    \/| (    \/   ) (   
+   | |   | (__    | (____)|| || || || |      | (__       | |   
+   | |   |  __)   |     __)| |(_)| || | ____ |  __)      | |   
+   | |   | (      | (\ (   | |   | || | \_  )| (         | |   
+   | |   | (____/\| ) \ \__| )   ( || (___) || (____/\   | |   
+   )_(   (_______/|/   \__/|/     \|(_______)(_______/   )_(   
+                                                               
+
+"""
 
 try:
     try:
@@ -107,7 +119,7 @@ try:
         pickManager()
         setup = "True"
     else:
-        print(reset + bold + "Welcome to TermGet. This is version " + version)
+        print(reset + bold + termgetBig + "This is version " + version)
         time.sleep(1)
         clear()
         setup = "False"
