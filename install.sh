@@ -44,7 +44,7 @@ you to set a package manager manually on first launch. Proceed to install? [y/n]
 fi
 
 read answer
-if [ $answer != "n" ] && [ -z $pm ]; then
+if [ $answer != "y" ] && [ -z $pm ]; then
 	echo "Installation aborted."
 	exit
 elif [ $answer != "y" ] && [ -n $pm ]; then
