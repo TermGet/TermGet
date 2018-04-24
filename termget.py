@@ -39,6 +39,9 @@ try:
 
     def setpack(var):
         os.system('sudo bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
+    
+    def askreturn(): input(reset + "\nPress enter to continue")
+        
     # Imports libraries and sets variables
 
     def pickManager():
@@ -196,7 +199,7 @@ try:
                             elif package == "pkg": os.system("pkg search " + user)
                             elif package == "chromebrew": os.system("crew search " + user)
                             elif package == "homebrew": os.system("brew search " + user)
-                            input(reset + "\nPress enter to continue")
+                            askreturn()
 
                         if user == "2":  # Install
                             clear()
@@ -217,7 +220,7 @@ try:
                             elif package == "pkg": os.system("sudo pkg install " + user)
                             elif package == "chromebrew": os.system("crew install " + user)
                             elif package == "homebrew": os.system("brew install " + user)
-                            input(reset + "\nPress enter to continue")
+                            askreturn()
 
                         if user == "3":  # Remove MEOW
                             clear()
@@ -238,7 +241,7 @@ try:
                             elif package == "pkg": os.system("sudo pkg delete " + user)
                             elif package == "chromebrew": os.system("crew remove " + user)
                             elif package == "homebrew": os.system("brew uninstall " + user)
-                            input(reset + "\nPress enter to continue")
+                            askreturn()
 
                         if user == "4":  # Updates Packages
                             clear()
@@ -264,7 +267,7 @@ try:
                             elif package == "pkg": os.system("sudo pkg upgrade")
                             elif package == "chromebrew": os.system("crew upgrade")
                             elif package == "homebrew": os.system("brew upgrade")
-                            input(reset + "\nPress enter to continue")
+                            askreturn()
 
                         if user == "5":  # Updates Database MEOW
                             clear()
@@ -282,7 +285,7 @@ try:
                             elif package == "pkg": os.system("sudo pkg update")
                             elif package == "chromebrew": print(reset + "This feature is unavailable for chromebrew\n")
                             elif package == "homebrew": os.system("brew update")
-                            input(reset + "\nPress enter to continue")
+                            askreturn()
 
                         if user == "6":  # Cleans
 
@@ -318,7 +321,7 @@ try:
                                 os.system("sudo pkg autoremove")
                             elif package == "chromebrew": print(reset + "This feature is unavailable on chromebrew\n")
                             elif package == "homebrew": print(reset + "Homebrew already does this automagically. :)\n")
-                            input(reset + "\nPress enter to continue")
+                            askreturn()
 
                         if user == "7":  # Credits QUACK!!
 
@@ -360,7 +363,7 @@ try:
                 print(reset + " ")
                 os.system("pip search \"" + user + "\"")
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "2":  # Install
                 clear()
@@ -368,7 +371,7 @@ try:
                 print(reset + "")
                 os.system("pip install \"" + user + "\"")
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "3":  # Upgrade
                 clear()
@@ -376,14 +379,14 @@ try:
                 print(reset + "")
                 os.system("pip install --upgrade " + user)
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "4":  # Remove
                 clear()
                 user = input(reset + "Please enter which package(s) to remove: ")
                 print(reset + "")
                 os.system("pip uninstall \"" + user + "\"")
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "5":  # List
                 clear()
@@ -391,7 +394,7 @@ try:
                 user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
                 if user == "1": os.system("pip list ")
                 if user == "2": os.system("pip list --outdated")
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "6":  # Credits
                 clear()
@@ -414,7 +417,7 @@ try:
                 print(reset + " ")
                 os.system("pip2 search \"" + user + "\"")
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "2":  # Install
                 clear()
@@ -422,7 +425,7 @@ try:
                 print(reset + "")
                 os.system("pip2 install \"" + user + "\"")
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "3":  # Upgrade
                 clear()
@@ -430,14 +433,14 @@ try:
                 print(reset + "")
                 os.system("pip2 install --upgrade " + user)
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "4":  # Remove
                 clear()
                 user = input(reset + "Please enter which package(s) to remove: ")
                 print(reset + "")
                 os.system("pip2 uninstall \"" + user + "\"")
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "5":  # List
                 clear()
@@ -445,7 +448,7 @@ try:
                 user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
                 if user == "1": os.system("pip2 list ")
                 if user == "2": os.system("pip2 list --outdated")
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "6":  # Credits
                 clear()
@@ -468,7 +471,7 @@ try:
                 print(reset + " ")
                 os.system("pip3 search \"" + user + "\"")
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "2":  # Install
                 clear()
@@ -476,7 +479,7 @@ try:
                 print(reset + "")
                 os.system("pip3 install \"" + user + "\"")
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "3":  # Upgrade
                 clear()
@@ -484,14 +487,14 @@ try:
                 print(reset + "")
                 os.system("pip3 install --upgrade " + user)
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "4":  # Remove
                 clear()
                 user = input(reset + "Please enter which package(s) to remove: ")
                 print(reset + "")
                 os.system("pip3 uninstall \"" + user + "\"")
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "5":  # List
                 clear()
@@ -499,7 +502,7 @@ try:
                 user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
                 if user == "1": os.system("pip3 list ")
                 if user == "2": os.system("pip3 list --outdated")
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "6":  # Credits
                 clear()
@@ -522,7 +525,7 @@ try:
                 print("")
                 os.system("apm search " + user)
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "2":  # Install
                 clear()
@@ -530,7 +533,7 @@ try:
                 print("")
                 os.system("apm install " + user)
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "3":  # Upgrade
                 clear()
@@ -538,7 +541,7 @@ try:
                 print("")
                 os.system(reset + "apm upgrade " + user)
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "4":  # Remove
                 clear()
@@ -546,7 +549,7 @@ try:
                 print("")
                 os.system(reset + "apm uninstall" + user)
 
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "5":  # List
                 clear()
@@ -554,7 +557,7 @@ try:
                 user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages\n\n")
                 if user == "1": os.system("apm list")
                 if user == "2": os.system("apm outdated")
-                input(reset + "\nPress enter to continue")
+                askreturn()
 
             if user == "6":  # Credits - Meooow
                 clear()
