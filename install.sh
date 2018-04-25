@@ -71,3 +71,4 @@ chmod +x termget
 sudo cp termget /usr/local/bin/ # copy link program to /usr/local/bin
 echo ""
 echo ">>> Done!"
+

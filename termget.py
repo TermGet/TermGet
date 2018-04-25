@@ -573,3 +573,4 @@ except KeyboardInterrupt:
         clear()
         print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
         quit()
+
