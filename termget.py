@@ -331,7 +331,7 @@ try:
                 elif package == "zypper": os.system("sudo zypper refresh zypper ref")
                 elif package == "eopkg": os.system("sudo eopkg ur")
                 elif package == "emerge": os.system("sudo layman -f")
-                elif package == "yum": os.system("sudo yum yum check-update")
+                elif package == "yum": os.system("sudo yum check-update")
                 elif package == "pkg": os.system("sudo pkg update")
                 elif package == "chromebrew": print(reset + "This feature is unavailable for chromebrew\n")
                 elif package == "homebrew": os.system("brew update")
@@ -401,6 +401,7 @@ try:
                 input("programprogramprogramress enter to continue")
                 print("saderror wasnt involved with this easter egg")
                 input("wonder if anyone will find it?")
+
 
     if package == "pip":  # Starts a loop
         while True:
