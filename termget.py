@@ -13,8 +13,12 @@ yellow = "\033[33m"
 blue = "\033[34m"
 magenta = "\033[35m"
 cyan = "\033[36m"
-print(reset)
+
+print(reset) # disable all color on start
+
 package = " "
+
+# The TermGet SPLASHSCREEN
 termgetBig = """
 _________  _______   _______   _______   _______   _______  _________
 \__   __/ (  ____ \ (  ____ ) (       ) (  ____ \ (  ____ \ \__   __/
@@ -28,14 +32,34 @@ _________  _______   _______   _______   _______   _______  _________
 
 """
 
+def interlaceColors(string):
+    breakdoublereturn = string.split("\n\n") # top part is white bold, so split by double return will separate
+    returnstr = reset + bold + breakdoublereturn[0] + "\n\n" # put top part in return
+    mag = True # magenta? boolean
+
+    for line in breakdoublereturn[1].split("\n"): # interlace the colors for each line
+        if mag == True:
+            returnstr = returnstr + magenta + line + "\n"
+            mag = False
+        else:
+            returnstr = returnstr + cyan + line + "\n"
+            mag = True
+    return returnstr # final return for function
+
 try:
     try:
-        package_file_read = open("/usr/local/share/termget/termget-package-manager", "r").read()
+        package_file_read = open("/usr/local/share/termget/termget-package-manager", "r").read() # read package manager file
     except Exception:
         print(yellow + "Warning: Missing Package File...")
-    version = "2.1.0"
-    credit = magenta + "TermGet was created by:\n- PizzaLovingNerd (main developer)\n- SadError256\n- Dylan Cruz\n- Linux /usr/"
-
+    version = "2.1.1" # version number
+    
+    credit = magenta + (
+        "TermGet was created by:\n"
+        "- PizzaLovingNerd (main developer)\n"
+        "- SadError256\n"
+        "- Dylan Cruz\n"
+        "- Linux /usr/"
+        )
 
     def setpack(var):
         os.system('sudo bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
@@ -45,7 +69,19 @@ try:
     # Imports libraries and sets variables
 
     def pickManager():
-        print(reset + bold + "Welcome to TermGet. This is version " + version + "\n\nPlease choose a package manager:\n\n" + magenta + "1. apt-get (For Debian, and Debian based systems.)" + cyan + "\n2. xbps (For Void Linux, and Void Linux based systems)" + magenta + "\n3. dnf (For Fedora, and Fedora based systems)" + cyan + "\n4. yum (For older versions of Fedora, and older Fedora based systems)" + magenta + "\n5. zypper (For OpenSUSE, and OpenSUSE based systems)\n" + cyan + "6. eopkg (For Solus, and Solus based systems)" + magenta + "\n7. pacman (For Arch, and Arch based systems)" + cyan + "\n8. emerge(For Gentoo, and Gentoo based systems)" + magenta + "\n9. pkg (for FreeBSD, and FreeBSD based systems.)" + cyan + "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)" + magenta + "\n11. homebrew (for macOS/Mac OS X)\n\n")
+        print(interlaceColors(
+            "\nPlease choose a package manager:\n"
+            "\n1. apt-get (For Debian, and Debian based systems.)"
+            "\n2. xbps (For Void Linux, and Void Linux based systems)"
+            "\n3. dnf (For Fedora, and Fedora based systems)"
+            "\n4. yum (For older versions of Fedora, and older Fedora based systems)"
+            "\n5. zypper (For OpenSUSE, and OpenSUSE based systems)"
+            "\n6. eopkg (For Solus, and Solus based systems)"
+            "\n7. pacman (For Arch, and Arch based systems)"
+            "\n8. emerge(For Gentoo, and Gentoo based systems)" 
+            "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
+            "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)"
+            "\n11. homebrew (for macOS/Mac OS X)\n\n"))
 
     if getpass.getuser() == "chronos":
         os.system("clear")
@@ -102,14 +138,13 @@ try:
     def clear(): os.system("clear")
     # Runs "clear" over shell to clear the screen.
 
-
     clear()
+    print(reset + bold + termgetBig + "\n\nThis is version " + version)
 
     if package == " " or package == "null":  # Checks for command line argument
         pickManager()
         setup = "True"
     else:
-        print(reset + bold + termgetBig + "\n\nThis is version " + version)
         time.sleep(1)
         clear()
         setup = "False"
