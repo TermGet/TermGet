@@ -258,7 +258,10 @@ try:
 
                 if package == "apt-get": os.system("sudo apt-get install " + user)
                 elif package == "pacman":
-                    user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan +"\n1. pacman" + magenta + "\n2. yaourt\n" + reset)
+                    user1 = input(multichoicePrompt(
+                        "Which package manager would you like to use?\n"
+                        "\n1. pacman"
+                        "\n2. yaourt"))
                     if user1 == "1": os.system("sudo pacman -S " + user)
                     if user1 == "2": os.system("yaourt -S " + user)
                 elif package == "xbps": os.system("sudo xbps-install " + user)
@@ -277,7 +280,10 @@ try:
                 user = input(reset + "Please enter which package(s) to remove: ")
                 print(reset + "")
                 if package == "apt-get":
-                    user1 = input(reset + "How will you like to remove the package?\n" + cyan + "\n1. Remove, removes just the package (faster)\n" + magenta + "2. Purge, removes the package, and all it's configuration files (saves space)" + reset)
+                    user1 = input(multichoicePrompt(
+                        "How will you like to remove the package?\n"
+                        "\n1. Remove, removes just the package (faster)"
+                        "\n2. Purge, removes the package, and all it's configuration files (saves space)"))
                     clear()
                     if user1 == "1": os.system("sudo apt-get remove " + user)
                     if user1 == "2": os.system("sudo apt-get purge " + user)
@@ -299,7 +305,10 @@ try:
                     os.system("sudo apt-get upgrade")
                     os.system("sudo apt-get dist-upgrade")
                 elif package == "pacman":
-                    user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan + "\n1. pacman" + magenta + "\n2. yaourt\n" + reset)
+                    user1 = input(multichoicePrompt(
+                        "Which package manager would you like to use?\n"
+                        "\n1. pacman"
+                        "\n2. yaourt"))
                     if user1 == "1": os.system("sudo pacman -Syu")
                     if user1 == "2": os.system("yaourt -Syu")
                 elif package == "xbps": os.system("sudo xbps-install -Su")
@@ -323,7 +332,10 @@ try:
                 clear()
                 if package == "apt-get": os.system("sudo apt-get update")
                 elif package == "pacman":
-                    user1 = input(reset + "Which package manager would you like to use?\n" + reset + cyan +"\n1. pacman" + magenta + "\n2. yaourt\n" + reset)
+                    user1 = input(multichoicePrompt(
+                        "Which package manager would you like to use?\n"
+                        "\n1. pacman"
+                        "\n2. yaourt"))
                     if user1 == "1": os.system("sudo pacman -Syy")
                     if user1 == "2": os.system("yaourt -Syy")
                 elif package == "xbps": os.system("sudo xbps-install -S")
@@ -403,16 +415,24 @@ try:
                 input("wonder if anyone will find it?")
 
 
-    if package == "pip":  # Starts a loop
+    if package == "pip" or package == "pip2" or package == "pip3":  # Starts a loop
         while True:
             clear()
-            user = input(reset + "Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
+            user = input(multichoicePrompt(
+                "Please choose an action\n"
+                "\n1. Search for packages"
+                "\n2. Install an application"
+                "\n3. Upgrade a package"
+                "\n4. Remove an application"
+                "\n5. List packages installed with pip"
+                "\n6. Credits"
+                "\n7. Exit"))
 
             if user == "1":  # Search
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print(reset + " ")
-                os.system("pip search \"" + user + "\"")
+                os.system(package + " search \"" + user + "\"")
 
                 askreturn()
 
@@ -420,7 +440,7 @@ try:
                 clear()
                 user = input(reset + "Please enter which package(s) to install: ")
                 print(reset + "")
-                os.system("pip install \"" + user + "\"")
+                os.system(package + " install \"" + user + "\"")
 
                 askreturn()
 
@@ -428,7 +448,7 @@ try:
                 clear()
                 user = input(reset + "Please enter which package(s) to upgrade: ")
                 print(reset + "")
-                os.system("pip install --upgrade " + user)
+                os.system(package + " install --upgrade " + user)
 
                 askreturn()
 
@@ -436,15 +456,18 @@ try:
                 clear()
                 user = input(reset + "Please enter which package(s) to remove: ")
                 print(reset + "")
-                os.system("pip uninstall \"" + user + "\"")
+                os.system(package + " uninstall \"" + user + "\"")
                 askreturn()
 
             if user == "5":  # List
                 clear()
                 print(reset + "")
-                user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
-                if user == "1": os.system("pip list ")
-                if user == "2": os.system("pip list --outdated")
+                user = input(multichoicePrompt(
+                    "Please choose an action:\n"
+                    "\n1. List all packages"
+                    "\n2. List outdated packages"))
+                if user == "1": os.system(package + " list ")
+                if user == "2": os.system(package + " list --outdated")
                 askreturn()
 
             if user == "6":  # Credits
@@ -454,122 +477,22 @@ try:
                 clear()
 
             if user == "7":
-                print(reset)
-                quit()
-
-    if package == "pip2":  # Starts a loop
-        while True:
-            clear()
-            user = input(reset + "Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
-
-            if user == "1":  # Search
-                clear()
-                user = input(reset + "Please enter search query: ")
-                print(reset + " ")
-                os.system("pip2 search \"" + user + "\"")
-
-                askreturn()
-
-            if user == "2":  # Install
-                clear()
-                user = input(reset + "Please enter which package(s) to install: ")
-                print(reset + "")
-                os.system("pip2 install \"" + user + "\"")
-
-                askreturn()
-
-            if user == "3":  # Upgrade
-                clear()
-                user = input(reset + "Please enter which package(s) to upgrade: ")
-                print(reset + "")
-                os.system("pip2 install --upgrade " + user)
-
-                askreturn()
-
-            if user == "4":  # Remove
-                clear()
-                user = input(reset + "Please enter which package(s) to remove: ")
-                print(reset + "")
-                os.system("pip2 uninstall \"" + user + "\"")
-                askreturn()
-
-            if user == "5":  # List
-                clear()
-                print(reset + "")
-                user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
-                if user == "1": os.system("pip2 list ")
-                if user == "2": os.system("pip2 list --outdated")
-                askreturn()
-
-            if user == "6":  # Credits
-                clear()
-                print(credit)
-                time.sleep(3)
-                clear()
-
-            if user == "7":
-                print(reset)
-                quit()
-
-    if package == "pip3":  # Starts a loop
-        while True:
-            clear()
-            user = input(reset + "Please choose an action\n\n1. Search for packages\n2. Install an application\n3. Upgrade a package\n4. Remove an application\n5. List packages installed with pip\n6. Credits\n7. Exit\n\n")
-
-            if user == "1":  # Search
-                clear()
-                user = input(reset + "Please enter search query: ")
-                print(reset + " ")
-                os.system("pip3 search \"" + user + "\"")
-
-                askreturn()
-
-            if user == "2":  # Install
-                clear()
-                user = input(reset + "Please enter which package(s) to install: ")
-                print(reset + "")
-                os.system("pip3 install \"" + user + "\"")
-
-                askreturn()
-
-            if user == "3":  # Upgrade
-                clear()
-                user = input(reset + "Please enter which package(s) to upgrade: ")
-                print(reset + "")
-                os.system("pip3 install --upgrade " + user)
-
-                askreturn()
-
-            if user == "4":  # Remove
-                clear()
-                user = input(reset + "Please enter which package(s) to remove: ")
-                print(reset + "")
-                os.system("pip3 uninstall \"" + user + "\"")
-                askreturn()
-
-            if user == "5":  # List
-                clear()
-                print(reset + "")
-                user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages")
-                if user == "1": os.system("pip3 list ")
-                if user == "2": os.system("pip3 list --outdated")
-                askreturn()
-
-            if user == "6":  # Credits
-                clear()
-                print(credit)
-                time.sleep(3)
-                clear()
-
-            if user == "7":
-                # This little bit prevents the whole terminal session staying in that color
                 print(reset)
                 quit()
 
     if package == "apm":  # Starts a loop
         while True:
             clear()
-            user = input(reset + "Please choose an action\n" + cyan + "\n1. Search for packages" + magenta + "\n2. Install an application" + cyan + "\n3. Upgrade a package" + magenta + "\n4. Remove an application" + cyan + "\n5. List packages installed" + magenta + "\n6. Credits" + cyan + "\n7. Exit\n\n")
+            user = input(multichoicePrompt(
+                "Please choose an action\n"
+                "\n1. Search for packages"
+                "\n2. Install an application"
+                "\n3. Upgrade a package"
+                "\n4. Remove an application"
+                "\n5. List packages installed"
+                "\n6. Credits"
+                "\n7. Exit"))
+
             if user == "1":  # Search
                 clear()
                 user = input(reset + "Please enter search query: ")
@@ -605,7 +528,10 @@ try:
             if user == "5":  # List
                 clear()
                 print("")
-                user = input(reset + "Please choose an action:\n1. List all packages\n2. List outdated packages\n\n")
+                user = input(multichoicePrompt(
+                    "Please choose an action:\n"
+                    "\n1. List all packages"
+                    "\n2. List outdated packages"))
                 if user == "1": os.system("apm list")
                 if user == "2": os.system("apm outdated")
                 askreturn()
