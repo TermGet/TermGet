@@ -22,13 +22,13 @@ package = " "
 termgetBig = """
 _________  _______   _______   _______   _______   _______  _________
 \__   __/ (  ____ \ (  ____ ) (       ) (  ____ \ (  ____ \ \__   __/
-   ) (    | (    \/ | (    )| | () () | | (    \/ | (    \/    ) (   
-   | |    | (__     | (____)| | || || | | |       | (__        | |   
-   | |    |  __)    |     __) | |(_)| | | | ____  |  __)       | |   
-   | |    | (       | (\ (    | |   | | | | \_  ) | (          | |   
-   | |    | (____/\ | ) \ \__ | )   ( | | (___) | | (____/\    | |   
-   )_(    (_______/ |/   \__/ |/     \| (_______) (_______/    )_(    
-                                                               
+   ) (    | (    \/ | (    )| | () () | | (    \/ | (    \/    ) (
+   | |    | (__     | (____)| | || || | | |       | (__        | |
+   | |    |  __)    |     __) | |(_)| | | | ____  |  __)       | |
+   | |    | (       | (\ (    | |   | | | | \_  ) | (          | |
+   | |    | (____/\ | ) \ \__ | )   ( | | (___) | | (____/\    | |
+   )_(    (_______/ |/   \__/ |/     \| (_______) (_______/    )_(
+
 
 """
 
@@ -39,10 +39,10 @@ def multichoicePrompt(string):
 
     for line in breakdoublereturn[1].split("\n"): # interlace the colors for each line
         if mag == True:
-            returnstr = returnstr + magenta + line + "\n"
+            returnstr = returnstr + bold + magenta + line + "\n"
             mag = False
         else:
-            returnstr = returnstr + cyan + line + "\n"
+            returnstr = returnstr + bold +  cyan + line + "\n"
             mag = True
     return returnstr + "\n" # final return (with extra newline) for function
 
@@ -53,7 +53,7 @@ try:
     except Exception:
         print(yellow + "Warning: Missing Package File...")
     version = "2.1.2" # version number
-    
+
     credit = magenta + (
         "TermGet was created by:\n"
         "- PizzaLovingNerd (main developer)\n"
@@ -64,9 +64,9 @@ try:
 
     def setpack(var):
         os.system('sudo bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
-    
+
     def askreturn(): input(reset + "\nPress enter to continue")
-        
+
     # Imports libraries and sets variables
 
     def pickManager():
@@ -79,7 +79,7 @@ try:
             "\n5. zypper (For OpenSUSE, and OpenSUSE based systems)"
             "\n6. eopkg (For Solus, and Solus based systems)"
             "\n7. pacman (For Arch, and Arch based systems)"
-            "\n8. emerge(For Gentoo, and Gentoo based systems)" 
+            "\n8. emerge(For Gentoo, and Gentoo based systems)"
             "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
             "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)"
             "\n11. homebrew (for macOS/Mac OS X)")
@@ -550,4 +550,3 @@ except KeyboardInterrupt:
         clear()
         print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
         quit()
-
