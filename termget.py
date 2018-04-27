@@ -232,7 +232,7 @@ try:
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print(reset + " ")
-                if package == "apt-get": os.system("sudo apt-cache search " + user + " |"+ user)
+                if package == "apt-get": os.system("sudo apt-cache search " + user)
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
