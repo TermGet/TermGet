@@ -49,7 +49,7 @@ try:
         # package_file_read = "" # debug feature
     except Exception:
         print(yellow + "Warning: Missing Package File...")
-    version = "2.1.2" # version number
+    version = "2.1.3" # version number
 
     credit = magenta + (
         "TermGet was created by:\n"
