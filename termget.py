@@ -13,7 +13,6 @@ yellow = "\033[33m"
 blue = "\033[34m"
 magenta = "\033[35m"
 cyan = "\033[36m"
-
 print(reset) # disable all color on start
 
 package = " "
@@ -28,8 +27,6 @@ _________  _______   _______   _______   _______   _______  _________
    | |    | (       | (\ (    | |   | | | | \_  ) | (          | |
    | |    | (____/\ | ) \ \__ | )   ( | | (___) | | (____/\    | |
    )_(    (_______/ |/   \__/ |/     \| (_______) (_______/    )_(
-
-
 """
 
 def multichoicePrompt(string):
@@ -39,10 +36,10 @@ def multichoicePrompt(string):
 
     for line in breakdoublereturn[1].split("\n"): # interlace the colors for each line
         if mag == True:
-            returnstr = returnstr + bold + magenta + line + "\n"
+            returnstr = returnstr + bold + magenta + line + reset + "\n"
             mag = False
         else:
-            returnstr = returnstr + bold +  cyan + line + "\n"
+            returnstr = returnstr + bold + blue + line + reset + "\n"
             mag = True
     return returnstr + "\n" # final return (with extra newline) for function
 
@@ -261,7 +258,7 @@ try:
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
-                        "\n2. yaourt"))
+                        "\n2. yaourt" + reset))
                     if user1 == "1": os.system("sudo pacman -S " + user)
                     if user1 == "2": os.system("yaourt -S " + user)
                 elif package == "xbps": os.system("sudo xbps-install " + user)
@@ -283,7 +280,7 @@ try:
                     user1 = input(multichoicePrompt(
                         "How will you like to remove the package?\n"
                         "\n1. Remove, removes just the package (faster)"
-                        "\n2. Purge, removes the package, and all it's configuration files (saves space)"))
+                        "\n2. Purge, removes the package, and all it's configuration files (saves space)" + reset))
                     clear()
                     if user1 == "1": os.system("sudo apt-get remove " + user)
                     if user1 == "2": os.system("sudo apt-get purge " + user)
@@ -308,7 +305,7 @@ try:
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
-                        "\n2. yaourt"))
+                        "\n2. yaourt" + reset))
                     if user1 == "1": os.system("sudo pacman -Syu")
                     if user1 == "2": os.system("yaourt -Syu")
                 elif package == "xbps": os.system("sudo xbps-install -Su")
@@ -337,7 +334,7 @@ try:
                         "\n1. pacman"
                         "\n2. yaourt"))
                     if user1 == "1": os.system("sudo pacman -Syy")
-                    if user1 == "2": os.system("yaourt -Syy")
+                    if user1 == "2": os.system("yaourt -Syy" + reset)
                 elif package == "xbps": os.system("sudo xbps-install -S")
                 elif package == "dnf": os.system("sudo dnf clean expire-cache && sudo dnf check-update")
                 elif package == "zypper": os.system("sudo zypper refresh zypper ref")
@@ -397,23 +394,11 @@ try:
 
             if user == "9":
                 clear()
-                print(reset+"Entering bash...")
-                print(reset+"Press CTRL+D or type \"exit\" to return to termget.")
+                print(reset + "Entering bash...")
+                print(reset + "Press CTRL+D or type \"exit\" to return to termget.")
                 os.system("bash")
-                print(reset+"Returning to termget...")
+                print(reset + "Returning to termget...")
                 clear()
-
-            if user == "42":
-                clear()
-                print(reset+"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-                input(reset+"Press enter to leave this boring easter egg...")
-                input("I SAID... PRESS ENTER!")
-                print(reset+"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-                input("this program is broken now")
-                input("programprogramprogramress enter to continue")
-                print("saderror wasnt involved with this easter egg")
-                input("wonder if anyone will find it?")
-
 
     if package == "pip" or package == "pip2" or package == "pip3":  # Starts a loop
         while True:
@@ -539,8 +524,8 @@ try:
             if user == "6":  # Credits - Meooow
                 clear()
                 print(credit)
-                time.sleep(3)
-                clear()
+                
+                askreturn()
 
             if user == "7":
                 print(reset)
