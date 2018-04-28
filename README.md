@@ -30,20 +30,58 @@ TermGet is a frontend for:
  - Great for introducing package management to new users
  - Code is easy to modify.
 
-## Where can I get TermGet?
+## How do I install TermGet on Linux, BSD, and MacOS.
 
-To get an alpha build, please clone the [TermGet GitHub repository](https://github.com/PizzaLovingNerd/TermGet)
+### Installing Python3
 
-To get a beta or release build, please go to the releases tab, of the [TermGet GitHub repository](https://github.com/PizzaLovingNerd/TermGet/releases)
+To install TermGet, we need to install python3. To check ot see if it's already installed type:
 
-## How do I install TermGet on Linux, and BSD
+    python3 --version
 
-First install python3. Once you've done that, download and unzip TermGet. Now open a terminal, and go to your downloads folder (Or where ever you have unzipped it).
+Install off your operating system's respository.
+If you on MacOS, download it from https://python.org
 
-If this is a first time install or your upgrading TermGet, type:
-    bash install.sh
+After you install python3, download TermGet.
 
-## First Time Setup On Linux, and BSD
+Before you run the install TermGet there are some OS specific dependencies.
+
+### Arch Linux Dependencies
+
+If you are on Arch Linux, you need to install yaourt in order to use the AUR. To do this, open a terminal and type:
+
+    git clone https://aur.archlinux.org/package-query.git
+    cd package-query
+    makepkg -si
+    cd ..
+    git clone https://aur.archlinux.org/yaourt.git
+    cd yaourt
+    makepkg -si
+    cd ..
+
+### Mac OS Dependencies
+
+If you are on Mac OS, you need to install Homebrew. To do this open a terminal and type:
+
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+### Downloading and Installing TermGet
+
+Now we need to download TermGet
+
+To get an alpha build, please clone the [TermGet GitHub repository](https://github.com/TermGet/TermGet)
+
+To get a beta or release build, please go to the releases tab, of the [TermGet GitHub repository](https://github.com/TermGet/TermGet/releases)
+
+Extract TermGet somewhere and open a terminal window.
+
+Now set your current directory in the terminal to the extracted TermGet folder, (example: ```cd ~/Downloads/TermGet-2.1.3```)
+
+Now type:
+    
+    sudo bash install.sh
+
+## First Time Setup On Linux, BSD, and MacOS.
 
 After installing, run TermGet using
 
@@ -61,57 +99,48 @@ you should get a message that sort of looks like this:
     6. pacman (For Arch, and Arch based systems)
     .....list goes on
 
-Choose your distribution's package manager using the number. My package manager is eopkg, so I would type "5" and press enter.
+Choose your distribution's package manager using the number. My package manager is eopkg, so I would type "5" and press enter. 
+
+If you are on MacOS type ```11``` for homebrew.
 
 ## How do I install TermGet on ChromeOS
-### Warning: Not fully tested
+### Warning: TermGet on ChromeOS is not offically supported. TermGet on ChromeOS is also super buggy.
 
 First put your Chromebook in [developer mode](https://www.howtogeek.com/210817/how-to-enable-developer-mode-on-your-chromebook/ "developer mode").
 
-Check if Python3 is already installed on your system. Do so by typing
+Now, Open Crosh, and type ```shell```. Check if Python3 is already installed on your system. Do so by typing
 
-    python3
+    python3 --version
 
-If you are brought to a prompt, then it is installed, you may now type exit() to leave Python3
+If it is your good to go to the next step.
 
 If not, then [watch this video](https://www.youtube.com/watch?v=X7Y8b2S3nEA)
 
 If you would rather read instead of a video, [click here](https://wsvincent.com/install-python3-chromebook/)
 
-Now download Termget and cd into it, then run
+Once you have installed python, we need to install Chromebrew. To do this type:
+
+    wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash
+
+    -- or --
+
+    curl -Ls git.io/vddgY | bash
+
+Now download TermGet and cd into it, then run
 
     bash install.sh
 
 and it will install, if you get errors report it to the github issues.
 
-That's it, type "termget" into the prompt and you should be good
+That's it, type "termget" into the prompt and you should be good.
 
-## First Time Setup On macOS
-
-After installing, run TermGet using
-
-    termget
-
-you should get a message that sort of looks like this:
-
-    Please choose a package manager
-
-    1. apt-get (For Debian, and Debian based systems.)
-    2. xbps (For Void Linux, and Void Linux based systems)
-    3. dnf (For Fedora, and Fedora based systems)
-    4. zypper (For OpenSUSE, and OpenSUSE based systems)
-    5. eopkg (For Solus, and Solus based systems)
-    6. pacman (For Arch, and Arch based systems)
-    .....list goes on
-
-Choose homebrew by typing "11".
-## How do I use TermGet on Linux, BSD, or Mac
+## How do I use TermGet on Linux, BSD, MacOS, and ChromeOS
 
 This section gets updated with every release, if you are using an alpha or beta build, there might be extra features that aren't on this section of the README file.
 
 TermGet is really easy to use. To run it, all you have to do is open a terminal, and type:
 
-    sudo termget
+    termget
 
 
 Just select using the number (for example if my package manager was apt-get, I would type the number 1, and press enter).
@@ -128,6 +157,7 @@ Once your package manager has been chosen, you will get a message like this:
     6. Clean
     7. Credits
     8. Exit
+    9. Enter shell
 
 *We will be using "eopkg" in the examples below.*
 *Results may vary for other package managers*
@@ -223,6 +253,9 @@ Cleaning helps save hard drive space. It does this by deleting cache, and deleti
 
 	  Press enter to continue
 
+### Entering the Shell
+If you want to run a shell command like to add a PPA or something like that, you can open the shell and run the command, then type ```exit``` or press CTRL-D to leave the shell.
+
 ## Changing the package manager
 
 ### Temporarily (On Linux, BSD, and macOS.)
@@ -232,9 +265,15 @@ To Temporarily change the package manager used, use an argument. For example, if
     sudo termget apt-get
 
 ### Permanently (On Linux, BSD, and macOS)
-run the following command in a terminal, then the first setup script will start next time you run termget.
+Run the following command in a terminal, then the first setup script will start next time you run termget.
 
-    rm -rf ~/.termget/termget-package-manager && > ~/.termget/termget-package-manager
+If you are rnuning a version of TermGet after 2.0.1 run:
+
+    sudo rf /usr/local/share/termget/termget-package-manager && > /usr/local/share/termget/termget-package-manager
+
+If you are running a version of TermGet before 2.1.0 run:
+
+    rf ~/.termget/termget-package-manager && > ~/.termget/termget-package-manager
 
 
 ## Installing TermGet on Windows
