@@ -79,7 +79,8 @@ try:
             "\n8. emerge(For Gentoo, and Gentoo based systems)"
             "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
             "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)"
-            "\n11. homebrew (for macOS/Mac OS X)")
+            "\n11. homebrew (for macOS/Mac OS X)"
+            "\n12. nix (For NixOS, and NixOS based systems.)")
 
     if getpass.getuser() == "chronos":
         os.system("clear")
@@ -115,6 +116,7 @@ try:
         elif sys.argv[1] == "pkg": package = "pkg"
         elif sys.argv[1] == "chromebrew": package = "chromebrew"
         elif sys.argv[1] == "homebrew": package = "homebrew"
+        elif sys.argv[1] == "nix": package = "nix"
 
     try:
         if package == " ":
@@ -129,6 +131,7 @@ try:
             elif package_file_read == "pkg": package = "pkg"
             elif package_file_read == "chromebrew": package = "chromebrew"
             elif package_file_read == "homebrew": package = "homebrew"
+            elif package_file_read == "nix": package = "nix"
             print(reset + "package manager set to " + package)
     except Exception:
         print(yellow + "Warning: Missing Package File...")
@@ -199,6 +202,10 @@ try:
             setup = "false"
             package = "homebrew"
             setpack("homebrew")
+        elif user == "12":
+            setup = "false"
+            package = "nix"
+            setpack("nix")
         else:
             clear()
             print(red + "Error. Invalid package manager")
@@ -246,6 +253,7 @@ try:
                 elif package == "pkg": os.system("pkg search " + user)
                 elif package == "chromebrew": os.system("crew search " + user)
                 elif package == "homebrew": os.system("brew search " + user)
+                elif package == "nix": os.system("nix search " + user)
                 askreturn()
 
             if user == "2":  # Install
@@ -270,6 +278,7 @@ try:
                 elif package == "pkg": os.system("sudo pkg install " + user)
                 elif package == "chromebrew": os.system("crew install " + user)
                 elif package == "homebrew": os.system("brew install " + user)
+                elif package == "nix": os.system("nix-env -i " + user)
                 askreturn()
 
             if user == "3":  # Remove MEOW
@@ -294,6 +303,7 @@ try:
                 elif package == "pkg": os.system("sudo pkg delete " + user)
                 elif package == "chromebrew": os.system("crew remove " + user)
                 elif package == "homebrew": os.system("brew uninstall " + user)
+                elif package == "nix": os.system("nix-env -e " + user)
                 askreturn()
 
             if user == "4":  # Updates Packages
@@ -323,6 +333,7 @@ try:
                 elif package == "pkg": os.system("sudo pkg upgrade")
                 elif package == "chromebrew": os.system("crew upgrade")
                 elif package == "homebrew": os.system("brew upgrade")
+                elif package == "nix": os.system("nix-env -u '*'")
                 askreturn()
 
             if user == "5":  # Updates Database MEOW
@@ -344,6 +355,7 @@ try:
                 elif package == "pkg": os.system("sudo pkg update")
                 elif package == "chromebrew": print(reset + "This feature is unavailable for chromebrew\n")
                 elif package == "homebrew": os.system("brew update")
+                elif package == "nix": os.system("nix-channel --update nixpkgs")
                 askreturn()
 
             if user == "6":  # Cleans
@@ -380,6 +392,7 @@ try:
                     os.system("sudo pkg autoremove")
                 elif package == "chromebrew": print(reset + "This feature is unavailable on chromebrew\n")
                 elif package == "homebrew": print(reset + "Homebrew already does this automagically. :)\n")
+                elif package == "nix": os.system("nix-collect-garbage -d")
                 askreturn()
 
             if user == "7":  # Credits QUACK!!
@@ -390,6 +403,7 @@ try:
 
             if user == "8":
                 print(reset)
+                clear()
                 quit()
 
             if user == "9":

@@ -35,6 +35,9 @@ elif [[ $(which crew 2> /dev/null) ]]; then
 elif [[ $(which emerge 2> /dev/null) ]]; then
         echo -n "A Gentoo or Gentoo-based system has been detected. Emerge will be used. Is this correct? [y/n] "
         pm=emerge
+elif [[ $(which nix 2> /dev/null) ]]; then
+	echo -n "A NixOS or NixOS-based system has been detected. Nix will be used. Is this correct? [y/n] "
+	pm=nix
 elif [[ $(which pkg 2> /dev/null) ]]; then
         echo -n "You're one of those weird FreeBSD users, aren't you? If so, pkg will be used. Is this correct? [y/n] "
         pm=pkg
