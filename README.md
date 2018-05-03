@@ -279,6 +279,26 @@ If you are running a version of TermGet before 2.1.0 run:
 ## Installing TermGet on Windows
 TermGet isn't out for Windows yet.
 
+## Using PIP
+
+To run TermGet with PIP, just run:
+
+```termget pip```
+
+---or---
+
+```termget pip2```
+
+---or---
+
+```termget pip3```
+
+## Using APM
+
+To run TermGet with APM, just run:
+
+```termget apm```
+
 ## License
 
 Licensed under LGPLv3
