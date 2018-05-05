@@ -7,15 +7,9 @@ then
 fi
 
 # autodetection. If the incorrect one shows, it is possible that you have a program on your system that has the same name as a package manager.
-if [[ $(which apt-get 2> /dev/null) ]]; then
-	echo -n "A Debian or Debian-based system has been detected. Apt-get will be used. Is this correct? [y/n] "
-	pm=apt-get
-elif [[ $(which brew 2> /dev/null) ]]; then
+if [[ $(which brew 2> /dev/null) ]]; then
         echo -n "Why do you torture yourself with using Mac OS? Fine, homebrew will be used. Is this correct? [y/n] "
         pm=homebrew
-elif [[ $(which pacman 2> /dev/null) ]]; then
-	echo -n "An Arch or Arch-based system has been detected. Pacman will be used. Is this correct? [y/n] "
-	pm=pacman
 elif [[ $(which xbps-install 2> /dev/null) ]]; then
 	echo -n "A Void or Void-based system has been detected. XBPS will be used. Is this correct? [y/n] "
 	pm=xbps
@@ -34,12 +28,18 @@ elif [[ $(which crew 2> /dev/null) ]]; then
 elif [[ $(which emerge 2> /dev/null) ]]; then
         echo -n "A Gentoo or Gentoo-based system has been detected. Emerge will be used. Is this correct? [y/n] "
         pm=emerge
-elif [[ $(which nix 2> /dev/null) ]]; then
-	echo -n "A NixOS or NixOS-based system has been detected. Nix will be used. Is this correct? [y/n] "
-	pm=nix
 elif [[ $(which pkg 2> /dev/null) ]]; then
         echo -n "You're one of those weird FreeBSD users, aren't you? If so, pkg will be used. Is this correct? [y/n] "
         pm=pkg
+elif [[ $(which pacman 2> /dev/null) ]]; then
+	echo -n "An Arch or Arch-based system has been detected. Pacman will be used. Is this correct? [y/n] "
+	pm=pacman
+elif [[ $(which apt-get 2> /dev/null) ]]; then
+	echo -n "A Debian or Debian-based system has been detected. Apt-get will be used. Is this correct? [y/n] "
+	pm=apt-get
+elif [[ $(which nix 2> /dev/null) ]]; then
+	echo -n "A NixOS or NixOS-based system has been detected. Nix will be used. Is this correct? [y/n] "
+	pm=nix
 else
 	echo -n "A package manager has failed to be detected. If you proceed to install the program, termget will ask 
 you to set a package manager manually on first launch. Proceed to install? [y/n] "
