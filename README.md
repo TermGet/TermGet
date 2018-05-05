@@ -19,14 +19,22 @@ TermGet is a frontend for:
  - sol  (Coming Soon)
  - chocolatey (Coming Soon)
 
+## GUI Mode!
+
+GUI should show up! if not, it will tell you how to install the TK toolkit, which is required to show the window.
+
+    termget gui
+
+Termget also has a GUI! Run the GUI with the following command:
 
 ## What are some of it's features
 
  - Simple, easy to use interface
  - Works in the command line
+ - Has a GUI optionally
  - Supports a lot of package managers
  - Feature rich
- - Works on any Linux/Mac distribution (and soon Windows)
+ - Works on any Linux/ChromeOS/Mac distribution (and soon Windows)
  - Great for introducing package management to new users
  - Code is easy to modify.
 

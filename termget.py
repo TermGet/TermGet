@@ -1,8 +1,13 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import os
 import time
 import sys
 import getpass
+
+try:
+    from tkinter import *
+except Exception:
+    pass
 
 # Colors (Thanks to Linux /usr/ for this code)
 bold = "\033[1m"
@@ -213,6 +218,114 @@ try:
             clear()
             user = input(pickManager())
             # Sets package manager lolz
+    
+    try:
+        if sys.argv[1] == "gui":
+            print("GUI Loading...")
+            root = Tk()
+            root.title("Termget")
+            root.geometry("300x300")
+            
+            def pms():
+                searcher = Tk()
+                searcher.title("Install Dialog")
+                searcher.geometry("300x300")
+            
+            def pmi():
+                installer = Tk()
+                installer.title("Install Dialog")
+                installer.geometry("300x300")
+            
+            def pmr():
+                remover = Tk()
+                remover.title("Install Dialog")
+                remover.geometry("300x300")
+            
+            def pmua():
+                installer = Tk()
+                installer.title("Install Dialog")
+                installer.geometry("300x300")
+            
+                
+            #1. Search for packages
+            #2. Install an application
+            #3. Remove an application
+            #4. Update all packages
+            #5. Update Database
+            #6. Clean
+            #7. Credits
+            #8. Exit
+            #9. Enter shell
+                
+            
+            lab = Label(text="Welcome to Termget "+version+"! Please choose an action.", fg="purple")
+            search = Button(text="Search Packages",command=pms,bg="green",fg="white")
+            install = Button(text="Install Package",command=pmi,bg="black",fg="white")
+            remove = Button(text="Remove Package",command=pmr,bg="green",fg="white")
+            updateall = Button(text="Update All Packages",command=pmua,bg="black",fg="white")
+            
+            var = IntVar()
+            
+            #1. apt-get (For Debian, and Debian based systems.)
+            #2. xbps (For Void Linux, and Void Linux based systems)
+            #3. dnf (For Fedora, and Fedora based systems)
+            #4. yum (For older versions of Fedora, and older Fedora based systems)
+            #5. zypper (For OpenSUSE, and OpenSUSE based systems)
+            #6. eopkg (For Solus, and Solus based systems)
+            #7. pacman (For Arch, and Arch based systems)
+            #8. emerge(For Gentoo, and Gentoo based systems)
+            #9. pkg (for FreeBSD, and FreeBSD based systems.)
+            #10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)
+            #11. homebrew (for macOS/Mac OS X)
+            #12. nix (For NixOS, and NixOS based systems.)
+
+            option1 = Radiobutton(root, text="apt-get", variable=var, value=1)
+            option2 = Radiobutton(root, text="xbps", variable=var, value=2)
+            option3 = Radiobutton(root, text="dnf", variable=var, value=3)
+            option4 = Radiobutton(root, text="yum", variable=var, value=4)
+            option5 = Radiobutton(root, text="zypper", variable=var, value=5)
+            option6 = Radiobutton(root, text="eopkg", variable=var, value=6)
+            option7 = Radiobutton(root, text="pacman", variable=var, value=7)
+            option8 = Radiobutton(root, text="emerge", variable=var, value=8)
+            option9 = Radiobutton(root, text="pkg", variable=var, value=9)
+            option10 = Radiobutton(root, text="chromebrew", variable=var, value=10)
+            option11 = Radiobutton(root, text="homebrew", variable=var, value=11)
+            option12 = Radiobutton(root, text="nix", variable=var, value=12)
+            
+            # note to pizza and others that dont understand tk.
+            # If you add an option from above make sure to pack it in the order, keep it clean
+            # like the code below
+            
+            lab2 = Label(text="Choose your package manager")
+            
+            # packing process
+            lab.pack()
+            search.pack()
+            install.pack()
+            remove.pack()
+            updateall.pack()
+            updatedata.pack()
+            clean.pack()
+            credits.pack()
+            
+            lab2.pack()
+            option1.pack()
+            option2.pack()
+            option3.pack()
+            option4.pack()
+            option5.pack()
+            option6.pack()
+            option7.pack()
+            option8.pack()
+            option9.pack()
+            option10.pack()
+            option11.pack()
+            option12.pack()
+            
+            root.mainloop()
+            sys.exit()
+    except Exception:
+        pass
 
     # MEOW!
 

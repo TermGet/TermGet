@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# NOTE: Do NOT change if statement to /usr/local/bin/termget. This is to remove a build that was installed by an older version of the installer.
-if [ -e /usr/bin/termget ];
+if [ -e /usr/local/bin/termget ];
 then
   echo "Old build of TermGet found. Removing it ..."
-  sudo rm -rf /usr/bin/termget
+  sudo rm -rf /usr/local/bin/termget
 fi
 
 # autodetection. If the incorrect one shows, it is possible that you have a program on your system that has the same name as a package manager.
@@ -62,16 +61,13 @@ you to set a package manager manually on first launch. Proceed to install? [y/n]
 	fi
 fi
 
-echo ">>> setting up directories"
-rm -rf ~/.termget/ # remove old config directories
+echo "setting up directories"
+rm -rf /usr/local/share/termget/ # remove old config directories
 sudo mkdir /usr/local/share/termget # create new config directory (will only show warning if it already exists)
-echo ">>> copying program to /usr/local/bin"
-sudo cp termget.py /usr/local/bin/ # copy program to PATH (will only show warning if it needs to overwrite)
-echo ">>> generating package file"
-sudo bash -c "echo -n $pm > /usr/local/share/termget/termget-package-manager" # copy package file to config direcotry
-echo ">>> installing"
-chmod +x termget
-sudo cp termget /usr/local/bin/ # copy link program to /usr/local/bin
+echo "...copying program to /usr/local/bin"
+chmod +x termget.py
+sudo cp termget.py /usr/local/bin/termget # copy program to PATH (will only show warning if it needs to overwrite)
+echo "...generating package file"
+sudo bash -c "echo -n $pm > /usr/local/share/termget/termget-package-manager" # copy package file to config directory
 echo ""
-echo ">>> Done!"
-
+echo "Successfully Installed!"
