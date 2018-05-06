@@ -87,7 +87,13 @@ Now set your current directory in the terminal to the extracted TermGet folder, 
 
 Now type:
     
-    sudo bash install.sh
+    ./install.sh
+
+If you want to run the install script without detection of the OS, there is a mode for that:
+
+    ./install.sh --no-detection
+
+The above command can be used if the package file already exists from an older build of TermGet. It can also be used if you want TermGet to directly ask you what package manager you would want to use.
 
 ## First Time Setup On Linux, BSD, and MacOS.
 
