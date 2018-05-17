@@ -23,6 +23,7 @@ if [ "$1" != "--no-detection" ]; then
 	elif [[ $(which emerge 2> /dev/null) ]]; then
 		echo -n "A Gentoo or Gentoo-based system has been detected. Emerge will be used. Is this correct? [y/n] "
 		pm=emerge
+		echo "Good thing you don't have to compile this"
 	elif [[ $(which pkg 2> /dev/null) ]]; then
 		echo -n "You're one of those weird FreeBSD users, aren't you? If so, pkg will be used. Is this correct? [y/n] "
 		pm=pkg
@@ -58,14 +59,14 @@ if [ "$1" != "--no-detection" ]; then
 fi
 
 echo "setting up directories"
-sudo bash -c "mkdir /usr/local/share/termget 2> /dev/null" # create new config directory if one doesn't exist
+sudo bash -c "mkdir /usr/share/termget 2> /dev/null" # create new config directory if one doesn't exist
 echo "... installing program to /usr/local/bin"
 chmod +x termget.py
-sudo cp termget.py /usr/local/bin/termget # copy program to PATH
+sudo cp termget.py /usr/bin/termget # copy program to PATH
 
 if [ "$1" != "--no-detection" ]; then
 	echo "... generating package file"
-	sudo bash -c "echo -n $pm > /usr/local/share/termget/termget-package-manager" # copy package file to config directory
+	sudo bash -c "echo -n $pm > /usr/share/termget/termget-package-manager" # copy package file to config directory
 fi
 
 echo -e "\nSuccessfully Installed!"
