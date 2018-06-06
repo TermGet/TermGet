@@ -1,4 +1,4 @@
-﻿# What is TermGet?
+# What is TermGet?
 TermGet is a project made by PizzaLovingNerd, several others.
 
 TermGet is a frontend for:
@@ -16,16 +16,8 @@ TermGet is a frontend for:
  - chromebrew
  - emerge
  - pip
- - sol  (Coming Soon)
+ - sol  (Coming Soon When SOL Comes Out)
  - chocolatey (Coming Soon)
-
-## GUI Mode!
-
-GUI should show up! if not, it will tell you how to install the TK toolkit, which is required to show the window.
-
-    termget gui
-
-Termget also has a GUI! Run the GUI with the following command:
 
 ## What are some of it's features
 
