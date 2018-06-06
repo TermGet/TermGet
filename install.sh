@@ -59,10 +59,10 @@ if [ "$1" != "--no-detection" ]; then
 fi
 
 echo "setting up directories"
-sudo bash -c "mkdir /usr/share/termget 2> /dev/null" # create new config directory if one doesn't exist
+sudo bash -c "mkdir /usr/local/share/termget 2> /dev/null" # create new config directory if one doesn't exist
 echo "... installing program to /usr/local/bin"
 chmod +x termget.py
-sudo cp termget.py /usr/bin/termget # copy program to PATH
+sudo cp termget.py /usr/local/bin/termget # copy program to PATH
 
 if [ "$1" != "--no-detection" ]; then
 	echo "... generating package file"
