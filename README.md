@@ -84,6 +84,10 @@ Now type:
 If you want to run the install script without detection of the OS, there is a mode for that:
 
     ./install.sh --no-detection
+    
+If you are on Solus
+
+    ./install-solus.sh
 
 The above command can be used if the package file already exists from an older build of TermGet. It can also be used if you want TermGet to directly ask you what package manager you would want to use.
 
