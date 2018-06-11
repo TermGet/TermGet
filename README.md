@@ -69,9 +69,9 @@ If you are on Mac OS, you need to install Homebrew. To do this open a terminal a
 
 Now we need to download TermGet
 
-To get an alpha build, please clone the [TermGet GitHub repository](https://github.com/TermGet/TermGet)
+To get an alpha build, please clone the [TermGet GitLab repository](https://gitlab.com/TermGet/TermGet)
 
-To get a beta or release build, please go to the releases tab, of the [TermGet GitHub repository](https://github.com/TermGet/TermGet/releases)
+To get a beta or release build, please go to the releases tab, of the [TermGet GitLab repository](https://github.com/TermGet/TermGet/releases)
 
 Extract TermGet somewhere and open a terminal window.
 
