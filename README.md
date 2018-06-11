@@ -69,9 +69,9 @@ If you are on Mac OS, you need to install Homebrew. To do this open a terminal a
 
 Now we need to download TermGet
 
-To get an alpha build, please clone the [TermGet GitLab repository](https://gitlab.com/TermGet/TermGet)
+To get an alpha build, switch your branch to the alpha branch, and click the download button on the top right corner
 
-To get a beta or release build, please go to the releases tab, of the [TermGet GitLab repository](https://github.com/TermGet/TermGet/releases)
+To get a stable build, go to the [TermGet GitLab repository](https://gitlab.com/TermGet/TermGet), and click the download button on the top right corner.
 
 Extract TermGet somewhere and open a terminal window.
 
@@ -85,7 +85,7 @@ If you want to run the install script without detection of the OS, there is a mo
 
     ./install.sh --no-detection
     
-If you are on Solus
+If you are on Solus use the solus installer.
 
     ./install-solus.sh
 
