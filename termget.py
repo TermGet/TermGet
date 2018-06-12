@@ -62,7 +62,7 @@ try:
     def setpack(var):
         os.system('sudo bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
 
-    def askreturn(): input(reset + "\nPress enter to continue")
+    def askreturn(): input(reset + yellow + "\nPress enter to continue")
 
     # Imports libraries and sets variables
 

@@ -59,14 +59,21 @@ if [ "$1" != "--no-detection" ]; then
 fi
 
 echo "setting up directories"
+
+# some operating systems don't have a /usr/local/, so it will create it & child directories if necessary
+sudo bash -c "mkdir /usr/local 2> /dev/null"
+sudo bash -c "mkdir /usr/local/bin 2> /dev/null"
+sudo bash -c "mkdir /usr/local/share 2> /dev/null"
+
 sudo bash -c "mkdir /usr/local/share/termget 2> /dev/null" # create new config directory if one doesn't exist
+
 echo "... installing program to /usr/local/bin"
 chmod +x termget.py
 sudo cp termget.py /usr/local/bin/termget # copy program to PATH
 
 if [ "$1" != "--no-detection" ]; then
 	echo "... generating package file"
-	sudo bash -c "echo -n $pm > /usr/share/termget/termget-package-manager" # copy package file to config directory
+	sudo bash -c "echo -n $pm > /usr/local/share/termget/termget-package-manager" # copy package file to config directory
 fi
 
-echo -e "\nSuccessfully Installed!"
+echo -e "\nSuccessfully Installed! If it's not working, try logging out and logging back in again to reset the PATH."
