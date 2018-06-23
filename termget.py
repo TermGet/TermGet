@@ -48,8 +48,11 @@ try:
         package_file_read = open("/usr/local/share/termget/termget-package-manager", "r").read() # read package manager file
         # package_file_read = "" # debug feature
     except Exception:
-        print(yellow + "Warning: Missing Package File...")
-    version = "2.1.4" # version number
+        try:
+            package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
+        except Exception:
+            print(yellow + "Warning: Missing Package File...")
+    version = "2.1.5" # version number
 
     credit = magenta + (
         "TermGet was created by:\n"
