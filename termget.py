@@ -58,9 +58,10 @@ try:
         "TermGet was created by:\n"
         "- PizzaLovingNerd (main developer)\n"
         "- SadError256\n"
-        "- Dylan Cruz\n"
         "- Linux /usr/"
         )
+
+    # sorry dylan! :3 youve had no contributions
 
     def setpack(var):
         os.system('sudo bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
@@ -83,7 +84,8 @@ try:
             "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
             "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)"
             "\n11. homebrew (for macOS/Mac OS X)"
-            "\n12. nix (For NixOS, and NixOS based systems.)")
+            "\n12. nix (For NixOS, and NixOS based systems.)"
+        )
 
     if getpass.getuser() == "chronos":
         os.system("clear")
@@ -120,7 +122,9 @@ try:
         elif sys.argv[1] == "chromebrew": package = "chromebrew"
         elif sys.argv[1] == "homebrew": package = "homebrew"
         elif sys.argv[1] == "nix": package = "nix"
-
+        elif sys.argv[1] == "npm": package = "npm" # npm is not a distro pm. do not add it under the choose
+                                                   # a package manager
+            
     try:
         if package == " ":
             if package_file_read == "apt-get": package = "apt-get"
@@ -209,6 +213,10 @@ try:
             setup = "false"
             package = "nix"
             setpack("nix")
+        elif user == "13":
+            setup = "false"
+            package = "npm"
+            setpack("npm")
         else:
             clear()
             print(red + "Error. Invalid package manager")
@@ -219,7 +227,7 @@ try:
 
     # MEOW!
 
-    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm":
+    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm":
         while True:  # Starts a loop
             clear()
 
@@ -233,7 +241,7 @@ try:
                 "\n6. Clean"
                 "\n7. Credits"
                 "\n8. Exit"
-                "\n9. Enter shell"))  # Asks for user input
+                "\n9. Enter shell\n\n"))  # Asks for user input
 
             if user == "1":  # Searc-meow
                 clear()
@@ -398,7 +406,7 @@ try:
                 elif package == "nix": os.system("nix-collect-garbage -d")
                 askreturn()
 
-            if user == "7":  # Credits QUACK!!
+            if user == "7":  # Credits
 
                 clear()
                 print(credit)
@@ -548,6 +556,8 @@ try:
                 print(reset)
                 quit()
 
+    elif # TODO
+        
 except KeyboardInterrupt:
         clear()
         print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
