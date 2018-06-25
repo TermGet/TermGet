@@ -35,7 +35,7 @@ run:
   - python setup.py bdist_wheel
   # an alternative approach is to install and run:
   - pip install dist/*
-  python3 main.py
+  - python3 main.py
   artifacts:
     paths:
     - dist/*.whl
