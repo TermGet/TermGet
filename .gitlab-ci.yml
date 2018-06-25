@@ -26,9 +26,6 @@ before_script:
 
 run:
   script:
-  - python setup.py bdist_wheel
-  # an alternative approach is to install and run:
-  - pip install dist/*
   - python3 termget.py
   artifacts:
     paths:
