@@ -17,7 +17,7 @@ TermGet is a frontend for:
  - emerge
  - pip
  - sol  (Coming Soon When SOL Comes Out)
- - chocolatey (Coming Soon)
+ - chocolatey [(Work In Progress)](https://gitlab.com/TermGet/TermGet-Windows)
 
 ## What are some of it's features
 
