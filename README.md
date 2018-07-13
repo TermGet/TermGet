@@ -1,1 +1,1 @@
-The documentation has moved to the (TermGet Website)[https://termget.gitlab.io]
+The documentation has moved to the [TermGet Website](https://termget.gitlab.io)
