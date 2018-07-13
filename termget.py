@@ -555,9 +555,7 @@ try:
             if user == "7":
                 print(reset)
                 quit()
-
-    elif # TODO
-        
+                
 except KeyboardInterrupt:
         clear()
         print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
