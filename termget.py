@@ -177,7 +177,7 @@ try:
             setup = "false"
             package = "dnf"  # Sets package manager to dnf
             setpack("dnf")
-        elif user == "4" or user == "yum":
+        elif user == "4"
             setup = "false"
             package = "yum"  # Sets package manager to yum
             setpack("yum")
