@@ -1,6 +1,12 @@
 #!/bin/bash
 
 # autodetection. If the incorrect one shows, it is possible that you have a program on your system that has the same name as a package manager.
+echo "Hello, can you tell what language do you want to use ?"
+echo "1. English"
+echo "2. German"
+
+read lang
+
 if [ "$1" != "--no-detection" ]; then
 	if [[ $(which brew 2> /dev/null) ]]; then
 		echo -n "Why do you torture yourself with using Mac OS? Fine, homebrew will be used. Is this correct? [y/n] "
@@ -67,9 +73,16 @@ sudo bash -c "mkdir /usr/local/share 2> /dev/null"
 
 sudo bash -c "mkdir /usr/local/share/termget 2> /dev/null" # create new config directory if one doesn't exist
 
-echo "... installing program to /usr/local/bin"
-chmod +x termget.py
-sudo cp termget.py /usr/local/bin/termget # copy program to PATH
+if [ "$lang" == "2" ]; then
+	echo "... installing program to /usr/local/bin"
+	chmod +x termget-german.py
+	sudo cp termget-german.py /usr/local/bin/termget # copy program to PATH
+
+elif [ "$lang" == "1" ]; then
+	echo "... installing program to /usr/local/bin"
+	chmod +x termget.py
+	sudo cp termget.py /usr/local/bin/termget # copy program to PATH
+fi
 
 if [ "$1" != "--no-detection" ]; then
 	echo "... generating package file"
