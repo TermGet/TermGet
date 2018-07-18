@@ -3,7 +3,7 @@
 # autodetection. If the incorrect one shows, it is possible that you have a program on your system that has the same name as a package manager.
 echo "Hello, can you tell what language do you want to use ?"
 echo "1. English"
-echo "2. German"
+echo "2. Deutsch"
 
 read lang
 
@@ -75,8 +75,8 @@ sudo bash -c "mkdir /usr/local/share/termget 2> /dev/null" # create new config d
 
 if [ "$lang" == "2" ]; then
 	echo "... installing program to /usr/local/bin"
-	chmod +x termget-german.py
-	sudo cp termget-german.py /usr/local/bin/termget # copy program to PATH
+	chmod +x termget-deutsch.py
+	sudo cp termget-deutsch.py /usr/local/bin/termget # copy program to PATH
 
 elif [ "$lang" == "1" ]; then
 	echo "... installing program to /usr/local/bin"
