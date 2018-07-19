@@ -3,6 +3,7 @@ import os
 import time
 import sys
 import getpass
+import urllib.request
 
 # Colors (Thanks to Linux /usr/ for this code)
 bold = "\033[1m"
@@ -52,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warnung: Fehlende Paket-Datei...")
-    version = "2.2" # version number
+    version = "2.3" # version number
 
     credit = magenta + (
         "TermGet wurde erstellt von:\n"
@@ -240,9 +241,10 @@ try:
                 "\n4. Update alle Pakete"
                 "\n5. Update die Datenbank"
                 "\n6. Leere den Cash"
-                "\n7. Credits"
-                "\n8. Verlassen"
-                "\n9. Betrete die shell\n\n"))  # Asks for user input
+                "\n7. Überprüfe nach TermGet aktualisierungen"
+                "\n8. Credits"
+                "\n9. Verlassen"
+                "\n10. Betrete die shell\n\n"))  # Asks for user input
 
             if user == "1":  # Searc-meow
                 clear()
@@ -412,18 +414,35 @@ try:
                 elif package == "nix": os.system("nix-collect-garbage -d")
                 askreturn()
 
-            if user == "7":  # Credits
+
+            if user == "7": #Update TermGet
+                clear()
+                urllib.request.urlretrieve("http://termget.gitlab.io/Downloads/version.txt", "version.txt")
+                versiontxt = open("version.txt", "r")
+                versiontxttag = versiontxt.read()
+                if version == versiontxttag:
+                    print(green + "Du hast die neuste Version" + reset)
+                    os.remove("version.txt")
+                    time.sleep(3)
+
+                elif version != versiontxttag:
+                    print(red + "Deine Version ist veraltet, bitte update" + reset)
+                    os.remove("version.txt")
+                    time.sleep(3)
+
+
+            if user == "8":  # Credits
 
                 clear()
                 print(credit)
                 time.sleep(3)
 
-            if user == "8":
+            if user == "9":
                 print(reset)
                 clear()
                 quit()
 
-            if user == "9":
+            if user == "10":
                 clear()
                 print(reset + "Betrete bash...")
                 print(reset + "Drücke CTRL+D oder gib ein \"exit\" um zu termget zurückzukehren.")
