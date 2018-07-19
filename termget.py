@@ -58,7 +58,7 @@ try:
         "TermGet was created by:\n"
         "- PizzaLovingNerd (main developer)\n"
         "- SadError256\n"
-        "- Linux /usr/"
+        "- Linux /usr/\n"
         "- Emil Engler"
         )
 
@@ -125,7 +125,7 @@ try:
         elif sys.argv[1] == "nix": package = "nix"
         elif sys.argv[1] == "npm": package = "npm" # npm is not a distro pm. do not add it under the choose
                                                    # a package manager
-            
+
     try:
         if package == " ":
             if package_file_read == "apt-get": package = "apt-get"
@@ -550,13 +550,13 @@ try:
             if user == "6":  # Credits - Meooow
                 clear()
                 print(credit)
-                
+
                 askreturn()
 
             if user == "7":
                 print(reset)
                 quit()
-                
+
 except KeyboardInterrupt:
         clear()
         print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
