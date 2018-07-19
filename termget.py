@@ -124,9 +124,8 @@ try:
         elif sys.argv[1] == "chromebrew": package = "chromebrew"
         elif sys.argv[1] == "homebrew": package = "homebrew"
         elif sys.argv[1] == "nix": package = "nix"
-        elif sys.argv[1] == "npm": package = "npm" # npm is not a distro pm. do not add it under the choose
-                                                   # a package manager
-
+        elif sys.argv[1] == "npm": package = "npm"
+        elif sys.argv[1] == "snap": package = "snap"
     try:
         if package == " ":
             if package_file_read == "apt-get": package = "apt-get"
@@ -579,6 +578,54 @@ try:
             if user == "7":
                 print(reset)
                 quit()
+
+    if package == "snap":
+        while True:
+            clear()
+            user = input(multichoicePrompt(
+            "Please choose an action:\n"
+            "\n1. Search for snaps"
+            "\n2. Install a snap"
+            "\n3. Remove a snap"
+            "\n4. List installed snaps"
+            "\n5. Credits"
+            "\n6. Exit"))
+
+            if user == "1":
+                clear()
+                user = input(reset + "Input a search query: ")
+                print("")
+                os.system(reset + "sudo snap search")
+                askreturn()
+
+            if user == "2":
+                clear()
+                user = input(reset + "Input the snap name: ")
+                print("")
+                os.system(reset + "sudo snap install " + user)
+                askreturn()
+
+            if user == "3":
+                clear()
+                user = input(reset + "Input the snap name: ")
+                print("")
+                os.system(reset +  "sudo snap remove " + user)
+                askreturn()
+
+            if user == "4":
+                clear()
+                print("The current installed snaps are: ")
+                os.system(reset + "sudo snap list")
+                askreturn()
+
+            if user == "5":
+                clear()
+                credits()
+
+            if user == "6":
+                print(reset)
+                quit()
+
 
 except KeyboardInterrupt:
         clear()
