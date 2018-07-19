@@ -580,6 +580,54 @@ try:
                 print(reset)
                 quit()
 
+    if package == "snap":
+        while True:
+            clear()
+            user = input(multichoicePrompt(
+            "Please choose an action:\n"
+            "\n1. Search for snaps"
+            "\n2. Install a snap"
+            "\n3. Remove a snap"
+            "\n4. List installed snaps"
+            "\n5. Credits"
+            "\n6. Exit"))
+
+            if user == "1":
+                clear()
+                user = input(reset + "Input a search query: ")
+                print("")
+                os.system(reset + "sudo snap search")
+                askreturn()
+
+            if user == "2":
+                clear()
+                user = input(reset + "Input the snap name: ")
+                print("")
+                os.system(reset + "sudo snap install " + user)
+                askreturn()
+
+            if user == "3":
+                clear()
+                user = input(reset + "Input the snap name: ")
+                print("")
+                os.system(reset +  "sudo snap remove " + user)
+                askreturn()
+
+            if user == "4":
+                clear()
+                print("The current installed snaps are: ")
+                os.system(reset + "sudo snap list")
+                askreturn()
+
+            if user == "5":
+                clear()
+                credits()
+
+            if user == "6":
+                print(reset)
+                quit()
+
+
 except KeyboardInterrupt:
         clear()
         print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
