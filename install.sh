@@ -7,7 +7,8 @@ echo "2. Deutsch"
 
 read lang
 
-if [ "$1" != "--no-detection" ]; then
+#English installation
+if [ "$1" != "--no-detection" ] && [ "$lang" == "1" ]; then
 	if [[ $(which brew 2> /dev/null) ]]; then
 		echo -n "Why do you torture yourself with using Mac OS? Fine, homebrew will be used. Is this correct? [y/n] "
 		pm=homebrew
@@ -62,6 +63,62 @@ if [ "$1" != "--no-detection" ]; then
 			pm=
 		fi
 	fi
+
+
+#German installation
+elif [ "$1" != "--no-detection" ] && [ "$lang" == "2" ]; then
+	if [[ $(which brew 2> /dev/null) ]]; then
+		echo -n "Warum schadest du dir selbst mit Mac OS? Ok, homebrew wird benutzt. Ist das korrekt? [y/n] "
+		pm=homebrew
+	elif [[ $(which xbps-install 2> /dev/null) ]]; then
+		echo -n "Void oder ein Void-basiertes System wurde erkannt. XBPS wird benutzt. Ist das korrekt? [y/n] "
+		pm=xbps
+	elif [[ $(which dnf 2> /dev/null) ]]; then
+		echo -n "Fedora oder ein Fedora-basiertes System wurde erkannt. DNF wird benutzt. Ist das korrekt? [y/n] "
+		pm=dnf
+	elif [[ $(which zypper 2> /dev/null) ]]; then
+		echo -n "Ein openSUSE oder openSUSE-basiertes System wurde erkannt. Zypper wird benutzt. Ist das korrekt? [y/n] "
+		pm=zypper
+	elif [[ $(which eopkg 2> /dev/null) ]]; then
+		echo -n "Ein Solus oder SOlus-basiertes System wurde erkannt. Eopkg wird benutzt. Ist das korrekt? [y/n] "
+		pm=eopkg
+	elif [[ $(which crew 2> /dev/null) ]]; then
+		echo -n "Chromebrew (ein inoffizieller Chrome/Chromium OS paket manager) wurde erkannt. Ist das korrekt? [y/n] "
+		pm=chromebrew
+	elif [[ $(which emerge 2> /dev/null) ]]; then
+		echo -n "Ein Gentoo oder Gentoo-based System wurde erkannt. Emerge wird benutzt. Ist das korrekt? [y/n] "
+		pm=emerge
+		echo "Zum Glück muss das nicht kompiliert werden"
+	elif [[ $(which pkg 2> /dev/null) ]]; then
+		echo -n "Du bist ein der seltsamen FreeBSD Benutzer oder? Nun denn, pkg wird benutzt. Ist das korrekt? [y/n] "
+		pm=pkg
+	elif [[ $(which pacman 2> /dev/null) ]]; then
+		echo -n "Ein Arch oder Arch-basiertes System wurde erkannt. Pacman wird benutzt. Ist das korrekt? [y/n] "
+		pm=pacman
+	elif [[ $(which apt-get 2> /dev/null) ]]; then
+		echo -n "Ein Debian oder Debian-basiertes System wurde erkannt. Apt-get wird benutzt. Ist das korrekt? [y/n] "
+		pm=apt-get
+	elif [[ $(which nix 2> /dev/null) ]]; then
+		echo -n "Ein Nix-OS oder Nix-OS-basiertes System wurde erkannt. 'Nix' wird benutzt (Also der Paket-Manager 'nix'). Ist das korrekt? [y/n] "
+		pm=nix
+	else
+		echo -n "Fehler bei der Erkennung des Paket-Managers. Fährst du fort fragt Termget dich beim ersten start nach dem Paket-Manager. Weitermachen mit der Installation? [y/n] "
+	fi
+
+	read answer
+	if [ $answer != "y" ] && [ -z $pm ]; then
+		echo "Installation abgebrochen."
+		exit
+	elif [ $answer != "y" ] && [ -n $pm ]; then
+		echo -n "Fehler bei der Erkennung des Paket-Managers. Fährst du fort fragt Termget dich beim ersten start nach dem Paket-Manager. Weitermachen mit der Installation? "
+		read answer2
+		if [ $answer2 != "y" ]; then
+			echo "Installation abgebrochen."
+			exit
+		else
+			pm=
+		fi
+	fi
 fi
 
 echo "setting up directories"
@@ -79,7 +136,7 @@ if [ "$lang" == "1" ]; then
 	sudo cp termget.py /usr/local/bin/termget # copy program to PATH
 
 elif [ "$lang" == "2" ]; then
-	echo "... installing program to /usr/local/bin"
+	echo "... Installiere das Programm nach /usr/local/bin"
 	chmod +x termget-deutsch.py
 	sudo cp termget-deutsch.py /usr/local/bin/termget # copy program to PATH
 fi
