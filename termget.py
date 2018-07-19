@@ -419,12 +419,12 @@ try:
                 urllib.request.urlretrieve("http://termget.gitlab.io/Downloads/version.txt", "version.txt")
                 versiontxt = open("version.txt", "r")
                 versiontxttag = versiontxt.read()
-                if version + "\n" == versiontxttag:
+                if version == versiontxttag:
                     print(green + "You have the newest version" + reset)
                     os.remove("version.txt")
                     time.sleep(3)
 
-                elif version + "\n" != versiontxttag:
+                elif version != versiontxttag:
                     print(red + "Your Version of TermGet is outdated please update" + reset)
                     os.remove("version.txt")
                     time.sleep(3)
