@@ -244,7 +244,7 @@ try:
                 "\n8. Exit"
                 "\n9. Enter shell\n\n"))  # Asks for user input
 
-            if user == "1":  # Searc-meow
+            if user == "1":  # Search-meow
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print(reset + " ")
@@ -321,6 +321,11 @@ try:
             if user == "4":  # Updates Packages
                 clear()
                 if package == "apt-get":
+                    user1 = input(multichoicePrompt(
+                    "Do you also want to reload the database ?\n"
+                    "\n1. Yes"
+                    "\n2. No" + reset))
+                    if user1 == "1": os.system("sudo apt-get update")
                     os.system("sudo apt-get upgrade")
                     os.system("sudo apt-get dist-upgrade")
                 elif package == "pacman":

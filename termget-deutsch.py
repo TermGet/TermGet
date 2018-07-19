@@ -321,6 +321,11 @@ try:
             if user == "4":  # Updates Packages
                 clear()
                 if package == "apt-get":
+                    user1 = input(multichoicePrompt(
+                    "Möchtest du auch die Datenbank neu laden ? ?\n"
+                    "\n1. Ja"
+                    "\n2. Nein" + reset))
+                    if user1 == "1": os.system("sudo apt-get update")
                     os.system("sudo apt-get upgrade")
                     os.system("sudo apt-get dist-upgrade")
                 elif package == "pacman":
