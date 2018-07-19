@@ -124,9 +124,8 @@ try:
         elif sys.argv[1] == "chromebrew": package = "chromebrew"
         elif sys.argv[1] == "homebrew": package = "homebrew"
         elif sys.argv[1] == "nix": package = "nix"
-        elif sys.argv[1] == "npm": package = "npm" # npm is not a distro pm. do not add it under the choose
-                                                   # a package manager
-
+        elif sys.argv[1] == "npm": package = "npm"
+        elif sys.argv[1] == "snap": package = "snap"
     try:
         if package == " ":
             if package_file_read == "apt-get": package = "apt-get"
