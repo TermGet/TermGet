@@ -73,15 +73,15 @@ sudo bash -c "mkdir /usr/local/share 2> /dev/null"
 
 sudo bash -c "mkdir /usr/local/share/termget 2> /dev/null" # create new config directory if one doesn't exist
 
-if [ "$lang" == "2" ]; then
-	echo "... installing program to /usr/local/bin"
-	chmod +x termget-deutsch.py
-	sudo cp termget-deutsch.py /usr/local/bin/termget # copy program to PATH
-
-elif [ "$lang" == "1" ]; then
+if [ "$lang" == "1" ]; then
 	echo "... installing program to /usr/local/bin"
 	chmod +x termget.py
 	sudo cp termget.py /usr/local/bin/termget # copy program to PATH
+
+elif [ "$lang" == "2" ]; then
+	echo "... installing program to /usr/local/bin"
+	chmod +x termget-deutsch.py
+	sudo cp termget-deutsch.py /usr/local/bin/termget # copy program to PATH
 fi
 
 if [ "$1" != "--no-detection" ]; then
