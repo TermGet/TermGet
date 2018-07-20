@@ -53,13 +53,13 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warnung: Fehlende Paket-Datei...")
-    version = "2.3" # version number
+    version = "3.0.1" # version number
 
     credit = magenta + (
         "TermGet wurde erstellt von:\n"
         "- PizzaLovingNerd (Haupt-Entwickler)\n"
         "- SadError256\n"
-        "- Linux /usr/"
+        "- Linux /usr/\n"
         "- Emil Engler"
         )
 
@@ -124,8 +124,8 @@ try:
         elif sys.argv[1] == "chromebrew": package = "chromebrew"
         elif sys.argv[1] == "homebrew": package = "homebrew"
         elif sys.argv[1] == "nix": package = "nix"
-        elif sys.argv[1] == "npm": package = "npm" # npm is not a distro pm. do not add it under the choose
-                                                   # a package manager
+        elif sys.argv[1] == "npm": package = "npm"
+        elif sys.argv[1] == "snap": package = "snap"
 
     try:
         if package == " ":
@@ -229,7 +229,7 @@ try:
 
     # MEOW!
 
-    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm":
+    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap":
         while True:  # Starts a loop
             clear()
 
@@ -580,6 +580,54 @@ try:
             if user == "7":
                 print(reset)
                 quit()
+
+    if package == "snap":
+        while True:
+            clear()
+            user = input(multichoicePrompt(
+            "Wähle eine Aktion:\n"
+            "\n1. Suche nach snaps"
+            "\n2. Installiere snaps"
+            "\n3. Entferne snaps"
+            "\n4. Zeige installierte snaps an"
+            "\n5. Credits"
+            "\n6. Verlassen"))
+
+            if user == "1":
+                clear()
+                user = input(reset + "Gebe einen Suchbegriff ein: ")
+                print("")
+                os.system(reset + "sudo snap search")
+                askreturn()
+
+            if user == "2":
+                clear()
+                user = input(reset + "Gebe den Snap-Namen ein: ")
+                print("")
+                os.system(reset + "sudo snap install " + user)
+                askreturn()
+
+            if user == "3":
+                clear()
+                user = input(reset + "Gebe den zu entfernenden Snap-Namen ein: ")
+                print("")
+                os.system(reset +  "sudo snap remove " + user)
+                askreturn()
+
+            if user == "4":
+                clear()
+                print("Aktuell sind folgende Snaps installiert: ")
+                os.system(reset + "sudo snap list")
+                askreturn()
+
+            if user == "5":
+                clear()
+                credits()
+
+            if user == "6":
+                print(reset)
+                quit()
+
 
 except KeyboardInterrupt:
         clear()
