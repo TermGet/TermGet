@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warning: Missing Package File...")
-    version = "2.3" # version number
+    version = "3.0.1" # version number
 
     credit = magenta + (
         "TermGet was created by:\n"
@@ -228,7 +228,7 @@ try:
 
     # MEOW!
 
-    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm":
+    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap":
         while True:  # Starts a loop
             clear()
 
