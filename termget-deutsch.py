@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warnung: Fehlende Paket-Datei...")
-    version = "3.0.1" # version number
+    version = "3.0.2" # version number
 
     credit = magenta + (
         "TermGet wurde erstellt von:\n"
@@ -597,27 +597,27 @@ try:
                 clear()
                 user = input(reset + "Gebe einen Suchbegriff ein: ")
                 print("")
-                os.system(reset + "sudo snap search")
+                os.system("sudo snap search")
                 askreturn()
 
             if user == "2":
                 clear()
                 user = input(reset + "Gebe den Snap-Namen ein: ")
                 print("")
-                os.system(reset + "sudo snap install " + user)
+                os.system("sudo snap install " + user)
                 askreturn()
 
             if user == "3":
                 clear()
                 user = input(reset + "Gebe den zu entfernenden Snap-Namen ein: ")
                 print("")
-                os.system(reset +  "sudo snap remove " + user)
+                os.system("sudo snap remove " + user)
                 askreturn()
 
             if user == "4":
                 clear()
                 print("Aktuell sind folgende Snaps installiert: ")
-                os.system(reset + "sudo snap list")
+                os.system("sudo snap list")
                 askreturn()
 
             if user == "5":
