@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warning: Missing Package File...")
-    version = "3.0.2" # version number
+    version = "3.0" # version number
 
     credit = magenta + (
         "TermGet was created by:\n"
@@ -228,7 +228,7 @@ try:
 
     # MEOW!
 
-    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap":
+    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm":
         while True:  # Starts a loop
             clear()
 
@@ -595,27 +595,76 @@ try:
                 clear()
                 user = input(reset + "Input a search query: ")
                 print("")
-                os.system("snap search")
+                os.system(reset + "snap search")
                 askreturn()
 
             if user == "2":
                 clear()
                 user = input(reset + "Input the snap name: ")
                 print("")
-                os.system("snap install " + user)
+                os.system(reset + "sudo snap install " + user)
                 askreturn()
 
             if user == "3":
                 clear()
                 user = input(reset + "Input the snap name: ")
                 print("")
-                os.system("snap remove " + user)
+                os.system(reset +  "sudo snap remove " + user)
                 askreturn()
 
             if user == "4":
                 clear()
-                print(reset + "The current installed snaps are: ")
-                os.system("snap list")
+                print("The current installed snaps are: ")
+                os.system(reset + "sudo snap list")
+                askreturn()
+
+            if user == "5":
+                clear()
+                credits()
+
+            if user == "6":
+                print(reset)
+                quit()
+
+
+
+    if package == "flatpak":
+        while True:
+            clear()
+            user = input(multichoicePrompt(
+            "Please choose an action:\n"
+            "\n1. Search for flatpak (On flathub)"
+            "\n2. Install a flatpak (On flathub)"
+            "\n3. Remove a flatpak"
+            "\n4. List installed flatpak"
+            "\n5. Credits"
+            "\n6. Exit"))
+
+            if user == "1":
+                clear()
+                user = input(reset + "Input a search query: ")
+                print("")
+                os.system(reset + "flatpak search")
+                askreturn()
+
+            if user == "2":
+                clear()
+                user = input(reset + "Input the snap name: ")
+                print("")
+                os.system(reset + "sudo flatpak install " + user)
+                askreturn()
+
+            if user == "3":
+                clear()
+                user = input(reset + "Input the snap name: ")
+                print("")
+                os.system(reset +  "sudo flatpak remove " + user)
+                askreturn()
+
+            if user == "4":
+                clear()
+                print("The current installed snaps are: ")
+                os.system(reset + "sudo flatpak list")
                 askreturn()
 
             if user == "5":
