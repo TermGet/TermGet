@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warnung: Fehlende Paket-Datei...")
-    version = "3.0.2" # version number
+    version = "3.0" # version number
 
     credit = magenta + (
         "TermGet wurde erstellt von:\n"
@@ -268,6 +268,31 @@ try:
                 elif package == "chromebrew": os.system("crew search " + user)
                 elif package == "homebrew": os.system("brew search " + user)
                 elif package == "nix": os.system("nix search " + user)
+
+                user = input("\nHast du gefunden wasd u gesucht hast? (y/n)")
+                if user == "y":
+                    clear()
+                    user = input(reset + "Gib nun ein welche Pakte du installieren willst ? ")
+                    print(reset + "")
+
+                    if package == "apt-get": os.system("sudo apt-get install " + user)
+                    elif package == "pacman":
+                        user1 = input(multichoicePrompt(
+                            "Welchen Paket-Manager möchtest du benutzen ?\n"
+                            "\n1. pacman"
+                            "\n2. yaourt" + reset))
+                        if user1 == "1": os.system("sudo pacman -S " + user)
+                        if user1 == "2": os.system("yaourt -S " + user)
+                    elif package == "xbps": os.system("sudo xbps-install " + user)
+                    elif package == "dnf": os.system("sudo dnf install " + user)
+                    elif package == "yum": os.system("sudo yum install " + user)
+                    elif package == "zypper": os.system("sudo zypper install " + user)
+                    elif package == "eopkg": os.system("sudo eopkg install " + user)
+                    elif package == "emerge": os.system("emerge " + user)
+                    elif package == "pkg": os.system("sudo pkg install " + user)
+                    elif package == "chromebrew": os.system("crew install " + user)
+                    elif package == "homebrew": os.system("brew install " + user)
+                    elif package == "nix": os.system("nix-env -i " + user)
                 askreturn()
 
             if user == "2":  # Install
@@ -372,7 +397,7 @@ try:
                 elif package == "emerge": os.system("sudo layman -f")
                 elif package == "yum": os.system("sudo yum check-update")
                 elif package == "pkg": os.system("sudo pkg update")
-                elif package == "chromebrew": print(reset + "This feature is unavailable for chromebrew\n")
+                elif package == "chromebrew": print(reset + "Diese Funktion ist für Chromebew nicht verfügbar\n")
                 elif package == "homebrew": os.system("brew update")
                 elif package == "nix": os.system("nix-channel --update nixpkgs")
                 askreturn()
@@ -627,6 +652,53 @@ try:
             if user == "6":
                 print(reset)
                 quit()
+
+        if package == "flatpak":
+            while True:
+                clear()
+                user = input(multichoicePrompt(
+                "Wähle eine Aktion:\n"
+                "\n1. Suche nach einem Flatpak (Von Flathub)"
+                "\n2. Installiere ein Flatpak (Von Flathub)"
+                "\n3. Entferne ein Flatpak"
+                "\n4. Zeige alle installieren Flatpaks an"
+                "\n5. Credits"
+                "\n6. Beenden"))
+
+                if user == "1":
+                    clear()
+                    user = input(reset + "Gib einen Suchbegriff ein: ")
+                    print("")
+                    os.system(reset + "flatpak search")
+                    askreturn()
+
+                if user == "2":
+                    clear()
+                    user = input(reset + "Gib den zu installierenden Namen ein: ")
+                    print("")
+                    os.system(reset + "sudo flatpak install " + user)
+                    askreturn()
+
+                if user == "3":
+                    clear()
+                    user = input(reset + "Gib den zu entfernenden Namen ein: ")
+                    print("")
+                    os.system(reset +  "sudo flatpak remove " + user)
+                    askreturn()
+
+                if user == "4":
+                    clear()
+                    print("Aktuell sind folgende Flatpaks installiert: ")
+                    os.system(reset + "sudo flatpak list")
+                    askreturn()
+
+                if user == "5":
+                    clear()
+                    credits()
+
+                if user == "6":
+                    print(reset)
+                    quit()
 
 
 except KeyboardInterrupt:

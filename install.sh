@@ -146,4 +146,9 @@ if [ "$1" != "--no-detection" ]; then
 	sudo bash -c "echo -n $pm > /usr/local/share/termget/termget-package-manager" # copy package file to config directory
 fi
 
-echo -e "\nSuccessfully Installed! If it's not working, try logging out and logging back in again to reset the PATH."
+if [ "$lang" == "1" ]; then
+	echo -e "\nSuccessfully Installed! If it's not working, try logging out and logging back in again to reset the PATH."
+
+elif [ "$lang" == "2" ]; then
+	echo -e "\nErfolgreich installiert! Falls es nicht funktioniert starte deine Sitzung neu damit der PATH zurückgesetzt wird."
+fi

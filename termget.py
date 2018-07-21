@@ -267,13 +267,13 @@ try:
                 elif package == "chromebrew": os.system("crew search " + user)
                 elif package == "homebrew": os.system("brew search " + user)
                 elif package == "nix": os.system("nix search " + user)
-                
+
                 user = input("\nDid you find what you were looking for? (y/n)")
                 if user == "y":
                     clear()
                     user = input(reset + "Please enter which package(s) to install: ")
                     print(reset + "")
-    
+
                     if package == "apt-get": os.system("sudo apt-get install " + user)
                     elif package == "pacman":
                         user1 = input(multichoicePrompt(
@@ -674,21 +674,21 @@ try:
 
             if user == "2":
                 clear()
-                user = input(reset + "Input the snap name: ")
+                user = input(reset + "Input the flatpak name: ")
                 print("")
                 os.system(reset + "sudo flatpak install " + user)
                 askreturn()
 
             if user == "3":
                 clear()
-                user = input(reset + "Input the snap name: ")
+                user = input(reset + "Input the flatpak name: ")
                 print("")
                 os.system(reset +  "sudo flatpak remove " + user)
                 askreturn()
 
             if user == "4":
                 clear()
-                print("The current installed snaps are: ")
+                print("The current installed flatpaks are: ")
                 os.system(reset + "sudo flatpak list")
                 askreturn()
 
