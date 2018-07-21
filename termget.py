@@ -267,6 +267,31 @@ try:
                 elif package == "chromebrew": os.system("crew search " + user)
                 elif package == "homebrew": os.system("brew search " + user)
                 elif package == "nix": os.system("nix search " + user)
+                
+                user = input("\nDid you find what you were looking for? (y/n)")
+                if user == "y":
+                    clear()
+                    user = input(reset + "Please enter which package(s) to install: ")
+                    print(reset + "")
+    
+                    if package == "apt-get": os.system("sudo apt-get install " + user)
+                    elif package == "pacman":
+                        user1 = input(multichoicePrompt(
+                            "Which package manager would you like to use?\n"
+                            "\n1. pacman"
+                            "\n2. yaourt" + reset))
+                        if user1 == "1": os.system("sudo pacman -S " + user)
+                        if user1 == "2": os.system("yaourt -S " + user)
+                    elif package == "xbps": os.system("sudo xbps-install " + user)
+                    elif package == "dnf": os.system("sudo dnf install " + user)
+                    elif package == "yum": os.system("sudo yum install " + user)
+                    elif package == "zypper": os.system("sudo zypper install " + user)
+                    elif package == "eopkg": os.system("sudo eopkg install " + user)
+                    elif package == "emerge": os.system("emerge " + user)
+                    elif package == "pkg": os.system("sudo pkg install " + user)
+                    elif package == "chromebrew": os.system("crew install " + user)
+                    elif package == "homebrew": os.system("brew install " + user)
+                    elif package == "nix": os.system("nix-env -i " + user)
                 askreturn()
 
             if user == "2":  # Install
