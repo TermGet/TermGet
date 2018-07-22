@@ -445,12 +445,13 @@ try:
                 urllib.request.urlretrieve("http://termget.gitlab.io/Downloads/version.txt", "version.txt")
                 versiontxt = open("version.txt", "r")
                 versiontxttag = versiontxt.read()
+               
                 if version == versiontxttag:
                     print(green + "You have the newest version!" + reset)
                     os.remove("version.txt")
                     askreturn()
                   
-                elif version[:5] = "Alpha":
+                elif version[:5] == "Alpha":
                     print(red + "I'm sorry Dave, or whatever your name is, but this feature doesn't work on Alpha builds")
 
                 elif version != versiontxttag:
