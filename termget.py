@@ -126,6 +126,7 @@ try:
         elif sys.argv[1] == "nix": package = "nix"
         elif sys.argv[1] == "npm": package = "npm"
         elif sys.argv[1] == "snap": package = "snap"
+        elif sys.argv[1] == "flatpak": package = "flatpak"
     try:
         if package == " ":
             if package_file_read == "apt-get": package = "apt-get"
@@ -249,18 +250,18 @@ try:
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print(reset + " ")
-                if package == "apt-get": os.system("sudo apt-cache search " + user)
+                if package == "apt-get": os.system("apt-cache search " + user)
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yaourt"))
-                    if user1 == "1": os.system("sudo pacman -Ss " + user)
+                    if user1 == "1": os.system("pacman -Ss " + user)
                     if user1 == "2": os.system("yaourt -Ss " + user)
-                elif package == "xbps": os.system("sudo xbps-query -Rs " + user)
-                elif package == "dnf": os.system("sudo dnf search " + user)
+                elif package == "xbps": os.system("xbps-query -Rs " + user)
+                elif package == "dnf": os.system("dnf search " + user)
                 elif package == "yum": os.system("yum search " + user)
-                elif package == "zypper": os.system("sudo zypper search " + user)
+                elif package == "zypper": os.system("zypper search " + user)
                 elif package == "eopkg": os.system("eopkg search " + user)
                 elif package == "emerge": os.system("emerge -S " + user)
                 elif package == "pkg": os.system("pkg search " + user)
@@ -268,7 +269,8 @@ try:
                 elif package == "homebrew": os.system("brew search " + user)
                 elif package == "nix": os.system("nix search " + user)
 
-                user = input("\nDid you find what you were looking for? (y/n)")
+                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+               
                 if user == "y":
                     clear()
                     user = input(reset + "Please enter which package(s) to install: ")
@@ -444,14 +446,14 @@ try:
                 versiontxt = open("version.txt", "r")
                 versiontxttag = versiontxt.read()
                 if version == versiontxttag:
-                    print(green + "You have the newest version" + reset)
+                    print(green + "You have the newest version!" + reset)
                     os.remove("version.txt")
-                    time.sleep(3)
+                    askreturn()
 
                 elif version != versiontxttag:
-                    print(red + "Your Version of TermGet is outdated please update" + reset)
+                    print(red + "Your version of TermGet is outdated. Please update to enjoy bug fixes and new features." + reset)
                     os.remove("version.txt")
-                    time.sleep(3)
+                    askreturn()
 
 
             if user == "8":  # Credits
