@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warning: Missing Package File...")
-    version = "3.0" # version number
+    version = "Alpha 3.0.0" # version number
 
     credit = magenta + (
         "TermGet was created by:\n"
@@ -449,6 +449,9 @@ try:
                     print(green + "You have the newest version!" + reset)
                     os.remove("version.txt")
                     askreturn()
+                  
+                elif version[:5] = "Alpha":
+                    print(red + "I'm sorry Dave, or whatever your name is, but this feature doesn't work on Alpha builds")
 
                 elif version != versiontxttag:
                     print(red + "Your version of TermGet is outdated. Please update to enjoy bug fixes and new features." + reset)
