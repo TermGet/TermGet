@@ -229,7 +229,7 @@ try:
 
     # MEOW!
 
-    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm":
+    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap" and package != "flatpak":
         while True:  # Starts a loop
             clear()
 
