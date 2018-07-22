@@ -684,7 +684,7 @@ try:
                 clear()
                 user = input(reset + "Input the flatpak name: ")
                 print("")
-                os.system(reset + "sudo flatpak install " + user)
+                os.system(reset + "sudo flatpak install flathub" + user)
                 askreturn()
 
             if user == "3":
