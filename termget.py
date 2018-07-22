@@ -54,8 +54,8 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warning: Missing Package File...")
-    version = "Alpha 3.0.0" # version number
-    version_number = "1300"    # For each version number remove Beta or Alpha. alpha=1 beta=0 and remove all the dots for example: Alpha 1.1.0 would be 1110 Or Beta 1.1.1 would be 0111       **** !THIS IS USED FOR UPDATE SYSTEM! ****
+    version = "Alpha 3.0.1" # version number
+    version_number = "1301"    # For each version number remove Beta or Alpha. alpha=1 beta=0 and remove all the dots for example: Alpha 1.1.0 would be 1110 Or Beta 1.1.1 would be 0111       **** !THIS IS USED FOR UPDATE SYSTEM! ****
     credit = magenta + (
         "TermGet was created by:\n"
         "- PizzaLovingNerd (main developer)\n"
