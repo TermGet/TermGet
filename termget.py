@@ -362,7 +362,7 @@ try:
                         "\n1. pacman"
                         "\n2. yaourt" + reset))
                     if user1 == "1": os.system("sudo pacman -Syu")
-                    if user1 == "2": os.system("yaourt -Syu")
+                    if user1 == "2": os.system("yaourt -Syu --aur")
                 elif package == "xbps": os.system("sudo xbps-install -Su")
                 elif package == "dnf":
                     os.system("sudo dnf upgrade")
