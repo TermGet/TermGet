@@ -453,6 +453,8 @@ try:
                   
                 elif version[:5] == "Alpha":
                     print(red + "I'm sorry Dave, or whatever your name is, but this feature doesn't work on Alpha builds")
+                    os.remove("version.txt")
+                    askreturn()
 
                 elif version != versiontxttag:
                     print(red + "Your version of TermGet is outdated. Please update to enjoy bug fixes and new features." + reset)
