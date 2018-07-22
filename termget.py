@@ -55,7 +55,7 @@ try:
         except Exception:
             print(yellow + "Warning: Missing Package File...")
     version = "Alpha 3.0.0" # version number
-
+    version_number = "1300"    # For each version number remove Beta or Alpha. alpha=1 beta=0 and remove all the dots for example: Alpha 1.1.0 would be 1110 Or Beta 1.1.1 would be 0111       **** !THIS IS USED FOR UPDATE SYSTEM! ****
     credit = magenta + (
         "TermGet was created by:\n"
         "- PizzaLovingNerd (main developer)\n"
@@ -444,24 +444,26 @@ try:
 
             if user == "7": #Update TermGet
                 clear()
-                urllib.request.urlretrieve("http://termget.gitlab.io/Downloads/version.txt", "version.txt")
-                versiontxt = open("version.txt", "r")
-                versiontxttag = versiontxt.read()
+                urllib.request.urlretrieve("http://vs1.dc4.us/sites/termget.xyz/pages/apps/version.php", "dvn.txt")
+                dvnt = open("dvn.txt", "r")
+                dvn = dvnt.read()
 
-                if version == versiontxttag:
-                    print(green + "You have the newest version!" + reset)
-                    os.remove("version.txt")
+                if int(version_number) == int(dvn):
+                    print(green + "You have the newest version!  ** Version: " + version + " - Build Number: " + version_number + " ** " + reset)
+                    os.remove("dvn.txt")
                     askreturn()
 
-                elif version[:5] == "Alpha":
-                    current_username = getpass.getuser()
-                    print(red + "I'm sorry " + current_username + ", but this feature doesn't work on Alpha builds")
-                    os.remove("version.txt")
-                    askreturn()
+                #elif version[:5] == "Alpha":
+                #    current_username = getpass.getuser()
+                #    print(red + "I'm sorry " + current_username + ", but this feature doesn't work on Alpha builds")
+                #    os.remove("dvn.txt")
+                #    askreturn()
 
-                elif version != versiontxttag:
+                elif int(version_number) != int(dvn):
                     print(red + "Your version of TermGet is outdated. Please update to enjoy bug fixes and new features." + reset)
-                    os.remove("version.txt")
+                    print("\nNew Version: ")
+                    os.system("cat dvn.txt")
+                    os.remove("dvn.txt")
                     askreturn()
 
 
@@ -489,7 +491,7 @@ try:
                 name = input(green + "[NOT REQ] Full Name: ")
                 email = input(green + "[NOT REQ] Email Address: ")
                 message = input(green + "[REQ] Message: ")
-                os.system("cd /tmp && wget -O req.txt --quiet 'http://www.termget.xyz/sites/termget.xyz/pages/contact.php?x1=" + name + "&x2=" + email +"&x3=" + message + "'");
+                os.system("cd /tmp && wget -O req.txt --quiet 'http://www.termget.xyz/sites/termget.xyz/pages/apps/contact.php?x1=" + name + "&x2=" + email +"&x3=" + message + "'");
                 os.system("cat /tmp/req.txt")
                 print("\n\n")
                 tmp04443311 = input(blue + "Complete: Press enter to return to home!"); 
