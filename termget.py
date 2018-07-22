@@ -491,7 +491,7 @@ try:
                 name = input(green + "[NOT REQ] Full Name: ")
                 email = input(green + "[NOT REQ] Email Address: ")
                 message = input(green + "[REQ] Message: ")
-                os.system("cd /tmp && wget -O req.txt --quiet 'http://www.termget.xyz/sites/termget.xyz/pages/apps/contact.php?x1=" + name + "&x2=" + email +"&x3=" + message + "'");
+                os.system("cd /tmp && wget -O req.txt --quiet 'http://vs1.dc4.us/sites/termget.xyz/pages/apps/contact.php?x1=" + name + "&x2=" + email +"&x3=" + message + "'");
                 os.system("cat /tmp/req.txt")
                 print("\n\n")
                 tmp04443311 = input(blue + "Complete: Press enter to return to home!"); 
