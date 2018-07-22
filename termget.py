@@ -61,10 +61,10 @@ try:
         "- PizzaLovingNerd (main developer)\n"
         "- SadError256\n"
         "- Linux /usr/\n"
+        "- Dylan Cruz\n"
         "- Emil Engler"
         )
 
-    # sorry dylan! :3 youve had no contributions
 
     def setpack(var):
         os.system('sudo bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
