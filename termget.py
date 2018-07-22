@@ -4,7 +4,8 @@ import time
 import sys
 import getpass
 import urllib.request
-
+import hashlib
+from urllib import parse
 # Colors (Thanks to Linux /usr/ for this code)
 bold = "\033[1m"
 reset = "\033[0m"
@@ -244,7 +245,8 @@ try:
                 "\n7. Check for TermGet Updates"
                 "\n8. Credits"
                 "\n9. Exit"
-                "\n10. Enter shell\n\n"))  # Asks for user input
+                "\n10. Enter shell"
+                "\n11. Feedback\n\n"))
 
             if user == "1":  # Search-meow
                 clear()
@@ -481,7 +483,18 @@ try:
                 os.system("bash")
                 print(reset + "Returning to termget...")
                 clear()
-
+            if user == "11":
+                clear()
+                print(red + "Warning: Requires WGET to work!")
+                name = input(green + "[NOT REQ] Full Name: ")
+                email = input(green + "[NOT REQ] Email Address: ")
+                message = input(green + "[REQ] Message: ")
+                os.system("cd /tmp && wget -O req.txt --quiet 'http://www.termget.xyz/sites/termget.xyz/pages/contact.php?x1=" + name + "&x2=" + email +"&x3=" + message + "'");
+                os.system("cat /tmp/req.txt")
+                print("\n\n")
+                tmp04443311 = input(blue + "Complete: Press enter to return to home!"); 
+               
+               
     if package == "pip" or package == "pip2" or package == "pip3":  # Starts a loop
         while True:
             clear()
