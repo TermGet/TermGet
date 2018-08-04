@@ -444,7 +444,7 @@ try:
 
             if user == "7": #Update TermGet
                 clear()
-                urllib.request.urlretrieve("http://vs1.dc4.us/sites/termget.xyz/pages/apps/version.php", "dvn.txt")
+                urllib.request.urlretrieve("https://www.termget.xyz/apps/version.php", "dvn.txt")
                 dvnt = open("dvn.txt", "r")
                 dvn = dvnt.read()
 
@@ -491,7 +491,7 @@ try:
                 name = input(green + "[NOT REQ] Full Name: ")
                 email = input(green + "[NOT REQ] Email Address: ")
                 message = input(green + "[REQ] Message: ")
-                os.system("cd /tmp && wget -O req.txt --quiet 'http://vs1.dc4.us/sites/termget.xyz/pages/apps/contact.php?x1=" + name + "&x2=" + email + "&x3=" + message + "&x4=" + version_number + "'");
+                os.system("cd /tmp && wget -O req.txt --quiet 'https://www.termget.xyz/apps/contact.php?x1=" + name + "&x2=" + email + "&x3=" + message + "&x4=" + version_number + "'");
                 os.system("cat /tmp/req.txt")
                 print("\n\n")
                 tmp04443311 = input(blue + "Complete: Press enter to return to home!"); 
