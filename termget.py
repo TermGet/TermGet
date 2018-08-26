@@ -608,7 +608,7 @@ try:
                 clear()
                 user = input(reset + "Input a search query: ")
                 print("")
-                os.system(reset + "snap search")
+                os.system(reset + "snap search " + user)
                 askreturn()
 
             if user == "2":
