@@ -245,8 +245,7 @@ try:
                 "\n7. Check for TermGet Updates"
                 "\n8. Credits"
                 "\n9. Exit"
-                "\n10. Enter shell"
-                "\n11. Feedback\n\n"))
+                "\n10. Enter shell")
 
             if user == "1":  # Search-meow
                 clear()
@@ -441,60 +440,25 @@ try:
                 elif package == "homebrew": print(reset + "Homebrew already does this automagically. :)\n")
                 elif package == "nix": os.system("nix-collect-garbage -d")
                 askreturn()
-
-            if user == "7": #Update TermGet
-                clear()
-                urllib.request.urlretrieve("https://www.termget.xyz/apps/version.php", "dvn.txt")
-                dvnt = open("dvn.txt", "r")
-                dvn = dvnt.read()
-
-                if int(version_number) == int(dvn):
-                    print(green + "You have the newest version!  ** Version: " + version + " - Build Number: " + version_number + " ** " + reset)
-                    os.remove("dvn.txt")
-                    askreturn()
-
-                #elif version[:5] == "Alpha":
-                #    current_username = getpass.getuser()
-                #    print(red + "I'm sorry " + current_username + ", but this feature doesn't work on Alpha builds")
-                #    os.remove("dvn.txt")
-                #    askreturn()
-
-                elif int(version_number) != int(dvn):
-                    print(red + "Your version of TermGet is outdated. Please update to enjoy bug fixes and new features." + reset)
-                    print("\nNew Version: ")
-                    os.system("cat dvn.txt")
-                    os.remove("dvn.txt")
-                    askreturn()
-
-
-            if user == "8":  # Credits
+                         
+            if user == "7":  # Credits
 
                 clear()
                 print(credit)
                 time.sleep(3)
 
-            if user == "9":
+            if user == "8":
                 print(reset)
                 clear()
                 quit()
 
-            if user == "10":
+            if user == "9":
                 clear()
                 print(reset + "Entering bash...")
                 print(reset + "Press CTRL+D or type \"exit\" to return to termget.")
                 os.system("bash")
                 print(reset + "Returning to termget...")
                 clear()
-            if user == "11":
-                clear()
-                print(red + "Warning: Requires WGET to work!")
-                name = input(green + "[NOT REQ] Full Name: ")
-                email = input(green + "[NOT REQ] Email Address: ")
-                message = input(green + "[REQ] Message: ")
-                os.system("cd /tmp && wget -O req.txt --quiet 'https://www.termget.xyz/apps/contact.php?x1=" + name + "&x2=" + email + "&x3=" + message + "&x4=" + version_number + "'");
-                os.system("cat /tmp/req.txt")
-                print("\n\n")
-                tmp04443311 = input(blue + "Complete: Press enter to return to home!"); 
                
                
     if package == "pip" or package == "pip2" or package == "pip3":  # Starts a loop
