@@ -128,6 +128,7 @@ try:
         elif sys.argv[1] == "npm": package = "npm"
         elif sys.argv[1] == "snap": package = "snap"
         elif sys.argv[1] == "flatpak": package = "flatpak"
+        elif sys.argv[1] == "yarn": package = "yarn"
     try:
         if package == " ":
             if package_file_read == "apt-get": package = "apt-get"
@@ -688,6 +689,7 @@ try:
                 print(reset)
                 quit()
 
+# We need to add Yarn and Npm
 
 except KeyboardInterrupt:
         clear()
