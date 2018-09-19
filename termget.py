@@ -692,6 +692,7 @@ try:
 # We need to add Yarn and Npm
 
     if package == "yarn" or package == "npm":
+        pkg_dir = input(reset + "Enter the path of your js project: ")
         while True:
             clear()
             user = input(multichoicePrompt(
@@ -700,6 +701,7 @@ try:
             "\n2. Install a package"
             "\n3. Remove a package"
             "\n4. List installed packages"
+            "\n5. Update all local packages"
             "\n5. Credits"
             "\n6. Exit"))
 
@@ -712,29 +714,38 @@ try:
 
             if user == "2":
                 clear()
-                user = input(reset + "Input the snap name: ")
+                user = input(reset + "Input the package name: ")
                 print("")
-                os.system(reset + "sudo snap install " + user)
+                cd(pkg_dir)
+                if package == "npm": os.system("npm install " + user)
                 askreturn()
 
             if user == "3":
                 clear()
-                user = input(reset + "Input the snap name: ")
+                user = input(reset + "Input the package name: ")
                 print("")
-                os.system(reset +  "sudo snap remove " + user)
+                cd(pkg_dir)
+                if package == "npm": os.system("npm uninstall " + user)
                 askreturn()
 
             if user == "4":
                 clear()
-                print("The current installed snaps are: ")
-                os.system(reset + "sudo snap list")
+                print("The current installed packages are: ")
+                cd(pkg_dir)
+                if package == "npm": os.system("npm ls")
                 askreturn()
 
             if user == "5":
                 clear()
-                credits()
+                cd(pkg_dir)
+                if package == "npm": os.system("npm update")
+                askreturn()
 
             if user == "6":
+                clear()
+                credits()
+
+            if user == "7":
                 print(reset)
                 quit()
                          
