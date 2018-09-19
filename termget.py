@@ -54,7 +54,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warning: Missing Package File...")
-    version = "Alpha 3.0.1" # version number
+    version = "Alpha 3.0.5" # version number
     version_number = "1301"    # For each version number remove Beta or Alpha. alpha=1 beta=0 and remove all the dots for example: Alpha 1.1.0 would be 1110 Or Beta 1.1.1 would be 0111       **** !THIS IS USED FOR UPDATE SYSTEM! ****
     credit = magenta + (
         "TermGet was created by:\n"
@@ -248,7 +248,7 @@ try:
                 "\n9. Exit"
                 "\n10. Enter shell")
 
-            if user == "1":  # Search-meow
+            if user == "1":  # Search
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print(reset + " ")
@@ -691,6 +691,53 @@ try:
 
 # We need to add Yarn and Npm
 
+    if package == "yarn" or package == "npm":
+        while True:
+            clear()
+            user = input(multichoicePrompt(
+            "Please choose an action:\n"
+            "\n1. Search for package"
+            "\n2. Install a package"
+            "\n3. Remove a package"
+            "\n4. List installed packages"
+            "\n5. Credits"
+            "\n6. Exit"))
+
+            if user == "1":
+                clear()
+                user = input(reset + "Input a search query: ")
+                print("")
+                if package == "npm": os.system("npm search " + user)
+                askreturn()
+
+            if user == "2":
+                clear()
+                user = input(reset + "Input the snap name: ")
+                print("")
+                os.system(reset + "sudo snap install " + user)
+                askreturn()
+
+            if user == "3":
+                clear()
+                user = input(reset + "Input the snap name: ")
+                print("")
+                os.system(reset +  "sudo snap remove " + user)
+                askreturn()
+
+            if user == "4":
+                clear()
+                print("The current installed snaps are: ")
+                os.system(reset + "sudo snap list")
+                askreturn()
+
+            if user == "5":
+                clear()
+                credits()
+
+            if user == "6":
+                print(reset)
+                quit()
+                         
 except KeyboardInterrupt:
         clear()
         print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
