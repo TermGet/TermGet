@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import webbrowser
 import os
 import time
 import sys
@@ -707,9 +708,19 @@ try:
 
             if user == "1":
                 clear()
-                user = input(reset + "Input a search query: ")
                 print("")
-                if package == "npm": os.system("npm search " + user)
+                if package == "npm":
+                     user = input(reset + "Input a search query: ")
+                     os.system("npm search " + user)
+                elif package == "yarn":
+                     print("Yarn doesn't have a search function built in. Would you like to search with your default browser?")
+                     user = input(multichoicePrompt(
+                     "Please choose an action:\n"
+                     "\n1. Yes, search in my default browser"
+                     "\n2. No"))
+                     if user == "1":
+												 user = input(reset + "Input a search query: ")
+                         webbrowser.open_new("https://yarnpkg.com/en/packages?q=" + user + "&p=1")
                 askreturn()
 
             if user == "2":
@@ -717,7 +728,8 @@ try:
                 user = input(reset + "Input the package name: ")
                 print("")
                 cd(pkg_dir)
-                if package == "npm": os.system("npm install " + user)
+                if package == "npm": os.system("sudo npm install " + user)
+								if package == "yarn": os.system("sudo yarn install " + user)
                 askreturn()
 
             if user == "3":
@@ -725,7 +737,8 @@ try:
                 user = input(reset + "Input the package name: ")
                 print("")
                 cd(pkg_dir)
-                if package == "npm": os.system("npm uninstall " + user)
+                if package == "npm": os.system("sudo npm uninstall " + user)
+								elif package == "yarn": os.system("sudo yarn remove " + user)
                 askreturn()
 
             if user == "4":
@@ -733,12 +746,14 @@ try:
                 print("The current installed packages are: ")
                 cd(pkg_dir)
                 if package == "npm": os.system("npm ls")
+								elif package == "yarn": os.system("yarn list")
                 askreturn()
 
             if user == "5":
                 clear()
                 cd(pkg_dir)
-                if package == "npm": os.system("npm update")
+                if package == "npm": os.system("sudo npm update")
+								if package == "yarn": os.system("sudo yarn update")
                 askreturn()
 
             if user == "6":
