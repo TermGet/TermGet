@@ -707,20 +707,20 @@ try:
             "\n6. Exit"))
 
             if user == "1":
-                clear()
+				clear()
                 print("")
                 if package == "npm":
-                     user = input(reset + "Input a search query: ")
-                     os.system("npm search " + user)
+                    user = input(reset + "Input a search query: ")
+					os.system("npm search " + user)
                 elif package == "yarn":
-                     print("Yarn doesn't have a search function built in. Would you like to search with your default browser?")
-                     user = input(multichoicePrompt(
-                     "Please choose an action:\n"
-                     "\n1. Yes, search in my default browser"
-                     "\n2. No"))
-                     if user == "1":
-												 user = input(reset + "Input a search query: ")
-                         webbrowser.open_new("https://yarnpkg.com/en/packages?q=" + user + "&p=1")
+                    print("Yarn doesn't have a search function built in. Would you like to search with your default browser?")
+                    user = input(multichoicePrompt(
+                    "Please choose an action:\n"
+                    "\n1. Yes, search in my default browser"
+                    "\n2. No"))
+                    if user == "1":
+						user = input(reset + "Input a search query: ")
+                        webbrowser.open_new("https://yarnpkg.com/en/packages?q=" + user + "&p=1")
                 askreturn()
 
             if user == "2":
@@ -729,7 +729,7 @@ try:
                 print("")
                 cd(pkg_dir)
                 if package == "npm": os.system("sudo npm install " + user)
-								if package == "yarn": os.system("sudo yarn install " + user)
+				if package == "yarn": os.system("sudo yarn install " + user)
                 askreturn()
 
             if user == "3":
@@ -738,7 +738,7 @@ try:
                 print("")
                 cd(pkg_dir)
                 if package == "npm": os.system("sudo npm uninstall " + user)
-								elif package == "yarn": os.system("sudo yarn remove " + user)
+				elif package == "yarn": os.system("sudo yarn remove " + user)
                 askreturn()
 
             if user == "4":
@@ -746,14 +746,14 @@ try:
                 print("The current installed packages are: ")
                 cd(pkg_dir)
                 if package == "npm": os.system("npm ls")
-								elif package == "yarn": os.system("yarn list")
+				elif package == "yarn": os.system("yarn list")
                 askreturn()
 
             if user == "5":
                 clear()
                 cd(pkg_dir)
                 if package == "npm": os.system("sudo npm update")
-								if package == "yarn": os.system("sudo yarn update")
+				if package == "yarn": os.system("sudo yarn update")
                 askreturn()
 
             if user == "6":
@@ -763,7 +763,7 @@ try:
             if user == "7":
                 print(reset)
                 quit()
-                         
+						 
 except KeyboardInterrupt:
         clear()
         print(red + "Error: Keyboard Interuption. Quitting" + reset) # moo
