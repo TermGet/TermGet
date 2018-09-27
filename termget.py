@@ -610,7 +610,7 @@ try:
                 clear()
                 user = input(reset + "Input a search query: ")
                 print("")
-                os.system(reset + "snap search " + user)
+                os.system(reset + "snap find " + user)
                 askreturn()
 
             if user == "2":
@@ -630,7 +630,7 @@ try:
             if user == "4":
                 clear()
                 print("The current installed snaps are: ")
-                os.system(reset + "sudo snap list")
+                os.system(reset + "snap list")
                 askreturn()
 
             if user == "5":
@@ -690,7 +690,6 @@ try:
                 print(reset)
                 quit()
 
-# We need to add Yarn and Npm
 
     if package == "yarn" or package == "npm":
         pkg_dir = input(reset + "Enter the path of your js project: ")
