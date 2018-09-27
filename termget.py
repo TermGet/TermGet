@@ -659,14 +659,14 @@ try:
                 clear()
                 user = input(reset + "Input a search query: ")
                 print("")
-                os.system(reset + "flatpak search")
+                os.system(reset + "flatpak search " + user)
                 askreturn()
 
             if user == "2":
                 clear()
                 user = input(reset + "Input the flatpak name: ")
                 print("")
-                os.system(reset + "sudo flatpak install flathub" + user)
+                os.system(reset + "sudo flatpak install flathub " + user)
                 askreturn()
 
             if user == "3":
@@ -679,7 +679,7 @@ try:
             if user == "4":
                 clear()
                 print("The current installed flatpaks are: ")
-                os.system(reset + "sudo flatpak list")
+                os.system(reset + "flatpak list")
                 askreturn()
 
             if user == "5":
