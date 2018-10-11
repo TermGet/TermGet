@@ -762,6 +762,62 @@ try:
             if user == "7":
                 print(reset)
                 quit()
+                
+if package == "appimage":
+        pkg_dir = input(reset + "Enter the path of your js project: ")
+        while True:
+            clear()
+            user = input(multichoicePrompt(
+            "Please choose an action:\n"
+            "\n1. Search for AppImage"
+            "\n2. Install a AppImage"
+            "\n3. Update AppImage repo"
+            "\n4. Update a AppImage"
+            "\n5. Credits"
+            "\n6. Exit"))
+
+            if user == "1":
+				clear()
+                user = input(reset + "Input a search query: ")
+                os.system(mkdir ~/AppImages)
+                print("")
+                
+                # Add Search code here
+
+                askreturn()
+
+            if user == "2":
+                clear()
+                user = input(reset + "Input the package name: ")
+                print("")
+                
+                # Add Install code here
+
+                askreturn()
+
+            if user == "3":
+                clear()
+                print("")
+                
+                # Add Update repo code here
+
+                askreturn()
+
+            if user == "4":
+                clear()
+                user = input(reset + "Input the package name: ")
+
+                # Add Update package code here
+
+                askreturn()
+
+            if user == "5":
+                clear()
+                credits()
+
+            if user == "6":
+                print(reset)
+                quit()
 						 
 except KeyboardInterrupt:
         clear()
