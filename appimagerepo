@@ -2,12 +2,16 @@
 https://github.com/360ls/desktop/releases/download/v1.0.0/360ls-Desktop-Application-1.0.0-x86_64.AppImage
 !accessimap
 https://api.github.com/makinacorpus/accessimap-lecteur-der/releases/latest
-!
+!ahgequip
 https://api.github.com/repos/TroopTrack/AHGequip/releases/latest
+!aidos-wallet
+https://api.github.com/repos/AidosKuneen/aidos-wallet/releases/latest
 !akasha
 https://api.github.com/repos/AkashaProject/Community/releases/latest
 !alduin
 https://api.github.com/repos/AlduinApp/alduin/releases/latest
+!amphetype2
+https://api.github.com/repos/coryo/amphetype2/releases/latest
 !anavis
 https://api.github.com/repos/learningmedia/anavis/releases/latest
 !angular-console
