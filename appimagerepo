@@ -34,6 +34,8 @@ https://api.github.com/repos/cosmo0/arcade-manager/releases/latest
 https://api.github.com/repos/ZencashOfficial/arizen/releases/latest
 !arkona2
 https://api.github.com/repos/uzudil/arkona2/releases/latest
+!asarui
+https://api.github.com/myazarc/AsarUI/releases/download/latest
 !auryo
 https://api.github.com/repos/Superjo149/auryo/releases/latest
 !astroffers
@@ -44,6 +46,8 @@ https://api.github.com/repos/Symbian9/azpainter/releases/latest
 https://api.github.com/repos/jmarioste/manga-viewer/releases/latest
 !bdash
 https://api.github.com/repos/bdash-app/bdash/releases/latest
+!beakerbrowser
+http://api.github.com/beakerbrowser/beaker/releases/latest
 !beamdog
 http://client.beamdog.com/download/latest
 !belle
@@ -88,3 +92,7 @@ https://api.github.com/repos/buttercup/buttercup-desktop/releases/latest
 https://api.github.com/repos/BunqCommunity/BunqDesktop/releases/latest
 !bytespeicher
 https://api.github.com/repos/Bytespeicher/BytespeicherTrayIcon/releases/latest
+!calculist
+https://github.com/calculist/calculist-desktop/releases/download/v0.3.0/CalculistDesktop-0.3.0-x86_64.AppImage
+!caprine
+https://api.github.com/repos/sindresorhus/caprine/releases/latest
