@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-import webbrowser
-import os
-import time
-import sys
-import getpass
-import urllib.request
-import hashlib
+import webbrowser, os, time, sys, getpass, urllib.request, hashlib, requests
 from urllib import parse
 # Colors (Thanks to Linux /usr/ for this code)
 bold = "\033[1m"
@@ -55,7 +49,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warning: Missing Package File...")
-    version = "Alpha 3.0.5" # version number
+    version = "3.0.0 Alpha1" # version number
     version_number = "1301"    # For each version number remove Beta or Alpha. alpha=1 beta=0 and remove all the dots for example: Alpha 1.1.0 would be 1110 Or Beta 1.1.1 would be 0111       **** !THIS IS USED FOR UPDATE SYSTEM! ****
     credit = magenta + (
         "TermGet was created by:\n"
@@ -68,7 +62,7 @@ try:
 
 
     def setpack(var):
-        os.system('sudo bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
+        os.system(' bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
 
     def askreturn(): input(reset + yellow + "\nPress enter to continue")
 
@@ -130,6 +124,7 @@ try:
         elif sys.argv[1] == "snap": package = "snap"
         elif sys.argv[1] == "flatpak": package = "flatpak"
         elif sys.argv[1] == "yarn": package = "yarn"
+        elif sys.argv[1] == "appimage": package = "appimage"
     try:
         if package == " ":
             if package_file_read == "apt-get": package = "apt-get"
@@ -232,7 +227,7 @@ try:
 
     # MEOW!
 
-    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap" and package != "flatpak":
+    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap" and package != "flatpak" and package != "appimage":
         while True:  # Starts a loop
             clear()
 
@@ -244,10 +239,9 @@ try:
                 "\n4. Update all packages"
                 "\n5. Update Database"
                 "\n6. Clean"
-                "\n7. Check for TermGet Updates"
-                "\n8. Credits"
-                "\n9. Exit"
-                "\n10. Enter shell")
+                "\n7. Credits"
+                "\n8. Exit"
+                "\n9. Enter shell"))
 
             if user == "1":  # Search
                 clear()
@@ -274,26 +268,26 @@ try:
 
                 user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
 
-                if user == "y":
+                if user == "y" or user == "Y":
                     clear()
                     user = input(reset + "Please enter which package(s) to install: ")
                     print(reset + "")
 
-                    if package == "apt-get": os.system("sudo apt-get install " + user)
+                    if package == "apt-get": os.system("  apt-get install " + user)
                     elif package == "pacman":
                         user1 = input(multichoicePrompt(
                             "Which package manager would you like to use?\n"
                             "\n1. pacman"
                             "\n2. yaourt" + reset))
-                        if user1 == "1": os.system("sudo pacman -S " + user)
+                        if user1 == "1": os.system("pacman -S " + user)
                         if user1 == "2": os.system("yaourt -S " + user)
-                    elif package == "xbps": os.system("sudo xbps-install " + user)
-                    elif package == "dnf": os.system("sudo dnf install " + user)
-                    elif package == "yum": os.system("sudo yum install " + user)
-                    elif package == "zypper": os.system("sudo zypper install " + user)
-                    elif package == "eopkg": os.system("sudo eopkg install " + user)
+                    elif package == "xbps": os.system("xbps-install " + user)
+                    elif package == "dnf": os.system("dnf install " + user)
+                    elif package == "yum": os.system("yum install " + user)
+                    elif package == "zypper": os.system("zypper install " + user)
+                    elif package == "eopkg": os.system("eopkg install " + user)
                     elif package == "emerge": os.system("emerge " + user)
-                    elif package == "pkg": os.system("sudo pkg install " + user)
+                    elif package == "pkg": os.system("pkg install " + user)
                     elif package == "chromebrew": os.system("crew install " + user)
                     elif package == "homebrew": os.system("brew install " + user)
                     elif package == "nix": os.system("nix-env -i " + user)
@@ -304,21 +298,21 @@ try:
                 user = input(reset + "Please enter which package(s) to install: ")
                 print(reset + "")
 
-                if package == "apt-get": os.system("sudo apt-get install " + user)
+                if package == "apt-get": os.system("apt-get install " + user)
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yaourt" + reset))
-                    if user1 == "1": os.system("sudo pacman -S " + user)
+                    if user1 == "1": os.system("pacman -S " + user)
                     if user1 == "2": os.system("yaourt -S " + user)
-                elif package == "xbps": os.system("sudo xbps-install " + user)
-                elif package == "dnf": os.system("sudo dnf install " + user)
-                elif package == "yum": os.system("sudo yum install " + user)
-                elif package == "zypper": os.system("sudo zypper install " + user)
-                elif package == "eopkg": os.system("sudo eopkg install " + user)
+                elif package == "xbps": os.system("xbps-install " + user)
+                elif package == "dnf": os.system("dnf install " + user)
+                elif package == "yum": os.system("yum install " + user)
+                elif package == "zypper": os.system("zypper install " + user)
+                elif package == "eopkg": os.system("eopkg install " + user)
                 elif package == "emerge": os.system("emerge " + user)
-                elif package == "pkg": os.system("sudo pkg install " + user)
+                elif package == "pkg": os.system("pkg install " + user)
                 elif package == "chromebrew": os.system("crew install " + user)
                 elif package == "homebrew": os.system("brew install " + user)
                 elif package == "nix": os.system("nix-env -i " + user)
@@ -334,16 +328,16 @@ try:
                         "\n1. Remove, removes just the package (faster)"
                         "\n2. Purge, removes the package, and all it's configuration files (saves space)" + reset))
                     clear()
-                    if user1 == "1": os.system("sudo apt-get remove " + user)
-                    if user1 == "2": os.system("sudo apt-get purge " + user)
-                elif package == "pacman": os.system("sudo pacman -Rs " + user)
-                elif package == "xbps": os.system("sudo xbps-remove " + user)
-                elif package == "dnf": os.system("sudo dnf erase " + user)
-                elif package == "yum": os.system("sudo yum remove " + user)
-                elif package == "zypper": os.system("sudo zypper remove " + user)
-                elif package == "eopkg": os.system("sudo eopkg remove " + user)
+                    if user1 == "1": os.system("apt-get remove " + user)
+                    if user1 == "2": os.system("apt-get purge " + user)
+                elif package == "pacman": os.system("pacman -Rs " + user)
+                elif package == "xbps": os.system("xbps-remove " + user)
+                elif package == "dnf": os.system("dnf erase " + user)
+                elif package == "yum": os.system("yum remove " + user)
+                elif package == "zypper": os.system("zypper remove " + user)
+                elif package == "eopkg": os.system("eopkg remove " + user)
                 elif package == "emerge": os.system("emerge -C " + user)
-                elif package == "pkg": os.system("sudo pkg delete " + user)
+                elif package == "pkg": os.system("pkg delete " + user)
                 elif package == "chromebrew": os.system("crew remove " + user)
                 elif package == "homebrew": os.system("brew uninstall " + user)
                 elif package == "nix": os.system("nix-env -e " + user)
@@ -356,29 +350,28 @@ try:
                     "Do you also want to reload the database ?\n"
                     "\n1. Yes"
                     "\n2. No" + reset))
-                    if user1 == "1": os.system("sudo apt-get update")
-                    os.system("sudo apt-get upgrade")
-                    os.system("sudo apt-get dist-upgrade")
+                    if user1 == "1": os.system("apt-get update")
+                    os.system("apt-get upgrade")
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yaourt" + reset))
-                    if user1 == "1": os.system("sudo pacman -Syu")
+                    if user1 == "1": os.system("pacman -Syu")
                     if user1 == "2": os.system("yaourt -Syu --aur")
-                elif package == "xbps": os.system("sudo xbps-install -Su")
+                elif package == "xbps": os.system("xbps-install -Su")
                 elif package == "dnf":
-                    os.system("sudo dnf upgrade")
-                    os.system("sudo dnf distro-sync")
-                elif package == "yum": os.system("sudo yum update")
+                    os.system("dnf upgrade")
+                    os.system("dnf distro-sync")
+                elif package == "yum": os.system("yum update")
                 elif package == "zypper":
-                    os.system("sudo zypper update && zypper up")
-                    os.system("sudo zypper dup")
-                elif package == "eopkg": os.system("sudo eopkg upgrade")
+                    os.system("zypper update && zypper up")
+                    os.system("zypper dup")
+                elif package == "eopkg": os.system("eopkg upgrade")
                 elif package == "emerge":
-                    os.system("sudo emerge -u world")
-                    os.system("sudo emerge -uDN world")
-                elif package == "pkg": os.system("sudo pkg upgrade")
+                    os.system("emerge -u world")
+                    os.system("emerge -uDN world")
+                elif package == "pkg": os.system("pkg upgrade")
                 elif package == "chromebrew": os.system("crew upgrade")
                 elif package == "homebrew": os.system("brew upgrade")
                 elif package == "nix": os.system("nix-env -u '*'")
@@ -386,21 +379,21 @@ try:
 
             if user == "5":  # Updates Database MEOW
                 clear()
-                if package == "apt-get": os.system("sudo apt-get update")
+                if package == "apt-get": os.system("apt-get update")
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yaourt"))
-                    if user1 == "1": os.system("sudo pacman -Syy")
+                    if user1 == "1": os.system("pacman -Syy")
                     if user1 == "2": os.system("yaourt -Syy" + reset)
-                elif package == "xbps": os.system("sudo xbps-install -S")
-                elif package == "dnf": os.system("sudo dnf clean expire-cache && sudo dnf check-update")
-                elif package == "zypper": os.system("sudo zypper refresh zypper ref")
-                elif package == "eopkg": os.system("sudo eopkg ur")
-                elif package == "emerge": os.system("sudo layman -f")
-                elif package == "yum": os.system("sudo yum check-update")
-                elif package == "pkg": os.system("sudo pkg update")
+                elif package == "xbps": os.system("xbps-install -S")
+                elif package == "dnf": os.system("dnf clean expire-cache && dnf check-update")
+                elif package == "zypper": os.system("zypper refresh zypper ref")
+                elif package == "eopkg": os.system("eopkg ur")
+                elif package == "emerge": os.system("layman -f")
+                elif package == "yum": os.system("yum check-update")
+                elif package == "pkg": os.system("pkg update")
                 elif package == "chromebrew": print(reset + "This feature is unavailable for chromebrew\n")
                 elif package == "homebrew": os.system("brew update")
                 elif package == "nix": os.system("nix-channel --update nixpkgs")
@@ -411,35 +404,35 @@ try:
                 clear()
 
                 if package == "apt-get":
-                    os.system("sudo apt-get autoremove")
-                    os.system("sudo apt-get autoclean")
-                    os.system("sudo apt-get clean")
+                    os.system("apt-get autoremove")
+                    os.system("apt-get autoclean")
+                    os.system("apt-get clean")
                 elif package == "pacman":
-                    os.system("sudo pacman -Qdtq | pacman -Rs -")
-                    os.system("sudo pacman -Sc")
+                    os.system("pacman -Qdtq | pacman -Rs -")
+                    os.system("pacman -Sc")
                 elif package == "xbps":
-                    os.system("sudo xbps-remove -o")
-                    os.system("sudo xbps-remove -O")
+                    os.system("xbps-remove -o")
+                    os.system("xbps-remove -O")
                 elif package == "dnf":
-                    os.system("sudo dnf autoremove")
-                    os.system("sudo dnf clean all")
+                    os.system("dnf autoremove")
+                    os.system("dnf clean all")
                 elif package == "yum":
-                    os.system("sudo yum clean all")
-                    os.system("sudo yum autoremove")
+                    os.system("yum clean all")
+                    os.system("yum autoremove")
                 elif package == "zypper":
-                    os.system("sudo zypper rm -u")
-                    os.system("sudo zypper clean")
+                    os.system("zypper rm -u")
+                    os.system("zypper clean")
                 elif package == "eopkg":
-                    os.system("sudo eopkg delete-cache")
-                    os.system("sudo eopkg remove-orphans")
+                    os.system("eopkg delete-cache")
+                    os.system("eopkg remove-orphans")
                 elif package == "emerge":
-                    os.system("sudo emerge --depclean")
-                    os.system("sudo eclean distfiles")
+                    os.system("emerge --depclean")
+                    os.system("eclean distfiles")
                 elif package == "pkg":
-                    os.system("sudo pkg clean")
-                    os.system("sudo pkg autoremove")
+                    os.system("pkg clean")
+                    os.system("pkg autoremove")
                 elif package == "chromebrew": print(reset + "This feature is unavailable on chromebrew\n")
-                elif package == "homebrew": print(reset + "Homebrew already does this automagically. :)\n")
+                elif package == "homebrew": print(reset + "Homebrew already does this automatically. :)\n")
                 elif package == "nix": os.system("nix-collect-garbage -d")
                 askreturn()
                          
@@ -481,6 +474,18 @@ try:
                 user = input(reset + "Please enter search query: ")
                 print(reset + " ")
                 os.system(package + " search \"" + user + "\"")
+
+                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+
+                if user == "y" or user == "Y":
+                    clear()
+                    user = input(reset + "Please enter which package(s) to install: ")
+                    print(reset + "")
+
+                    clear()
+                    user = input(reset + "Please enter which package(s) to install: ")
+                    print(reset + "")
+                    os.system(package + " install \"" + user + "\"")
 
                 askreturn()
 
@@ -547,6 +552,14 @@ try:
                 print("")
                 os.system("apm search " + user)
 
+                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+
+                if user == "y" or user == "Y":
+                    clear()
+                    user = input(reset + "Please enter which package(s) to install: ")
+                    print(reset + "")
+                    os.system("apm install " + user)
+
                 askreturn()
 
             if user == "2":  # Install
@@ -608,23 +621,32 @@ try:
 
             if user == "1":
                 clear()
-                user = input(reset + "Input a search query: ")
+                user = input(reset + "Please enter search query: ")
                 print("")
                 os.system(reset + "snap find " + user)
+
+                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+
+                if user == "y" or user == "Y":
+                    clear()
+                    user = input(reset + "Please enter which package(s) to install: ")
+                    print("")
+                    os.system(reset + "snap install " + user)
+                    
                 askreturn()
 
             if user == "2":
                 clear()
-                user = input(reset + "Input the snap name: ")
+                user = input(reset + "Please enter which package(s) to install: ")
                 print("")
-                os.system(reset + "sudo snap install " + user)
+                os.system(reset + "snap install " + user)
                 askreturn()
 
             if user == "3":
                 clear()
-                user = input(reset + "Input the snap name: ")
+                user = input(reset + "Please enter which package(s) to remove: ")
                 print("")
-                os.system(reset +  "sudo snap remove " + user)
+                os.system(reset +  "snap remove " + user)
                 askreturn()
 
             if user == "4":
@@ -657,23 +679,33 @@ try:
 
             if user == "1":
                 clear()
-                user = input(reset + "Input a search query: ")
+                user = input(reset + "Please enter search query: ")
                 print("")
                 os.system(reset + "flatpak search " + user)
-                askreturn()
 
+                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+
+                if user == "y" or user == "Y":
+                    clear()
+                    user = input(reset + "Please enter which flatpak(s) to install")
+                    print("")
+                    os.system(reset + "flatpak install flathub " + user)
+                    askreturn()
+
+
+                askreturn()
             if user == "2":
                 clear()
-                user = input(reset + "Input the flatpak name: ")
+                user = input(reset + "Please enter which flatpak(s) to install")
                 print("")
-                os.system(reset + "sudo flatpak install flathub " + user)
+                os.system(reset + "flatpak install flathub " + user)
                 askreturn()
 
             if user == "3":
                 clear()
-                user = input(reset + "Input the flatpak name: ")
+                user = input(reset + "Please enter which flatpak(s) to remove: ")
                 print("")
-                os.system(reset +  "sudo flatpak remove " + user)
+                os.system(reset +  "flatpak remove " + user)
                 askreturn()
 
             if user == "4":
@@ -706,53 +738,55 @@ try:
             "\n6. Exit"))
 
             if user == "1":
-				clear()
+                clear()
                 print("")
                 if package == "npm":
-                    user = input(reset + "Input a search query: ")
-					os.system("npm search " + user)
+                    user = input(reset + "Please enter a search query: ")
+                    os.system("npm search " + user)
+                    user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+
+                    if user == "y" or user == "Y":
+                        os.system("npm install " + user)
+                        askreturn()
+
                 elif package == "yarn":
-                    print("Yarn doesn't have a search function built in. Would you like to search with your default browser?")
-                    user = input(multichoicePrompt(
-                    "Please choose an action:\n"
-                    "\n1. Yes, search in my default browser"
-                    "\n2. No"))
-                    if user == "1":
-						user = input(reset + "Input a search query: ")
+                    print("Yarn doesn't have a search function built in. Would you like to search with your default browser? (y/n)")
+                    if user == "y" or "Y":
+                        user = input(reset + "Input a search query: ")
                         webbrowser.open_new("https://yarnpkg.com/en/packages?q=" + user + "&p=1")
                 askreturn()
 
             if user == "2":
                 clear()
-                user = input(reset + "Input the package name: ")
+                user = input(reset + "Please enter which package(s) to install: ")
                 print("")
-                cd(pkg_dir)
-                if package == "npm": os.system("sudo npm install " + user)
-				if package == "yarn": os.system("sudo yarn install " + user)
+                os.chdir(pkg_dir)
+                if package == "npm": os.system("npm install " + user)
+                if package == "yarn": os.system("yarn install " + user)
                 askreturn()
 
             if user == "3":
                 clear()
-                user = input(reset + "Input the package name: ")
+                user = input(reset + "Please enter which package(s) to remove ")
                 print("")
-                cd(pkg_dir)
-                if package == "npm": os.system("sudo npm uninstall " + user)
-				elif package == "yarn": os.system("sudo yarn remove " + user)
+                os.chdir(pkg_dir)
+                if package == "npm": os.system("npm uninstall " + user)
+                elif package == "yarn": os.system("yarn remove " + user)
                 askreturn()
 
             if user == "4":
                 clear()
                 print("The current installed packages are: ")
-                cd(pkg_dir)
+                os.chdir(pkg_dir)
                 if package == "npm": os.system("npm ls")
-				elif package == "yarn": os.system("yarn list")
+                elif package == "yarn": os.system("yarn list")
                 askreturn()
 
             if user == "5":
                 clear()
-                cd(pkg_dir)
-                if package == "npm": os.system("sudo npm update")
-				if package == "yarn": os.system("sudo yarn update")
+                os.chdir(pkg_dir)
+                if package == "npm": os.system("npm update")
+                if package == "yarn": os.system("yarn update")
                 askreturn()
 
             if user == "6":
@@ -762,60 +796,105 @@ try:
             if user == "7":
                 print(reset)
                 quit()
-                
-if package == "appimage":
-        pkg_dir = input(reset + "Enter the path of your js project: ")
+
+    if package == "appimage":
         while True:
             clear()
             user = input(multichoicePrompt(
             "Please choose an action:\n"
             "\n1. Search for AppImage"
-            "\n2. Install a AppImage"
-            "\n3. Update AppImage repo"
-            "\n4. Update a AppImage"
-            "\n5. Credits"
-            "\n6. Exit"))
+            "\n2. Download a AppImage"
+            "\n3. Credits"
+            "\n4. Exit"))
 
             if user == "1":
-				clear()
+                clear()
                 user = input(reset + "Input a search query: ")
-                os.system(mkdir ~/AppImages)
                 print("")
                 
-                # Add Search code here
+                url = 'https://appimage.github.io/feed.json'
+                r = requests.get(url)
+                data = r.json()['items']
+
+                appimage_name = input('Name: ')
+                appimage_exists = False
+                for entry in data:
+
+                    if entry['name'].lower() == appimage_name.lower(): #we found it!
+                            
+                        try: #check if url exists
+                            appimage_release_url = entry['links'][-1]['url']
+                            appimage_exists = True
+                            print(f'The package has been "{appimage_name}" has been found. Would you like to install it?')
+                            
+                            user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+
+                            if user == "y" or user == "Y":
+                            
+                                print(f"url: {appimage_release_url}")
+                                appimage_download_url = appimage_release_url.replace('github.com', 'api.github.com/repos') + "/latest"
+                                print("Downloading AppImage...")
+                                os.system('mkdir ~/Applications \
+                                | cd ~/Applications \
+                                | curl -s ' + appimage_download_url + ' \
+                                | grep "browser_download_url.*AppImage" \
+                                | cut -d : -f 2,3 \
+                                | tr -d \\" \
+                                | wget -qi -')
+                                print("Done!")
+
+                        except TypeError: #No link
+                            print(f'The AppImage "{appimage_name}" doesn\'t have a download URL. This means that it is probably not hosted on GitHub. Unfortunately, this TermGet only works with GitHub releases of AppImages')
+
+                        
+                if appimage_exists == False:
+                    print(f'The AppImage "{appimage_name}" doesn\'t exist. If an AppImage is missing, please report it to AppImageHub.')
 
                 askreturn()
 
             if user == "2":
                 clear()
-                user = input(reset + "Input the package name: ")
+                user = input(reset + "Please enter which AppImage(s) to download ")
                 print("")
                 
-                # Add Install code here
+                url = 'https://appimage.github.io/feed.json'
+                r = requests.get(url)
+                data = r.json()['items']
 
+                appimage_name = input('Name: ')
+                appimage_exists = False
+                for entry in data:
+
+                    if entry['name'].lower() == appimage_name.lower(): #we found it!
+                            
+                        try: #check if url exists
+                            appimage_exists = True
+                            appimage_release_url = entry['links'][-1]['url']
+                            print(f"url: {appimage_release_url}")
+                            appimage_download_url = appimage_release_url.replace('github.com', 'api.github.com/repos') + "/latest"
+                            print("Downloading AppImage...")
+                            os.system('mkdir ~/Applications \
+                            | cd ~/Applications \
+                            | curl -s ' + appimage_download_url + ' \
+                            | grep "browser_download_url.*AppImage" \
+                            | cut -d : -f 2,3 \
+                            | tr -d \\" \
+                            | wget -qi -')
+                            print("Done!")
+
+                        except TypeError: #No link
+                            print(f'The AppImage "{appimage_name}" doesn\'t have a download URL. This means that it is probably not hosted on GitHub. Unfortunately, this TermGet only works with GitHub releases of AppImages')
+
+                        
+                if appimage_exists == False:
+                    print(f'The AppImage "{appimage_name}" doesn\'t exist. If an AppImage is missing, please report it to AppImageHub.')
                 askreturn()
 
             if user == "3":
                 clear()
-                print("")
-                
-                # Add Update repo code here
-
-                askreturn()
-
-            if user == "4":
-                clear()
-                user = input(reset + "Input the package name: ")
-
-                # Add Update package code here
-
-                askreturn()
-
-            if user == "5":
-                clear()
                 credits()
 
-            if user == "6":
+            if user == "4":
                 print(reset)
                 quit()
 						 
