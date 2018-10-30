@@ -104,27 +104,31 @@ try:
                 # Checks for Chromebook
 
     if package == " " and len(sys.argv) == 2:
-        if sys.argv[1] == "apt-get" or sys.argv[1] == "apt": package = "apt-get"
-        elif sys.argv[1] == "pacman" or sys.argv[1] == "yaourt": package = "pacman"
-        elif sys.argv[1] == "xbps": package = "xbps"
-        elif sys.argv[1] == "dnf": package = "dnf"
-        elif sys.argv[1] == "yum": package = "yum"
-        elif sys.argv[1] == "zypper": package = "zypper"
-        elif sys.argv[1] == "eopkg": package = "eopkg"
-        elif sys.argv[1] == "pip3": package = "pip3"
-        elif sys.argv[1] == "pip2": package = "pip2"
-        elif sys.argv[1] == "pip": package = "pip"
-        elif sys.argv[1] == "apm": package = "apm"
-        elif sys.argv[1] == "emerge": package = "emerge"
-        elif sys.argv[1] == "pkg": package = "pkg"
-        elif sys.argv[1] == "chromebrew": package = "chromebrew"
-        elif sys.argv[1] == "homebrew": package = "homebrew"
-        elif sys.argv[1] == "nix": package = "nix"
-        elif sys.argv[1] == "npm": package = "npm"
-        elif sys.argv[1] == "snap": package = "snap"
-        elif sys.argv[1] == "flatpak": package = "flatpak"
-        elif sys.argv[1] == "yarn": package = "yarn"
-        elif sys.argv[1] == "appimage": package = "appimage"
+        if sys.argv[1] == "apt-get" or sys.argv[1] == "apt" or sys.argv[2] == "apt" or sys.argv[1] == "apt-get": package = "apt-get"
+        if sys.argv[1] == "pacman" or sys.argv[1] == "yaourt" or sys.argv[2] == "pacman" or sys.argv[2] == "yaourt": package = "pacman"
+        if sys.argv[1] == "xbps" or sys.argv[2] == "xbps": package = "xbps"
+        if sys.argv[1] == "dnf" or sys.argv[2] == "dnf": package = "dnf"
+        if sys.argv[1] == "yum" or sys.argv[2] == "yum": package = "yum"
+        if sys.argv[1] == "zypper" or sys.argv[2] == "zypper": package = "zypper"
+        if sys.argv[1] == "eopkg" or sys.argv[2] == "eopkg": package = "eopkg"
+        if sys.argv[1] == "pip3" or sys.argv[2] == "pip3": package = "pip3"
+        if sys.argv[1] == "pip2" or sys.argv[2] == "pip2": package = "pip2"
+        if sys.argv[1] == "pip" or sys.argv[2] == "pip": package = "pip"
+        if sys.argv[1] == "apm" or sys.argv[2] == "apm": package = "apm"
+        if sys.argv[1] == "emerge" or sys.argv[2] == "emerge": package = "emerge"
+        if sys.argv[1] == "pkg" or sys.argv[2] == "pkg": package = "pkg"
+        if sys.argv[1] == "chromebrew" or sys.argv[2] == "chromebrew": package = "chromebrew"
+        if sys.argv[1] == "homebrew" or sys.argv[2] == "homebrew": package = "homebrew"
+        if sys.argv[1] == "nix" or sys.argv[2] == "nix": package = "nix"
+        if sys.argv[1] == "npm" or sys.argv[2] == "npm": package = "npm"
+        if sys.argv[1] == "snap" or sys.argv[2] == "snap": package = "snap"
+        if sys.argv[1] == "flatpak" or sys.argv[2] == "flatpak": package = "flatpak"
+        if sys.argv[1] == "yarn" or sys.argv[2] == "yarn": package = "yarn"
+        if sys.argv[1] == "appimage" or sys.argv[2] == "appimage": package = "appimage"
+		if sys.argv[1] == "--list":
+			list_enabled = True
+			listfile = sys.argv[2]
+			
     try:
         if package == " ":
             if package_file_read == "apt-get": package = "apt-get"
