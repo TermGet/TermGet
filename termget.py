@@ -126,9 +126,9 @@ try:
         if sys.argv[1] == "yarn" or sys.argv[2] == "yarn": package = "yarn"
         if sys.argv[1] == "bower" or sys.argv[2] == "bower": package = "bower"
         if sys.argv[1] == "appimage" or sys.argv[2] == "appimage": package = "appimage"
-		if sys.argv[1] == "--list":
-			list_enabled = True
-			listfile = sys.argv[2]
+        if sys.argv[1] == "--list":
+            list_enabled = True
+            listfile = sys.argv[2]
 			
     try:
         if package == " ":
