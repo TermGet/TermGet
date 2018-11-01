@@ -125,6 +125,7 @@ try:
         if sys.argv[1] == "flatpak" or sys.argv[2] == "flatpak": package = "flatpak"
         if sys.argv[1] == "yarn" or sys.argv[2] == "yarn": package = "yarn"
         if sys.argv[1] == "bower" or sys.argv[2] == "bower": package = "bower"
+        if sys.argv[1] == "gem" or sys.argv[2] == "gem": package = "gem"
         if sys.argv[1] == "appimage" or sys.argv[2] == "appimage": package = "appimage"
         if sys.argv[1] == "--list":
             list_enabled = True
@@ -853,6 +854,52 @@ try:
                 credits()
 
             if user == "7":
+                print(reset)
+                quit()
+
+    if package == "gem":
+        while True:
+            clear()
+            user = input(multichoicePrompt(
+                "Please choose an action:\n"
+                "1. Search for a gem\n"
+                "2. Install a gem\n"
+                "3. Remove a gem"
+                "4. List all installed gems"
+                "5. Credits"
+                "6. Exit"))
+
+            if user == "1":
+                clear()
+                user = input(reset + "Enter a search query: ")
+                print("")
+                os.system("gem search " + user)
+                askreturn()
+
+            if user == "2":
+                clear()
+                user = input(reset + "Enter a gem to install: ")
+                print("")
+                os.system("gem install " + user)
+                askreturn()
+
+            if user == "3":
+                clear()
+                user = input(reset + "Enter a gem to remove: ")
+                print("")
+                os.system("gem uninstall " + user)
+                askreturn()
+
+            if user == "4":
+                clear()
+                os.system("gem list")
+                askreturn()
+
+            if user == "5":
+                clear()
+                credits()
+
+            if user == "6":
                 print(reset)
                 quit()
 
