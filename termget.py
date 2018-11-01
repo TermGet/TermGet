@@ -124,6 +124,7 @@ try:
         if sys.argv[1] == "snap" or sys.argv[2] == "snap": package = "snap"
         if sys.argv[1] == "flatpak" or sys.argv[2] == "flatpak": package = "flatpak"
         if sys.argv[1] == "yarn" or sys.argv[2] == "yarn": package = "yarn"
+        if sys.argv[1] == "bower" or sys.argv[2] == "bower": package = "bower"
         if sys.argv[1] == "appimage" or sys.argv[2] == "appimage": package = "appimage"
 		if sys.argv[1] == "--list":
 			list_enabled = True
@@ -167,6 +168,8 @@ try:
         # Sets the variable 'setup' to False
 
     # Asks user which package manager to use
+
+    # We should do this with lists instead of a long if/else chain ~ Emil
 
     while setup == "True":  # Repeats until setup is not true
         if user == "1":
@@ -791,6 +794,58 @@ try:
                 os.chdir(pkg_dir)
                 if package == "npm": os.system("npm update")
                 if package == "yarn": os.system("yarn update")
+                askreturn()
+
+            if user == "6":
+                clear()
+                credits()
+
+            if user == "7":
+                print(reset)
+                quit()
+
+    if package == "bower":
+        while True:
+            clear()
+            user = input(multichoicePrompt(
+                "Please choose an action:\n"
+                "1. Search for a package\n"
+                "2. Install a package\n"
+                "3. Remove a package"
+                "4. Update all packages"
+                "5. List all installed packages"
+                "6. Credits"
+                "7. Exit"))
+
+            if user == "1":
+                clear()
+                user = input(reset + "Enter a search query: ")
+                print("")
+                os.system("bower search " + user)
+                askreturn()
+
+            if user == "2":
+                clear()
+                user = input(reset + "Enter a package to install: ")
+                print("")
+                os.system("bower install " + user)
+                askreturn()
+
+            if user == "3":
+                clear()
+                user = input(reset + "Enter a package to remove: ")
+                print("")
+                os.system("bower uninstall " + user)
+                askreturn()
+
+            if user == "4":
+                clear()
+                os.system("bower update")
+                askreturn()
+
+            if user == "5":
+                clear()
+                os.system("bower list")
                 askreturn()
 
             if user == "6":
