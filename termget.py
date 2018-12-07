@@ -2,17 +2,6 @@
 import webbrowser, os, time, sys, getpass, urllib.request, hashlib, requests
 from urllib import parse
 
-class PackageManager:
-    def __init__(self, name, search, install, remove, update, update_db, clean):
-        self.name = name
-        self.search = search
-        self.install = install
-        self.remove = remove
-        self.update = update
-        self.update_db = update_db
-        self.clean = clean
-
-
 # Colors (Thanks to Linux /usr/ for this code)
 bold = "\033[1m"
 reset = "\033[0m"
