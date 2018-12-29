@@ -416,7 +416,7 @@ try:
                 clear()
 
                 if package == "apt-get":
-                    os.system("apt-get autoremove")
+                    os.system("apt-get purge --autoremove")
                     os.system("apt-get autoclean")
                     os.system("apt-get clean")
                 elif package == "pacman":
