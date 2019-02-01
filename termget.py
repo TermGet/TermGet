@@ -259,24 +259,24 @@ try:
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print(reset + " ")
-                if package == "apt-get": os.system("apt-cache search " + user)
+                if package == "apt-get": os.system("apt-cache search " + user + " | grep " + user)
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yaourt"))
-                    if user1 == "1": os.system("pacman -Ss " + user)
-                    if user1 == "2": os.system("yaourt -Ss " + user)
-                elif package == "xbps": os.system("xbps-query -Rs " + user)
-                elif package == "dnf": os.system("dnf search " + user)
-                elif package == "yum": os.system("yum search " + user)
-                elif package == "zypper": os.system("zypper search " + user)
-                elif package == "eopkg": os.system("eopkg search " + user)
-                elif package == "emerge": os.system("emerge -S " + user)
-                elif package == "pkg": os.system("pkg search " + user)
-                elif package == "chromebrew": os.system("crew search " + user)
-                elif package == "homebrew": os.system("brew search " + user)
-                elif package == "nix": os.system("nix search " + user)
+                    if user1 == "1": os.system("pacman -Ss " + user + " | grep " + user)
+                    if user1 == "2": os.system("yaourt -Ss " + user + " | grep " + user)
+                elif package == "xbps": os.system("xbps-query -Rs " + user + " | grep " + user)
+                elif package == "dnf": os.system("dnf search " + user + " | grep " + user)
+                elif package == "yum": os.system("yum search " + user + " | grep " + user)
+                elif package == "zypper": os.system("zypper search " + user + " | grep " + user)
+                elif package == "eopkg": os.system("eopkg search " + user + " | grep " + user)
+                elif package == "emerge": os.system("emerge -S " + user + " | grep " + user)
+                elif package == "pkg": os.system("pkg search " + user + " | grep " + user)
+                elif package == "chromebrew": os.system("crew search " + user + " | grep " + user)
+                elif package == "homebrew": os.system("brew search " + user + " | grep " + user)
+                elif package == "nix": os.system("nix search " + user + " | grep " + user)
 
                 user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
 
@@ -485,7 +485,7 @@ try:
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print(reset + " ")
-                os.system(package + " search \"" + user + "\"")
+                os.system(package + " search \"" + user + "\"" + " | grep " + user)
 
                 user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
 
@@ -562,7 +562,7 @@ try:
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print("")
-                os.system("apm search " + user)
+                os.system("apm search " + user + " | grep " + user)
 
                 user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
 
@@ -635,7 +635,7 @@ try:
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print("")
-                os.system(reset + "snap find " + user)
+                os.system(reset + "snap find " + user + " | grep " + user)
 
                 user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
 
@@ -693,7 +693,7 @@ try:
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print("")
-                os.system(reset + "flatpak search " + user)
+                os.system(reset + "flatpak search " + user + " | grep " + user)
 
                 user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
 
@@ -754,7 +754,7 @@ try:
                 print("")
                 if package == "npm":
                     user = input(reset + "Please enter a search query: ")
-                    os.system("npm search " + user)
+                    os.system("npm search " + user + " | grep " + user)
                     user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
 
                     if user == "y" or user == "Y":
