@@ -280,7 +280,7 @@ try:
                 user = input(yellow + "\nDid you find what you were looking for? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
-                    clear()
+			
                     user = input(reset + "Please enter which package(s) to install: ")
                     print(reset + "")
 
@@ -673,8 +673,6 @@ try:
             if user == "6":
                 print(reset)
                 quit()
-
-
 
     if package == "flatpak":
         while True:
