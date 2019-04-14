@@ -106,7 +106,7 @@ try:
 
     if package == " " and len(sys.argv) == 3:
         if sys.argv[1] == "apt-get" or sys.argv[1] == "apt": package = "apt-get"
-        if sys.argv[1] == "pacman" or sys.argv[1] == "yaourt": package = "pacman"
+        if sys.argv[1] == "pacman" or sys.argv[1] == "yay": package = "pacman"
         if sys.argv[1] == "xbps": package = "xbps"
         if sys.argv[1] == "dnf": package = "dnf"
         if sys.argv[1] == "yum": package = "yum"
@@ -263,9 +263,9 @@ try:
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
-                        "\n2. yaourt"))
+                        "\n2. yay"))
                     if user1 == "1": os.system("pacman -Ss " + user + " | grep " + user)
-                    if user1 == "2": os.system("yaourt -Ss " + user + " | grep " + user)
+                    if user1 == "2": os.system("yay -Ss " + user + " | grep " + user)
                 elif package == "xbps": os.system("xbps-query -Rs " + user + " | grep " + user)
                 elif package == "dnf": os.system("dnf search " + user + " | grep " + user)
                 elif package == "yum": os.system("yum search " + user + " | grep " + user)
@@ -277,21 +277,21 @@ try:
                 elif package == "homebrew": os.system("brew search " + user + " | grep " + user)
                 elif package == "nix": os.system("nix search " + user + " | grep " + user)
 
-                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+                user = input(yellow + "\nDid you find what you were looking for? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
                     user = input(reset + "Please enter which package(s) to install: ")
                     print(reset + "")
 
-                    if package == "apt-get": os.system("  apt-get install " + user)
+                    if package == "apt-get": os.system("apt-get install " + user)
                     elif package == "pacman":
                         user1 = input(multichoicePrompt(
                             "Which package manager would you like to use?\n"
                             "\n1. pacman"
-                            "\n2. yaourt" + reset))
+                            "\n2. yay" + reset))
                         if user1 == "1": os.system("pacman -S " + user)
-                        if user1 == "2": os.system("yaourt -S " + user)
+                        if user1 == "2": os.system("yay -S " + user)
                     elif package == "xbps": os.system("xbps-install " + user)
                     elif package == "dnf": os.system("dnf install " + user)
                     elif package == "yum": os.system("yum install " + user)
@@ -314,9 +314,9 @@ try:
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
-                        "\n2. yaourt" + reset))
+                        "\n2. yay" + reset))
                     if user1 == "1": os.system("pacman -S " + user)
-                    if user1 == "2": os.system("yaourt -S " + user)
+                    if user1 == "2": os.system("yay -S " + user)
                 elif package == "xbps": os.system("xbps-install " + user)
                 elif package == "dnf": os.system("dnf install " + user)
                 elif package == "yum": os.system("yum install " + user)
@@ -367,9 +367,9 @@ try:
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
-                        "\n2. yaourt" + reset))
+                        "\n2. yay" + reset))
                     if user1 == "1": os.system("pacman -Syu")
-                    if user1 == "2": os.system("yaourt -Syu --aur")
+                    if user1 == "2": os.system("yay -Syu --aur")
                 elif package == "xbps": os.system("xbps-install -Su")
                 elif package == "dnf":
                     os.system("dnf upgrade")
@@ -395,9 +395,9 @@ try:
                     user1 = input(multichoicePrompt(
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
-                        "\n2. yaourt"))
+                        "\n2. yay"))
                     if user1 == "1": os.system("pacman -Syy")
-                    if user1 == "2": os.system("yaourt -Syy" + reset)
+                    if user1 == "2": os.system("yay -Syy" + reset)
                 elif package == "xbps": os.system("xbps-install -S")
                 elif package == "dnf": os.system("dnf clean expire-cache && dnf check-update")
                 elif package == "zypper": os.system("zypper refresh zypper ref")
@@ -450,8 +450,8 @@ try:
             if user == "7":  # Credits
 
                 clear()
-                print(credit)
-                time.sleep(3)
+                print(credit + "\n")
+                askreturn()
 
             if user == "8":
                 print(reset)
