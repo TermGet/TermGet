@@ -54,11 +54,11 @@ try:
     version_number = "1301"    # For each version number remove Beta or Alpha. alpha=1 beta=0 and remove all the dots for example: Alpha 1.1.0 would be 1110 Or Beta 1.1.1 would be 0111       **** !THIS IS USED FOR UPDATE SYSTEM! ****
     credit = magenta + (
         "TermGet was created by:\n"
-        "- PizzaLovingNerd (main developer)\n"
+	"- Emil Engler\n (main developer)\n"
+        "- PizzaLovingNerd (originally the main developer, but quit the project)\n"
         "- SadError256\n"
         "- Linux /usr/\n"
-        "- Dylan Cruz\n"
-        "- Emil Engler"
+        "- Dylan Cruz"
         )
 
 
@@ -127,7 +127,6 @@ try:
         if sys.argv[1] == "yarn": package = "yarn"
         if sys.argv[1] == "bower": package = "bower"
         if sys.argv[1] == "gem": package = "gem"
-        if sys.argv[1] == "appimage": package = "appimage"
         if sys.argv[1] == "--list":
             list_enabled = True
             listfile = sys.argv[2]
@@ -904,107 +903,6 @@ try:
                 credits()
 
             if user == "6":
-                print(reset)
-                quit()
-
-    if package == "appimage":
-        while True:
-            clear()
-            user = input(multichoicePrompt(
-            "Please choose an action:\n"
-            "\n1. Search for AppImage"
-            "\n2. Download a AppImage"
-            "\n3. Credits"
-            "\n4. Exit"))
-
-            if user == "1":
-                clear()
-                user = input(reset + "Input a search query: ")
-                print("")
-                
-                url = 'https://appimage.github.io/feed.json'
-                r = requests.get(url)
-                data = r.json()['items']
-
-                appimage_name = input('Name: ')
-                appimage_exists = False
-                for entry in data:
-
-                    if entry['name'].lower() == appimage_name.lower(): #we found it!
-                            
-                        try: #check if url exists
-                            appimage_release_url = entry['links'][-1]['url']
-                            appimage_exists = True
-                            print(f'The package has been "{appimage_name}" has been found. Would you like to install it?')
-                            
-                            user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
-
-                            if user == "y" or user == "Y":
-                            
-                                print(f"url: {appimage_release_url}")
-                                appimage_download_url = appimage_release_url.replace('github.com', 'api.github.com/repos') + "/latest"
-                                print("Downloading AppImage...")
-                                os.system('mkdir ~/Applications \
-                                | cd ~/Applications \
-                                | curl -s ' + appimage_download_url + ' \
-                                | grep "browser_download_url.*AppImage" \
-                                | cut -d : -f 2,3 \
-                                | tr -d \\" \
-                                | wget -qi -')
-                                print("Done!")
-
-                        except TypeError: #No link
-                            print(f'The AppImage "{appimage_name}" doesn\'t have a download URL. This means that it is probably not hosted on GitHub. Unfortunately, this TermGet only works with GitHub releases of AppImages')
-
-                        
-                if appimage_exists == False:
-                    print(f'The AppImage "{appimage_name}" doesn\'t exist. If an AppImage is missing, please report it to AppImageHub.')
-
-                askreturn()
-
-            if user == "2":
-                clear()
-                user = input(reset + "Please enter which AppImage(s) to download ")
-                print("")
-                
-                url = 'https://appimage.github.io/feed.json'
-                r = requests.get(url)
-                data = r.json()['items']
-
-                appimage_name = input('Name: ')
-                appimage_exists = False
-                for entry in data:
-
-                    if entry['name'].lower() == appimage_name.lower(): #we found it!
-                            
-                        try: #check if url exists
-                            appimage_exists = True
-                            appimage_release_url = entry['links'][-1]['url']
-                            print(f"url: {appimage_release_url}")
-                            appimage_download_url = appimage_release_url.replace('github.com', 'api.github.com/repos') + "/latest"
-                            print("Downloading AppImage...")
-                            os.system('mkdir ~/Applications \
-                            | cd ~/Applications \
-                            | curl -s ' + appimage_download_url + ' \
-                            | grep "browser_download_url.*AppImage" \
-                            | cut -d : -f 2,3 \
-                            | tr -d \\" \
-                            | wget -qi -')
-                            print("Done!")
-
-                        except TypeError: #No link
-                            print(f'The AppImage "{appimage_name}" doesn\'t have a download URL. This means that it is probably not hosted on GitHub. Unfortunately, this TermGet only works with GitHub releases of AppImages')
-
-                        
-                if appimage_exists == False:
-                    print(f'The AppImage "{appimage_name}" doesn\'t exist. If an AppImage is missing, please report it to AppImageHub.')
-                askreturn()
-
-            if user == "3":
-                clear()
-                credits()
-
-            if user == "4":
                 print(reset)
                 quit()
 						 
