@@ -81,7 +81,7 @@ try:
             "\n7. pacman (For Arch, and Arch based systems)"
             "\n8. emerge(For Gentoo, and Gentoo based systems)"
             "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
-            "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and ZayuOS)"
+            "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS)"
             "\n11. homebrew (for macOS/Mac OS X)"
             "\n12. nix (For NixOS, and NixOS based systems.)"
         )
