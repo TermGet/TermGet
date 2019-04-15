@@ -20,7 +20,7 @@ termgetBig = """
 _________  _______   _______   _______   _______   _______  _________
 \__   __/ (  ____ \ (  ____ ) (       ) (  ____ \ (  ____ \ \__   __/
    ) (    | (    \/ | (    )| | () () | | (    \/ | (    \/    ) (
-   | |    | (__     | (____)| | || || | | |       | (__        | |
+   | |    | (__     | (____)| | || || | | |       | (__        | | 
    | |    |  __)    |     __) | |(_)| | | | ____  |  __)       | |
    | |    | (       | (\ (    | |   | | | | \_  ) | (          | |
    | |    | (____/\ | ) \ \__ | )   ( | | (___) | | (____/\    | |
@@ -51,7 +51,6 @@ try:
         except Exception:
             print(yellow + "Warning: Missing Package File...")
     version = "3.0.0 RC1.1" # version number
-    version_number = "1301"    # For each version number remove Beta or Alpha. alpha=1 beta=0 and remove all the dots for example: Alpha 1.1.0 would be 1110 Or Beta 1.1.1 would be 0111       **** !THIS IS USED FOR UPDATE SYSTEM! ****
     credit = magenta + (
         "TermGet was created by:\n"
 	"- Emil Engler\n (main developer)\n"
@@ -127,12 +126,6 @@ try:
         if sys.argv[1] == "yarn": package = "yarn"
         if sys.argv[1] == "bower": package = "bower"
         if sys.argv[1] == "gem": package = "gem"
-        if sys.argv[1] == "--list":
-            list_enabled = True
-            listfile = sys.argv[2]
-        if sys.argv[2] == "--list":
-            list_enabled = True
-            listfile = sys.argv[3]
 			
     try:
         if package == " ":
@@ -236,10 +229,10 @@ try:
             user = input(pickManager())
             # Sets package manager
 			
-	if package != "pacman":
-		if os.geteuid() != 0:
-			print(bold + red + "Please run TermGet as root")
-			askreturn()
+    if package != "pacman":
+        if os.geteuid() != 0:
+            print(bold + red + "Please run TermGet as root")
+            askreturn()
 
     if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap" and package != "flatpak":
         while True:  # Starts a loop
@@ -294,15 +287,15 @@ try:
                             "\n1. pacman"
                             "\n2. yay" + reset))
                         if user1 == "1":
-							if os.geteuid() != 0:
-								print(bold + red + "Please run TermGet as root")
-								askreturn()
-							else: os.system("pacman -S " + user)
+                            if os.geteuid() != 0:
+                                print(bold + red + "Please run TermGet as root")
+                                askreturn()
+                            else: os.system("pacman -S " + user)
                         if user1 == "2":
-							if os.geteuid() == 0:
-								print(bold + red + "TermGet cannot be ran as root when using yay")
-								askreturn()
-							else: os.system("yay -S " + user)
+                            if os.geteuid() == 0:
+                                print(bold + red + "TermGet cannot be ran as root when using yay")
+                                askreturn()
+                            else: os.system("yay -S " + user)
                     elif package == "xbps": os.system("xbps-install " + user)
                     elif package == "dnf": os.system("dnf install " + user)
                     elif package == "yum": os.system("yum install " + user)
@@ -327,15 +320,15 @@ try:
                         "\n1. pacman"
                         "\n2. yay" + reset))
                     if user1 == "1":
-						if os.geteuid() != 0:
-							print(bold + red + "Please run TermGet as root")
-							askreturn()
-						else: os.system("pacman -S " + user)
-					if user1 == "2":
-						if os.geteuid() == 0:
-							print(bold + red + "TermGet cannot be ran as root when using yay")
-							askreturn()
-						else: os.system("yay -S " + user)
+                        if os.geteuid() != 0:
+                            print(bold + red + "Please run TermGet as root")
+                            askreturn()
+                        else: os.system("pacman -S " + user)
+                    if user1 == "2":
+                        if os.geteuid() == 0:
+                            print(bold + red + "TermGet cannot be ran as root when using yay")
+                            askreturn()
+                        else: os.system("yay -S " + user)
                 elif package == "xbps": os.system("xbps-install " + user)
                 elif package == "dnf": os.system("dnf install " + user)
                 elif package == "yum": os.system("yum install " + user)
@@ -387,16 +380,16 @@ try:
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yay" + reset))
-					if user1 == "1":
-						if os.geteuid() != 0:
-							print(bold + red + "Please run TermGet as root")
-							askreturn()
-						else: os.system("pacman -Syu + user")
-					if user1 == "2":
-						if os.geteuid() == 0:
-							print(bold + red + "TermGet cannot be ran as root when using yay")
-							askreturn()
-						else: os.system("yay -Syu --aur")
+                    if user1 == "1":
+                        if os.geteuid() != 0:
+                            print(bold + red + "Please run TermGet as root")
+                            askreturn()
+                        else: os.system("pacman -Syu + user")
+                    if user1 == "2":
+                        if os.geteuid() == 0:
+                            print(bold + red + "TermGet cannot be ran as root when using yay")
+                            askreturn()
+                    else: os.system("yay -Syu --aur")
                 elif package == "xbps": os.system("xbps-install -Su")
                 elif package == "dnf":
                     os.system("dnf upgrade")
@@ -423,16 +416,16 @@ try:
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yay"))
-					if user1 == "1":
-						if os.geteuid() != 0:
-							print(bold + red + "Please run TermGet as root")
-							askreturn()
-						else: os.system("pacman -Syy")
-					if user1 == "2":
-						if os.geteuid() == 0:
-							print(bold + red + "TermGet cannot be ran as root when using yay")
-							askreturn()
-						else: os.system("yay -Syy"
+                    if user1 == "1":
+                        if os.geteuid() != 0:
+                            print(bold + red + "Please run TermGet as root")
+                            askreturn()
+                        else: os.system("pacman -Syy")
+                    if user1 == "2":
+                        if os.geteuid() == 0:
+                            print(bold + red + "TermGet cannot be ran as root when using yay")
+                            askreturn()
+                        else: os.system("yay -Syy")
                 elif package == "xbps": os.system("xbps-install -S")
                 elif package == "dnf": os.system("dnf clean expire-cache && dnf check-update")
                 elif package == "zypper": os.system("zypper refresh zypper ref")
