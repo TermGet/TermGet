@@ -103,7 +103,7 @@ try:
                 print(red + "Error. Invalid answer")
                 # Checks for Chromebook
 
-    if package == " " and len(sys.argv) == 3:
+    if package == " " and len(sys.argv) == 2:
         if sys.argv[1] == "apt-get" or sys.argv[1] == "apt": package = "apt-get"
         if sys.argv[1] == "pacman" or sys.argv[1] == "yay": package = "pacman"
         if sys.argv[1] == "xbps": package = "xbps"
