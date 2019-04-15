@@ -78,7 +78,7 @@ try:
             "\n4. yum (For older versions of Fedora, and older Fedora based systems)"
             "\n5. zypper (For OpenSUSE, and OpenSUSE based systems)"
             "\n6. eopkg (For Solus, and Solus based systems)"
-            "\n7. pacman (For Arch, and Arch based systems)"
+            "\n7. pacman (For Arch, PacBSD, and Arch based systems)"
             "\n8. emerge(For Gentoo, and Gentoo based systems)"
             "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
             "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS)"
@@ -234,11 +234,14 @@ try:
             time.sleep(1)
             clear()
             user = input(pickManager())
-            # Sets package manager lolz
+            # Sets package manager
+			
+	if package != "pacman":
+		if os.geteuid() != 0:
+			print(bold + red + "Please run TermGet as root")
+			askreturn()
 
-    # MEOW!
-
-    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap" and package != "flatpak" and package != "appimage":
+    if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap" and package != "flatpak":
         while True:  # Starts a loop
             clear()
 
@@ -290,8 +293,16 @@ try:
                             "Which package manager would you like to use?\n"
                             "\n1. pacman"
                             "\n2. yay" + reset))
-                        if user1 == "1": os.system("pacman -S " + user)
-                        if user1 == "2": os.system("yay -S " + user)
+                        if user1 == "1":
+							if os.geteuid() != 0:
+								print(bold + red + "Please run TermGet as root")
+								askreturn()
+							else: os.system("pacman -S " + user)
+                        if user1 == "2":
+							if os.geteuid() == 0:
+								print(bold + red + "TermGet cannot be ran as root when using yay")
+								askreturn()
+							else: os.system("yay -S " + user)
                     elif package == "xbps": os.system("xbps-install " + user)
                     elif package == "dnf": os.system("dnf install " + user)
                     elif package == "yum": os.system("yum install " + user)
@@ -315,8 +326,16 @@ try:
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yay" + reset))
-                    if user1 == "1": os.system("pacman -S " + user)
-                    if user1 == "2": os.system("yay -S " + user)
+                    if user1 == "1":
+						if os.geteuid() != 0:
+							print(bold + red + "Please run TermGet as root")
+							askreturn()
+						else: os.system("pacman -S " + user)
+					if user1 == "2":
+						if os.geteuid() == 0:
+							print(bold + red + "TermGet cannot be ran as root when using yay")
+							askreturn()
+						else: os.system("yay -S " + user)
                 elif package == "xbps": os.system("xbps-install " + user)
                 elif package == "dnf": os.system("dnf install " + user)
                 elif package == "yum": os.system("yum install " + user)
@@ -368,8 +387,16 @@ try:
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yay" + reset))
-                    if user1 == "1": os.system("pacman -Syu")
-                    if user1 == "2": os.system("yay -Syu --aur")
+					if user1 == "1":
+						if os.geteuid() != 0:
+							print(bold + red + "Please run TermGet as root")
+							askreturn()
+						else: os.system("pacman -Syu + user")
+					if user1 == "2":
+						if os.geteuid() == 0:
+							print(bold + red + "TermGet cannot be ran as root when using yay")
+							askreturn()
+						else: os.system("yay -Syu --aur")
                 elif package == "xbps": os.system("xbps-install -Su")
                 elif package == "dnf":
                     os.system("dnf upgrade")
@@ -396,8 +423,16 @@ try:
                         "Which package manager would you like to use?\n"
                         "\n1. pacman"
                         "\n2. yay"))
-                    if user1 == "1": os.system("pacman -Syy")
-                    if user1 == "2": os.system("yay -Syy" + reset)
+					if user1 == "1":
+						if os.geteuid() != 0:
+							print(bold + red + "Please run TermGet as root")
+							askreturn()
+						else: os.system("pacman -Syy")
+					if user1 == "2":
+						if os.geteuid() == 0:
+							print(bold + red + "TermGet cannot be ran as root when using yay")
+							askreturn()
+						else: os.system("yay -Syy"
                 elif package == "xbps": os.system("xbps-install -S")
                 elif package == "dnf": os.system("dnf clean expire-cache && dnf check-update")
                 elif package == "zypper": os.system("zypper refresh zypper ref")
@@ -405,7 +440,7 @@ try:
                 elif package == "emerge": os.system("layman -f")
                 elif package == "yum": os.system("yum check-update")
                 elif package == "pkg": os.system("pkg update")
-                elif package == "chromebrew": print(reset + "This feature is unavailable for chromebrew\n")
+                elif package == "chromebrew": print(bold+ yellow + "This feature is unavailable for chromebrew\n")
                 elif package == "homebrew": os.system("brew update")
                 elif package == "nix": os.system("nix-channel --update nixpkgs")
                 askreturn()
