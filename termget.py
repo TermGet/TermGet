@@ -56,7 +56,7 @@ try:
 	"- Emil Engler\n (one of the main developer)\n"
         "- PizzaLovingNerd (one of the main developer)\n"
         "- NekoBit\n"
-        "- Linux /usr/\n"
+        "- tbilik\n"
         "- Dylan Cruz"
         )
 
