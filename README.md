@@ -44,3 +44,5 @@ It's like a software center in your terminal!
 #### How do I use it?
 
 [Here are the docs, I tried to make the docs as detailed as possible](https://termget.github.io/docs/)
+
+[For more information, visit the TermGet website](https://termget.github.io)
