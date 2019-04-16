@@ -53,9 +53,9 @@ try:
     version = "3.0.0 RC2" # version number
     credit = magenta + (
         "TermGet was created by:\n"
-	"- Emil Engler\n (main developer)\n"
-        "- PizzaLovingNerd (originally the main developer, but quit the project)\n"
-        "- SadError256\n"
+	"- Emil Engler\n (one of the main developer)\n"
+        "- PizzaLovingNerd (one of the main developer)\n"
+        "- NekoBit\n"
         "- Linux /usr/\n"
         "- Dylan Cruz"
         )
