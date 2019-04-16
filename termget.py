@@ -62,7 +62,9 @@ try:
 
 
     def setpack(var):
-        os.system(' bash -c "echo -n ' + var + ' > /usr/local/share/termget/termget-package-manager"')
+        f = open("/usr/local/share/termget/termget-package-manager", "w+")
+        f.write(var)
+        f.close()
 
     def askreturn(): input(reset + yellow + "\nPress enter to continue")
 
@@ -248,7 +250,7 @@ try:
                 "\n6. Clean"
                 "\n7. Credits"
                 "\n8. Exit"
-                "\n9. Enter shell"))
+                "\n9. Enter bash"))
 
             if user == "1":  # Search
                 clear()
