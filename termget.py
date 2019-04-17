@@ -17,14 +17,17 @@ package = " "
 
 # The TermGet SPLASHSCREEN
 termgetBig = """
- **********                              ********            **  
-/////**///                              **//////**          /**  
-    /**      *****  ****** **********  **      //   *****  ******
-    /**     **///**//**//*//**//**//**/**          **///**///**/ 
-    /**    /******* /** /  /** /** /**/**    *****/*******  /**  
-    /**    /**////  /**    /** /** /**//**  ////**/**////   /**  
-    /**    //******/***    *** /** /** //******** //******  //** 
-    //      ////// ///    ///  //  //   ////////   //////    //  
+__________                                ____                   
+MMMMMMMMMM                               6MMMMb                 
+    MM                                  8P    YM           _     
+    MM  ______  __ ___  __ ____  ____  6M      Y   ____    M     
+    MM  6MMMMb `MM 6MM `MM 6MMb  6MMb  MM         6MMMMb MMMMMM  
+    MM 6M'  `Mb MM69 "  MM69 `MM69 `Mb MM        6M'  `Mb  MM     
+    MM MM    MM MM'     MM'   MM'   MM MM   MMMY MM    MM  MM     
+    MM MMMMMMMM MM      MM    MM    MM MM     `M'MMMMMMMM  MM     
+    MM MM       MM      MM    MM    MM YM      M MM        MM     
+    MM YM    d9 MM      MM    MM    MM  8b    d9 YM    d9  YM.   
+    MM  YMMMM9  MM      MM    MM    MM   YMMMM9   YMMMM9    YMMM9
 """
 
 def multichoicePrompt(string):
