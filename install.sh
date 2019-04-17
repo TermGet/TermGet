@@ -13,35 +13,35 @@ if [ "$1" != "--no-detection" ] && [ "$lang" == "1" ]; then
 		echo -n "Why do you torture yourself with using Mac OS? Fine, homebrew will be used. Is this correct? [y/n] "
 		pm=homebrew
 	elif [[ $(which xbps-install 2> /dev/null) ]]; then
-		echo -n "A Void or Void-based system has been detected. XBPS will be used. Is this correct? [y/n] "
+		echo -n "A Void or Void-based system has been detected. xbps will be used. Is this correct? [y/n] "
 		pm=xbps
 	elif [[ $(which dnf 2> /dev/null) ]]; then
-		echo -n "A Fedora or Fedora-based system has been detected. DNF will be used. Is this correct? [y/n] "
+		echo -n "A Fedora or Fedora-based system has been detected. dnf will be used. Is this correct? [y/n] "
 		pm=dnf
 	elif [[ $(which zypper 2> /dev/null) ]]; then
-		echo -n "An openSUSE or openSUSE-based system has been detected. Zypper will be used. Is this correct? [y/n] "
+		echo -n "An openSUSE or openSUSE-based system has been detected. zypper will be used. Is this correct? [y/n] "
 		pm=zypper
 	elif [[ $(which eopkg 2> /dev/null) ]]; then
-		echo -n "A Solus or Solus-based system has been detected. Eopkg will be used. Is this correct? [y/n] "
+		echo -n "A Solus or Solus-based system has been detected. eopkg will be used. Is this correct? [y/n] "
 		pm=eopkg
 	elif [[ $(which crew 2> /dev/null) ]]; then
-		echo -n "Chromebrew (an unoffical Chrome/Chromium OS package manager) has been detected. Is this correct? [y/n] "
+		echo -n "chromebrew (an unoffical Chrome/Chromium OS package manager) has been detected. Is this correct? [y/n] "
 		pm=chromebrew
 	elif [[ $(which emerge 2> /dev/null) ]]; then
-		echo -n "A Gentoo or Gentoo-based system has been detected. Emerge will be used. Is this correct? [y/n] "
+		echo -n "A Gentoo or Gentoo-based system has been detected. emerge will be used. Is this correct? [y/n] "
 		pm=emerge
 		echo "Good thing you don't have to compile this"
 	elif [[ $(which pkg 2> /dev/null) ]]; then
 		echo -n "You're one of those weird FreeBSD users, aren't you? If so, pkg will be used. Is this correct? [y/n] "
 		pm=pkg
 	elif [[ $(which pacman 2> /dev/null) ]]; then
-		echo -n "An Arch or Arch-based system has been detected. Pacman will be used. Is this correct? [y/n] "
+		echo -n "An Arch or Arch-based system has been detected. pacman will be used. Is this correct? [y/n] "
 		pm=pacman
 	elif [[ $(which apt-get 2> /dev/null) ]]; then
-		echo -n "A Debian or Debian-based system has been detected. Apt-get will be used. Is this correct? [y/n] "
+		echo -n "A Debian or Debian-based system has been detected. apt-get will be used. Is this correct? [y/n] "
 		pm=apt-get
 	elif [[ $(which nix 2> /dev/null) ]]; then
-		echo -n "A NixOS or NixOS-based system has been detected. Nix will be used. Is this correct? [y/n] "
+		echo -n "A NixOS or NixOS-based system has been detected. nix will be used. Is this correct? [y/n] "
 		pm=nix
 	else
 		echo -n "A package manager has failed to be detected. If you proceed to install the program, termget will ask 
@@ -71,35 +71,35 @@ elif [ "$1" != "--no-detection" ] && [ "$lang" == "2" ]; then
 		echo -n "Warum schadest du dir selbst mit Mac OS? Ok, homebrew wird benutzt. Ist das korrekt? [y/n] "
 		pm=homebrew
 	elif [[ $(which xbps-install 2> /dev/null) ]]; then
-		echo -n "Void oder ein Void-basiertes System wurde erkannt. XBPS wird benutzt. Ist das korrekt? [y/n] "
+		echo -n "Void oder ein Void-basiertes System wurde erkannt. xbps wird benutzt. Ist das korrekt? [y/n] "
 		pm=xbps
 	elif [[ $(which dnf 2> /dev/null) ]]; then
-		echo -n "Fedora oder ein Fedora-basiertes System wurde erkannt. DNF wird benutzt. Ist das korrekt? [y/n] "
+		echo -n "Fedora oder ein Fedora-basiertes System wurde erkannt. dnf wird benutzt. Ist das korrekt? [y/n] "
 		pm=dnf
 	elif [[ $(which zypper 2> /dev/null) ]]; then
-		echo -n "Ein openSUSE oder openSUSE-basiertes System wurde erkannt. Zypper wird benutzt. Ist das korrekt? [y/n] "
+		echo -n "Ein openSUSE oder openSUSE-basiertes System wurde erkannt. zypper wird benutzt. Ist das korrekt? [y/n] "
 		pm=zypper
 	elif [[ $(which eopkg 2> /dev/null) ]]; then
-		echo -n "Ein Solus oder SOlus-basiertes System wurde erkannt. Eopkg wird benutzt. Ist das korrekt? [y/n] "
+		echo -n "Ein Solus oder SOlus-basiertes System wurde erkannt. eopkg wird benutzt. Ist das korrekt? [y/n] "
 		pm=eopkg
 	elif [[ $(which crew 2> /dev/null) ]]; then
-		echo -n "Chromebrew (ein inoffizieller Chrome/Chromium OS paket manager) wurde erkannt. Ist das korrekt? [y/n] "
+		echo -n "chromebrew (ein inoffizieller Chrome/Chromium OS paket manager) wurde erkannt. Ist das korrekt? [y/n] "
 		pm=chromebrew
 	elif [[ $(which emerge 2> /dev/null) ]]; then
-		echo -n "Ein Gentoo oder Gentoo-based System wurde erkannt. Emerge wird benutzt. Ist das korrekt? [y/n] "
+		echo -n "Ein Gentoo oder Gentoo-based System wurde erkannt. emerge wird benutzt. Ist das korrekt? [y/n] "
 		pm=emerge
 		echo "Zum Glück muss das nicht kompiliert werden"
 	elif [[ $(which pkg 2> /dev/null) ]]; then
 		echo -n "Du bist ein der seltsamen FreeBSD Benutzer oder? Nun denn, pkg wird benutzt. Ist das korrekt? [y/n] "
 		pm=pkg
 	elif [[ $(which pacman 2> /dev/null) ]]; then
-		echo -n "Ein Arch oder Arch-basiertes System wurde erkannt. Pacman wird benutzt. Ist das korrekt? [y/n] "
+		echo -n "Ein Arch oder Arch-basiertes System wurde erkannt. pacman wird benutzt. Ist das korrekt? [y/n] "
 		pm=pacman
 	elif [[ $(which apt-get 2> /dev/null) ]]; then
-		echo -n "Ein Debian oder Debian-basiertes System wurde erkannt. Apt-get wird benutzt. Ist das korrekt? [y/n] "
+		echo -n "Ein Debian oder Debian-basiertes System wurde erkannt. apt-get wird benutzt. Ist das korrekt? [y/n] "
 		pm=apt-get
 	elif [[ $(which nix 2> /dev/null) ]]; then
-		echo -n "Ein Nix-OS oder Nix-OS-basiertes System wurde erkannt. 'Nix' wird benutzt (Also der Paket-Manager 'nix'). Ist das korrekt? [y/n] "
+		echo -n "Ein Nix-OS oder Nix-OS-basiertes System wurde erkannt. 'nix' wird benutzt (Also der Paket-Manager 'nix'). Ist das korrekt? [y/n] "
 		pm=nix
 	else
 		echo -n "Fehler bei der Erkennung des Paket-Managers. Fährst du fort fragt Termget dich beim ersten start nach dem Paket-Manager. Weitermachen mit der Installation? [y/n] "
