@@ -49,7 +49,7 @@ try:
         try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
-            print(yellow + "Warning: Missing Package File...")
+            print(bold + yellow + "Warning: Missing Package File...")
     version = "3.0.0" # version number
     credit = magenta + (
         "TermGet was created by:\n"
@@ -233,7 +233,7 @@ try:
 			
     if package != "pacman":
         if os.geteuid() != 0:
-            print(bold + red + "Please run TermGet as root")
+            print(bold + yellow + "Warning: please run TermGet as root")
             askreturn()
 
     if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap" and package != "flatpak":
