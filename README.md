@@ -33,11 +33,11 @@ It's like a software center in your terminal!
 
 ## Who made it?
 
-- PizzaLovingNerd (Main Developer)
+- Emil Engler (Main Developer)
+- PizzaLovingNerd (Other Main Developer)
 - SadError256
 - Dylan Cruz
 - TechBizmo
-- Emil Engler
 
 ## Where are the docs?
 #### How do I install it? 
