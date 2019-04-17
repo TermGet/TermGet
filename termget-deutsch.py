@@ -145,7 +145,7 @@ try:
             elif package_file_read == "nix": package = "nix"
             print(reset + "package manager set to " + package)
     except Exception:
-        print(yellow + "Warnung: Fehlende Paketmanager Datei...")
+        print(bold + yellow + "Warnung: Fehlende Paketmanager Datei...")
         if package == " ": package = "null"
         print(reset + yellow + "Packagemanager gesetzt auf " + package)
     # Checks for command line argument
