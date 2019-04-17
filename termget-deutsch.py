@@ -233,7 +233,7 @@ try:
 			
     if package != "pacman":
         if os.geteuid() != 0:
-            print(bold + red + "Bitte führe TermGet als root aus")
+            print(bold + yellow + "Warnung: bitte führe TermGet als root aus")
             askreturn()
 
     if package != "pip" and package != "pip2" and package != "pip3" and package != "apm" and package != "npm" and package != "snap" and package != "flatpak":
