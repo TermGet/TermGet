@@ -262,7 +262,7 @@ try:
                 if package == "apt-get": os.system("apt-cache search " + user + " | grep " + user)
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
-                        "Which package manager would you like to use?\n"
+                        "Welchen Paketmanager möchten Sie verwenden?\n" 
                         "\n1. pacman"
                         "\n2. yay"))
                     if user1 == "1": os.system("pacman -Ss " + user + " | grep " + user)
