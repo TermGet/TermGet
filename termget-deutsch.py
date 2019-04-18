@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warnung: Einstellundsdatei nicht gefunden...")
-    version = "3.0.1" # version number
+    version = "3.0.2" # version number
     credit = magenta + (
         "TermGet wurde erstellt von:\n"
 	"- Emil Engler\n (Hauptentwickler)\n"
@@ -519,7 +519,7 @@ try:
                 print(reset + " ")
                 os.system(package + " search \"" + user + "\"" + " | grep " + user)
 
-                user = input(yellow + "\nHast du gefunden, nach was du gesucht hast? (y/n)" + reset)
+                user = input(yellow + "\nHast du gefunden, nach was du gesucht hast? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
@@ -596,7 +596,7 @@ try:
                 print("")
                 os.system("apm search " + user + " | grep " + user)
 
-                user = input(yellow + "\nHast du gefunden, nach was du gesucht hast? (y/n)" + reset)
+                user = input(yellow + "\nHast du gefunden, nach was du gesucht hast? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
@@ -669,7 +669,7 @@ try:
                 print("")
                 os.system(reset + "snap find " + user + " | grep " + user)
 
-                user = input(yellow + "\nHast du gefunden, wonach du gesucht hast? (y/n)" + reset)
+                user = input(yellow + "\nHast du gefunden, wonach du gesucht hast? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
@@ -723,15 +723,15 @@ try:
                 clear()
                 user = input(reset + "Bitte geben Sie einen Suchbegriff ein: ")
                 print("")
-                os.system(reset + "flatpak search " + user + " | grep " + user)
+                os.system("flatpak search " + user + " | grep " + user)
 
-                user = input(yellow + "\nHast du gefunden, wonach du gesucht hast? (y/n)" + reset)
+                user = input(yellow + "\nHast du gefunden, wonach du gesucht hast? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
                     user = input(reset + "Geben sie das zu installierende Paket an: ")
                     print("")
-                    os.system(reset + "flatpak install flathub " + user)
+                    os.system("flatpak install flathub " + user)
                     askreturn()
 
 
@@ -740,20 +740,20 @@ try:
                 clear()
                 user = input(reset + "Geben sie das zu installierende Paket an: ")
                 print("")
-                os.system(reset + "flatpak install flathub " + user)
+                os.system("flatpak install flathub " + user)
                 askreturn()
 
             if user == "3":
                 clear()
                 user = input(reset + "Geben sie das zu entfernende Paket an: ")
                 print("")
-                os.system(reset +  "flatpak remove " + user)
+                os.system("flatpak remove " + user)
                 askreturn()
 
             if user == "4":
                 clear()
                 print("Die aktuell installierten flatpaks sind: ")
-                os.system(reset + "flatpak list")
+                os.system("flatpak list")
                 askreturn()
 
             if user == "5":
@@ -792,7 +792,7 @@ try:
                         askreturn()
 
                 elif package == "yarn":
-                    print("Yarn hat keine Suchfunktion. Möchtest du auf der Yarn Website mit deinem Browser suchen? (y/n)")
+                    print("Yarn hat keine Suchfunktion. Möchtest du auf der Yarn Website mit deinem Browser suchen? (y/n) ")
                     if user == "y" or "Y":
                         user = input(reset + "Bitte gib einen Suchbegriff ein: ")
                         webbrowser.open_new("https://yarnpkg.com/en/packages?q=" + user + "&p=1")
