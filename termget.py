@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(bold + yellow + "Warning: Missing Package File...")
-    version = "3.0.1" # version number
+    version = "3.0.2" # version number
     credit = magenta + (
         "TermGet was created by:\n"
 	"- Emil Engler\n (one of the main developer)\n"
@@ -519,7 +519,7 @@ try:
                 print(reset + " ")
                 os.system(package + " search \"" + user + "\"" + " | grep " + user)
 
-                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+                user = input(yellow + "\nDid you find what you were looking for? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
@@ -596,7 +596,7 @@ try:
                 print("")
                 os.system("apm search " + user + " | grep " + user)
 
-                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+                user = input(yellow + "\nDid you find what you were looking for? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
@@ -669,7 +669,7 @@ try:
                 print("")
                 os.system(reset + "snap find " + user + " | grep " + user)
 
-                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+                user = input(yellow + "\nDid you find what you were looking for? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
@@ -723,15 +723,15 @@ try:
                 clear()
                 user = input(reset + "Please enter search query: ")
                 print("")
-                os.system(reset + "flatpak search " + user + " | grep " + user)
+                os.system("flatpak search " + user + " | grep " + user)
 
-                user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+                user = input(yellow + "\nDid you find what you were looking for? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
                     clear()
                     user = input(reset + "Please enter which flatpak(s) to install")
                     print("")
-                    os.system(reset + "flatpak install flathub " + user)
+                    os.system("flatpak install flathub " + user)
                     askreturn()
 
 
@@ -740,20 +740,20 @@ try:
                 clear()
                 user = input(reset + "Please enter which flatpak(s) to install")
                 print("")
-                os.system(reset + "flatpak install flathub " + user)
+                os.system("flatpak install flathub " + user)
                 askreturn()
 
             if user == "3":
                 clear()
                 user = input(reset + "Please enter which flatpak(s) to remove: ")
                 print("")
-                os.system(reset +  "flatpak remove " + user)
+                os.system("flatpak remove " + user)
                 askreturn()
 
             if user == "4":
                 clear()
                 print("The current installed flatpaks are: ")
-                os.system(reset + "flatpak list")
+                os.system("flatpak list")
                 askreturn()
 
             if user == "5":
@@ -785,7 +785,7 @@ try:
                 if package == "npm":
                     user = input(reset + "Please enter a search query: ")
                     os.system("npm search " + user + " | grep " + user)
-                    user = input(yellow + "\nDid you find what you were looking for? (y/n)" + reset)
+                    user = input(yellow + "\nDid you find what you were looking for? (y/n) " + reset)
 
                     if user == "y" or user == "Y":
                         os.system("npm install " + user)
