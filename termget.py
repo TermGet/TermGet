@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(bold + yellow + "Warning: Missing Package File...")
-    version = "3.0.2" # version number
+    version = "3.0.3" # version number
     credit = magenta + (
         "TermGet was created by:\n"
 	"- Emil Engler\n (one of the main developer)\n"
