@@ -294,12 +294,10 @@ try:
                         if user1 == "1":
                             if os.geteuid() != 0:
                                 print(bold + red + "Please run TermGet as root")
-                                askreturn()
                             else: os.system("pacman -S " + user)
                         if user1 == "2":
                             if os.geteuid() == 0:
                                 print(bold + red + "TermGet cannot be ran as root when using yay")
-                                askreturn()
                             else: os.system("yay -S " + user)
                     elif package == "xbps": os.system("xbps-install " + user)
                     elif package == "dnf": os.system("dnf install " + user)
@@ -327,12 +325,10 @@ try:
                     if user1 == "1":
                         if os.geteuid() != 0:
                             print(bold + red + "Please run TermGet as root")
-                            askreturn()
                         else: os.system("pacman -S " + user)
                     if user1 == "2":
                         if os.geteuid() == 0:
                             print(bold + red + "TermGet cannot be ran as root when using yay")
-                            askreturn()
                         else: os.system("yay -S " + user)
                 elif package == "xbps": os.system("xbps-install " + user)
                 elif package == "dnf": os.system("dnf install " + user)
@@ -358,7 +354,10 @@ try:
                     clear()
                     if user1 == "1": os.system("apt-get remove " + user)
                     if user1 == "2": os.system("apt-get purge " + user)
-                elif package == "pacman": os.system("pacman -Rs " + user)
+                elif package == "pacman":
+                    if os.geteuid() != 0:
+                        print(bold + red + "Please run TermGet as root")
+                    else: os.system("pacman -R " + user)
                 elif package == "xbps": os.system("xbps-remove " + user)
                 elif package == "dnf": os.system("dnf erase " + user)
                 elif package == "yum": os.system("yum remove " + user)
@@ -388,12 +387,10 @@ try:
                     if user1 == "1":
                         if os.geteuid() != 0:
                             print(bold + red + "Please run TermGet as root")
-                            askreturn()
                         else: os.system("pacman -Syu + user")
                     if user1 == "2":
                         if os.geteuid() == 0:
                             print(bold + red + "TermGet cannot be ran as root when using yay")
-                            askreturn()
                     else: os.system("yay -Syu --aur")
                 elif package == "xbps": os.system("xbps-install -Su")
                 elif package == "dnf":
@@ -424,12 +421,10 @@ try:
                     if user1 == "1":
                         if os.geteuid() != 0:
                             print(bold + red + "Please run TermGet as root")
-                            askreturn()
                         else: os.system("pacman -Syy")
                     if user1 == "2":
                         if os.geteuid() == 0:
                             print(bold + red + "TermGet cannot be ran as root when using yay")
-                            askreturn()
                         else: os.system("yay -Syy")
                 elif package == "xbps": os.system("xbps-install -S")
                 elif package == "dnf": os.system("dnf clean expire-cache && dnf check-update")
@@ -675,7 +670,7 @@ try:
                     clear()
                     user = input(reset + "Please enter which package(s) to install: ")
                     print("")
-                    os.system(reset + "snap install " + user)
+                    os.system("snap install " + user)
                     
                 askreturn()
 
@@ -683,20 +678,20 @@ try:
                 clear()
                 user = input(reset + "Please enter which package(s) to install: ")
                 print("")
-                os.system(reset + "snap install " + user)
+                os.system("snap install " + user)
                 askreturn()
 
             if user == "3":
                 clear()
                 user = input(reset + "Please enter which package(s) to remove: ")
                 print("")
-                os.system(reset +  "snap remove " + user)
+                os.system("snap remove " + user)
                 askreturn()
 
             if user == "4":
                 clear()
                 print("The current installed snaps are: ")
-                os.system(reset + "snap list")
+                os.system("snap list")
                 askreturn()
 
             if user == "5":
