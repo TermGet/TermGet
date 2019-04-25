@@ -53,7 +53,9 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warnung: Einstellundsdatei nicht gefunden...")
-    version = "3.0.2" # version number
+	
+    version = "3.0.3" # version number
+
     credit = magenta + (
         "TermGet wurde erstellt von:\n"
 	"- Emil Engler\n (Hauptentwickler)\n"
@@ -294,12 +296,10 @@ try:
                         if user1 == "1":
                             if os.geteuid() != 0:
                                 print(bold + red + "Bitte führe TermGet als root aus")
-                                askreturn()
                             else: os.system("pacman -S " + user)
                         if user1 == "2":
                             if os.geteuid() == 0:
                                 print(bold + red + "TermGet kann nicht als root ausgeführt werden, wenn yay benutzt wird")
-                                askreturn()
                             else: os.system("yay -S " + user)
                     elif package == "xbps": os.system("xbps-install " + user)
                     elif package == "dnf": os.system("dnf install " + user)
@@ -327,12 +327,10 @@ try:
                     if user1 == "1":
                         if os.geteuid() != 0:
                             print(bold + red + "Bitte führen sie TermGet als root aus")
-                            askreturn()
                         else: os.system("pacman -S " + user)
                     if user1 == "2":
                         if os.geteuid() == 0:
                             print(bold + red + "TermGet kann nicht als root ausgeführt werden, wenn sie yay benutzen")
-                            askreturn()
                         else: os.system("yay -S " + user)
                 elif package == "xbps": os.system("xbps-install " + user)
                 elif package == "dnf": os.system("dnf install " + user)
@@ -358,7 +356,10 @@ try:
                     clear()
                     if user1 == "1": os.system("apt-get remove " + user)
                     if user1 == "2": os.system("apt-get purge " + user)
-                elif package == "pacman": os.system("pacman -Rs " + user)
+                elif package == "pacman":
+                    if os.geteuid() != 0:
+                        print(bold + red + "Bitte führen sie TermGet als root aus")
+                    else: os.system("pacman -Rs + user")
                 elif package == "xbps": os.system("xbps-remove " + user)
                 elif package == "dnf": os.system("dnf erase " + user)
                 elif package == "yum": os.system("yum remove " + user)
@@ -388,12 +389,10 @@ try:
                     if user1 == "1":
                         if os.geteuid() != 0:
                             print(bold + red + "Bitte führen sie TermGet als root aus")
-                            askreturn()
                         else: os.system("pacman -Syu + user")
                     if user1 == "2":
                         if os.geteuid() == 0:
                             print(bold + red + "TermGet kann nicht als root ausgeführt werden, wenn sie yay benutzen")
-                            askreturn()
                     else: os.system("yay -Syu --aur")
                 elif package == "xbps": os.system("xbps-install -Su")
                 elif package == "dnf":
@@ -424,12 +423,10 @@ try:
                     if user1 == "1":
                         if os.geteuid() != 0:
                             print(bold + red + "Bitte führen Sie TermGet als root aus")
-                            askreturn()
                         else: os.system("pacman -Syy")
                     if user1 == "2":
                         if os.geteuid() == 0:
                             print(bold + red + "TermGet kann nicht als root ausgeführt werden, wenn sie yay benutzen")
-                            askreturn()
                         else: os.system("yay -Syy")
                 elif package == "xbps": os.system("xbps-install -S")
                 elif package == "dnf": os.system("dnf clean expire-cache && dnf check-update")
@@ -667,7 +664,7 @@ try:
                 clear()
                 user = input(reset + "Bitte geben Sie einen Suchbegriff ein: ")
                 print("")
-                os.system(reset + "snap find " + user + " | grep " + user)
+                os.system("snap find " + user + " | grep " + user)
 
                 user = input(yellow + "\nHast du gefunden, wonach du gesucht hast? (y/n) " + reset)
 
@@ -675,7 +672,7 @@ try:
                     clear()
                     user = input(reset + "Geben sie das zu installierende Paket an: ")
                     print("")
-                    os.system(reset + "snap install " + user)
+                    os.system("snap install " + user)
                     
                 askreturn()
 
@@ -683,20 +680,20 @@ try:
                 clear()
                 user = input(reset + "Geben sie das zu installierende Paket an: ")
                 print("")
-                os.system(reset + "snap install " + user)
+                os.system("snap install " + user)
                 askreturn()
 
             if user == "3":
                 clear()
                 user = input(reset + "Geben sie das zu entfernede Paket an: ")
                 print("")
-                os.system(reset +  "snap remove " + user)
+                os.system("snap remove " + user)
                 askreturn()
 
             if user == "4":
                 clear()
                 print("Die aktuell installierten snaps sind: ")
-                os.system(reset + "snap list")
+                os.system("snap list")
                 askreturn()
 
             if user == "5":
