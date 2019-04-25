@@ -357,7 +357,7 @@ try:
                 elif package == "pacman":
                     if os.geteuid() != 0:
                         print(bold + red + "Please run TermGet as root")
-                    else: os.system("pacman -R " + user)
+                    else: os.system("pacman -Rs " + user)
                 elif package == "xbps": os.system("xbps-remove " + user)
                 elif package == "dnf": os.system("dnf erase " + user)
                 elif package == "yum": os.system("yum remove " + user)
