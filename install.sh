@@ -10,7 +10,7 @@ read lang
 #English installation
 if [ "$1" != "--no-detection" ] && [ "$lang" == "1" ]; then
 	if [[ $(which brew 2> /dev/null) ]]; then
-		echo -n "Why do you torture yourself with using Mac OS? Fine, homebrew will be used. Is this correct? [y/n] "
+		echo -n "Why do you torture yourself with using macOS? Fine, homebrew will be used. Is this correct? [y/n] "
 		pm=homebrew
 	elif [[ $(which xbps-install 2> /dev/null) ]]; then
 		echo -n "A Void or Void-based system has been detected. xbps will be used. Is this correct? [y/n] "
