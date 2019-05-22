@@ -18,6 +18,9 @@ if [ "$1" != "--no-detection" ] && [ "$lang" == "1" ]; then
 	elif [[ $(which dnf 2> /dev/null) ]]; then
 		echo -n "A Fedora or Fedora-based system has been detected. dnf will be used. Is this correct? [y/n] "
 		pm=dnf
+	elif [[ $(which yum 2> /dev/null) ]]; then
+		echo -n "An RHEL, CentOS, older version of Fedora, or a system based on these distros has been detected. yum will be used. Is this correct? [y/n] "
+		pm=yum
 	elif [[ $(which zypper 2> /dev/null) ]]; then
 		echo -n "An openSUSE or openSUSE-based system has been detected. zypper will be used. Is this correct? [y/n] "
 		pm=zypper
