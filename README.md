@@ -35,7 +35,7 @@ It's like a software center in your terminal!
  - Works in the command line
  - Supports a lot of package managers
  - Feature rich
- - Works on any Linux/ChromeOS/macOS distribution (and soon Windows)
+ - Works on any Linux/BSD/ChromeOS/macOS distribution (and soon Windows)
  - Great for introducing package management to new users
  - Code is easy to modify.
 
