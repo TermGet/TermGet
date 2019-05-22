@@ -55,12 +55,12 @@ try:
             print(bold + yellow + "Warning: Missing Package File...")
     version = "3.0.3" # version number
     credit = magenta + (
-        "TermGet was created by:\n"
-	"- Emil Engler\n (one of the main developer)\n"
-        "- PizzaLovingNerd (one of the main developer)\n"
+        "TermGet is developed by:\n"
+	"- Emil Engler\n"
+        "- PizzaLovingNerd\n"
+	"- Quint Burkley\n"
         "- NekoBit\n"
-        "- tbilik\n"
-        "- Dylan Cruz"
+        "- TechBizmo"
         )
 
 
@@ -246,14 +246,14 @@ try:
             user = input(multichoicePrompt(
                 "Please choose an action\n"
                 "\n1. Search for packages"
-                "\n2. Install an application"
-                "\n3. Remove an application"
+                "\n2. Install a package"
+                "\n3. Remove a package"
                 "\n4. Update all packages"
                 "\n5. Update Database"
                 "\n6. Clean"
                 "\n7. Credits"
-                "\n8. Exit"
-                "\n9. Enter bash"))
+                "\n8. Enter bash"
+                "\n9. Exit"))
 
             if user == "1":  # Search
                 clear()
@@ -501,9 +501,9 @@ try:
             user = input(multichoicePrompt(
                 "Please choose an action\n"
                 "\n1. Search for packages"
-                "\n2. Install an application"
+                "\n2. Install a package"
                 "\n3. Upgrade a package"
-                "\n4. Remove an application"
+                "\n4. Remove a package"
                 "\n5. List packages installed with pip"
                 "\n6. Credits"
                 "\n7. Exit"))
@@ -578,9 +578,9 @@ try:
             user = input(multichoicePrompt(
                 "Please choose an action\n"
                 "\n1. Search for packages"
-                "\n2. Install an application"
+                "\n2. Install a package"
                 "\n3. Upgrade a package"
-                "\n4. Remove an application"
+                "\n4. Remove a package"
                 "\n5. List packages installed"
                 "\n6. Credits"
                 "\n7. Exit"))
@@ -651,7 +651,7 @@ try:
             clear()
             user = input(multichoicePrompt(
             "Please choose an action:\n"
-            "\n1. Search for snaps"
+            "\n1. Search for a snap"
             "\n2. Install a snap"
             "\n3. Remove a snap"
             "\n4. List installed snaps"
@@ -707,10 +707,10 @@ try:
             clear()
             user = input(multichoicePrompt(
             "Please choose an action:\n"
-            "\n1. Search for flatpak (On flathub)"
-            "\n2. Install a flatpak (On flathub)"
+            "\n1. Search for a flatpak (On Flathub)"
+            "\n2. Install a flatpak (On Flathub)"
             "\n3. Remove a flatpak"
-            "\n4. List installed flatpak"
+            "\n4. List installed flatpaks"
             "\n5. Credits"
             "\n6. Exit"))
 
@@ -761,12 +761,12 @@ try:
 
 
     if package == "yarn" or package == "npm":
-        pkg_dir = input(reset + "Enter the path of your js project: ")
+        pkg_dir = input(reset + "Enter the path of your project: ")
         while True:
             clear()
             user = input(multichoicePrompt(
             "Please choose an action:\n"
-            "\n1. Search for package"
+            "\n1. Search for a package"
             "\n2. Install a package"
             "\n3. Remove a package"
             "\n4. List installed packages"
