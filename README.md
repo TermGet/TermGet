@@ -49,7 +49,7 @@ It's like a software center in your terminal!
  - [PizzaLovingNerd](https://github.com/pizzalovingnerd)
  - [Emil Engler](https://github.com/emilengler)
  - [Quint Burkley](https://github.com/qwow5)
- - Dylan Cruz
+ - [Dylan Cruz](https://npstn.us)
  - [NekoBit](https://github.com/nekobit1)
  - [TechBizmo](https://github.com/techbizmo)
 
