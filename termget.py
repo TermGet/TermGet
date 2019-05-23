@@ -59,6 +59,7 @@ try:
 	"- PizzaLovingNerd\n"
         "- Emil Engler\n"
 	"- Quint Burkley\n"
+	"- Dylan Cruz\n"
         "- NekoBit\n"
         "- TechBizmo"
         )
