@@ -77,16 +77,16 @@ try:
         return multichoicePrompt(
             "\nPlease choose a package manager:\n"
             "\n1. apt-get (For Debian, and Debian based systems.)"
-            "\n2. xbps (For Void Linux, and Void Linux based systems.)"
-            "\n3. dnf (For Fedora, and Fedora based systems.)"
-            "\n4. yum (For RHEL, CentOS, older versions of Fedora, and systems based on these distros.)"
+            "\n2. dnf (For Fedora, and Fedora based systems.)"
+            "\n3. yum (For RHEL, CentOS, older versions of Fedora, and systems based on these distros.)"
+            "\n4. pacman (For Arch, PacBSD, and systems based on these distros.)"
             "\n5. zypper (For OpenSUSE, and OpenSUSE based systems.)"
             "\n6. eopkg (For Solus, and Solus based systems.)"
-            "\n7. pacman (For Arch, PacBSD, and Arch based systems.)"
-            "\n8. emerge(For Gentoo, and Gentoo based systems.)"
+            "\n7. emerge(For Gentoo, and Gentoo based systems.)"
+            "\n8. xbps (For Void Linux, and Void Linux based systems.)"
             "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
-            "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, and NayuOS.)"
-            "\n11. homebrew (for macOS/Mac OS X.)"
+            "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, NayuOS, and other systems based on Chromium OS.)"
+            "\n11. homebrew (for macOS/OS X)"
             "\n12. nix (For NixOS, and NixOS based systems.)"
         )
 
