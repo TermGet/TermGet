@@ -85,8 +85,8 @@ try:
             "\n7. emerge(For Gentoo, and Gentoo based systems.)"
             "\n8. xbps (For Void Linux, and Void Linux based systems.)"
             "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
-            "\n10. chromebrew (for Chrome OS, Chromium OS, CloudReady, NayuOS, and other systems based on Chromium OS.)"
-            "\n11. homebrew (for macOS/OS X)"
+            "\n10. homebrew (for macOS/OS X)"
+            "\n11. chromebrew (for Chrome OS, Chromium OS, CloudReady, NayuOS, and other systems based on Chromium OS.)"
             "\n12. nix (For NixOS, and NixOS based systems.)"
         )
 
