@@ -17,16 +17,16 @@ package = " "
 
 # The TermGet SPLASHSCREEN
 termgetBig = """
-__________                                ____                   
-MMMMMMMMMM                               6MMMMb                 
-    MM                                  8P    YM           _     
-    MM  ______  __ ___  __ ____  ____  6M      Y   ____    M     
-    MM  6MMMMb `MM 6MM `MM 6MMb  6MMb  MM         6MMMMb MMMMMM  
-    MM 6M'  `Mb MM69 "  MM69 `MM69 `Mb MM        6M'  `Mb  MM     
-    MM MM    MM MM'     MM'   MM'   MM MM   MMMY MM    MM  MM     
-    MM MMMMMMMM MM      MM    MM    MM MM     `M'MMMMMMMM  MM     
-    MM MM       MM      MM    MM    MM YM      M MM        MM     
-    MM YM    d9 MM      MM    MM    MM  8b    d9 YM    d9  YM.   
+__________                                ____
+MMMMMMMMMM                               6MMMMb
+    MM                                  8P    YM           _
+    MM  ______  __ ___  __ ____  ____  6M      Y   ____    M
+    MM  6MMMMb `MM 6MM `MM 6MMb  6MMb  MM         6MMMMb MMMMMM
+    MM 6M'  `Mb MM69 "  MM69 `MM69 `Mb MM        6M'  `Mb  MM
+    MM MM    MM MM'     MM'   MM'   MM MM   MMMY MM    MM  MM
+    MM MMMMMMMM MM      MM    MM    MM MM     `M'MMMMMMMM  MM
+    MM MM       MM      MM    MM    MM YM      M MM        MM
+    MM YM    d9 MM      MM    MM    MM  8b    d9 YM    d9  YM.
     MM  YMMMM9  MM      MM    MM    MM   YMMMM9   YMMMM9    YMMM9
 """
 
@@ -53,7 +53,7 @@ try:
             package_file_read = open("/usr/share/termget/termget-package-manager", "r").read() # read package manager file
         except Exception:
             print(yellow + "Warnung: Einstellundsdatei nicht gefunden...")
-	
+
     version = "3.0.3" # version number
 
     credit = magenta + (
@@ -78,7 +78,7 @@ try:
     def pickManager():
         return multichoicePrompt(
             "\nBitte wähle einen Paketmanager:\n"
-            "\n1. apt-get (Für Debian, und Debian basierte Systeme)"
+            "\n1. apt (Für Debian, und Debian basierte Systeme)"
             "\n2. xbps (Für Void Linux, and Void Linux based Systeme)"
             "\n3. dnf (Für Fedora, und Fedora basierte Systeme)"
             "\n4. yum (Für alte Versionen von Fedora, und ältere Fedora basierte Systeme)"
@@ -111,7 +111,7 @@ try:
                 # Checks for Chromebook
 
     if package == " " and len(sys.argv) == 2:
-        if sys.argv[1] == "apt-get" or sys.argv[1] == "apt": package = "apt-get"
+        if sys.argv[1] == "apt" or sys.argv[1] == "apt": package = "apt"
         if sys.argv[1] == "pacman" or sys.argv[1] == "yay": package = "pacman"
         if sys.argv[1] == "xbps": package = "xbps"
         if sys.argv[1] == "dnf": package = "dnf"
@@ -133,10 +133,10 @@ try:
         if sys.argv[1] == "yarn": package = "yarn"
         if sys.argv[1] == "bower": package = "bower"
         if sys.argv[1] == "gem": package = "gem"
-			
+
     try:
         if package == " ":
-            if package_file_read == "apt-get": package = "apt-get"
+            if package_file_read == "apt": package = "apt"
             elif package_file_read == "pacman": package = "pacman"
             elif package_file_read == "xbps": package = "xbps"
             elif package_file_read == "dnf": package = "dnf"
@@ -178,8 +178,8 @@ try:
     while setup == "True":  # Repeats until setup is not true
         if user == "1":
             setup = "false"
-            package = "apt-get"  # Sets package manager to apt-get
-            setpack("apt-get")
+            package = "apt"  # Sets package manager to apt
+            setpack("apt")
         elif user == "2":
             setup = "false"
             package = "xbps"  # Sets package manager to xbps
@@ -235,7 +235,7 @@ try:
             clear()
             user = input(pickManager())
             # Sets package manager
-			
+
     if package != "pacman":
         if os.geteuid() != 0:
             print(bold + yellow + "Warnung: bitte führe TermGet als root aus")
@@ -261,10 +261,10 @@ try:
                 clear()
                 user = input(reset + "Bitte gib einen Suchbegriff ein: ")
                 print(reset + " ")
-                if package == "apt-get": os.system("apt-cache search " + user + " | grep " + user)
+                if package == "apt": os.system("apt search " + user + " | grep " + user)
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
-                        "Welchen Paketmanager möchten Sie verwenden?\n" 
+                        "Welchen Paketmanager möchten Sie verwenden?\n"
                         "\n1. pacman"
                         "\n2. yay"))
                     if user1 == "1": os.system("pacman -Ss " + user + " | grep " + user)
@@ -283,11 +283,11 @@ try:
                 user = input(yellow + "\nHast du es gefunden? (y/n) " + reset)
 
                 if user == "y" or user == "Y":
-			
+
                     user = input(reset + "Bitte gib den Namen des zu installierenden Paketes ein: ")
                     print(reset + "")
 
-                    if package == "apt-get": os.system("apt-get install " + user)
+                    if package == "apt": os.system("apt install " + user)
                     elif package == "pacman":
                         user1 = input(multichoicePrompt(
                             "Welchen Paketmanager möchten Sie verwenden ??\n"
@@ -318,7 +318,7 @@ try:
                 user = input(reset + "Bitte gib die zu installierenden Pakete an: ")
                 print(reset + "")
 
-                if package == "apt-get": os.system("apt-get install " + user)
+                if package == "apt": os.system("apt install " + user)
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Welchen Paketmanager möchten sie verwenden?\n"
@@ -348,14 +348,14 @@ try:
                 clear()
                 user = input(reset + "Bitte geben Sie die zu entfernenden Pakete an: ")
                 print(reset + "")
-                if package == "apt-get":
+                if package == "apt":
                     user1 = input(multichoicePrompt(
                         "Wie möchten sie das Paket entfernen ?\n"
                         "\n1. Remove, nur das Paket entfernen (schneller)"
                         "\n2. Purge, alles entfernen (räumt Speicher frei)" + reset))
                     clear()
-                    if user1 == "1": os.system("apt-get remove " + user)
-                    if user1 == "2": os.system("apt-get purge " + user)
+                    if user1 == "1": os.system("apt remove " + user)
+                    if user1 == "2": os.system("apt purge " + user)
                 elif package == "pacman":
                     if os.geteuid() != 0:
                         print(bold + red + "Bitte führen sie TermGet als root aus")
@@ -374,13 +374,13 @@ try:
 
             if user == "4":  # Updates Packages
                 clear()
-                if package == "apt-get":
+                if package == "apt":
                     user1 = input(multichoicePrompt(
                     "Möchten Sie auch die Datenbank neuladen ?\n"
                     "\n1. Ja"
                     "\n2. Nein" + reset))
-                    if user1 == "1": os.system("apt-get update")
-                    os.system("apt-get upgrade")
+                    if user1 == "1": os.system("apt update")
+                    os.system("apt upgrade")
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Welchen Paketmanager möchten Sie verwenden?\n"
@@ -414,7 +414,7 @@ try:
 
             if user == "5":  # Updates Database MEOW
                 clear()
-                if package == "apt-get": os.system("apt-get update")
+                if package == "apt": os.system("apt update")
                 elif package == "pacman":
                     user1 = input(multichoicePrompt(
                         "Welchen Paketmanager möchten Sie verwenden?\n"
@@ -444,10 +444,10 @@ try:
 
                 clear()
 
-                if package == "apt-get":
-                    os.system("apt-get purge --autoremove")
-                    os.system("apt-get autoclean")
-                    os.system("apt-get clean")
+                if package == "apt":
+                    os.system("apt purge --autoremove")
+                    os.system("apt autoclean")
+                    os.system("apt clean")
                 elif package == "pacman":
                     os.system("pacman -Qdtq | pacman -Rs -")
                     os.system("pacman -Sc")
@@ -476,7 +476,7 @@ try:
                 elif package == "homebrew": print(reset + "Homebrew macht das automatisch :)\n")
                 elif package == "nix": os.system("nix-collect-garbage -d")
                 askreturn()
-                         
+
             if user == "7":  # Credits
 
                 clear()
@@ -495,8 +495,8 @@ try:
                 os.system("bash")
                 print(reset + "Rückkehr nach termget...")
                 clear()
-               
-               
+
+
     if package == "pip" or package == "pip2" or package == "pip3":  # Starts a loop
         while True:
             clear()
@@ -673,7 +673,7 @@ try:
                     user = input(reset + "Geben sie das zu installierende Paket an: ")
                     print("")
                     os.system("snap install " + user)
-                    
+
                 askreturn()
 
             if user == "2":
@@ -933,7 +933,7 @@ try:
             if user == "6":
                 print(reset)
                 quit()
-						 
+
 except KeyboardInterrupt:
         clear()
         print(red + "Fehler: Tastaturabbruch. Verlassen" + reset) # moo
