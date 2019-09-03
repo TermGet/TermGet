@@ -40,14 +40,14 @@ if [ "$1" != "--no-detection" ] && [ "$lang" == "1" ]; then
 	elif [[ $(which pacman 2> /dev/null) ]]; then
 		echo -n "An Arch or Arch-based system has been detected. pacman will be used. Is this correct? [y/n] "
 		pm=pacman
-	elif [[ $(which apt-get 2> /dev/null) ]]; then
-		echo -n "A Debian or Debian-based system has been detected. apt-get will be used. Is this correct? [y/n] "
-		pm=apt-get
+	elif [[ $(which apt 2> /dev/null) ]]; then
+		echo -n "A Debian or Debian-based system has been detected. apt will be used. Is this correct? [y/n] "
+		pm=apt
 	elif [[ $(which nix 2> /dev/null) ]]; then
 		echo -n "A NixOS or NixOS-based system has been detected. nix will be used. Is this correct? [y/n] "
 		pm=nix
 	else
-		echo -n "A package manager has failed to be detected. If you proceed to install the program, termget will ask 
+		echo -n "A package manager has failed to be detected. If you proceed to install the program, termget will ask
 	you to set a package manager manually on first launch. Proceed to install? [y/n] "
 	fi
 
@@ -56,7 +56,7 @@ if [ "$1" != "--no-detection" ] && [ "$lang" == "1" ]; then
 		echo "Installation aborted."
 		exit
 	elif [ $answer != "y" ] && [ -n $pm ]; then
-		echo -n "A package manager has failed to be detected. If you proceed to install the program, termget will ask 
+		echo -n "A package manager has failed to be detected. If you proceed to install the program, termget will ask
 	you to set a package manager manually on first launch. Proceed to install? [y/n] "
 		read answer2
 		if [ $answer2 != "y" ]; then
@@ -98,9 +98,9 @@ elif [ "$1" != "--no-detection" ] && [ "$lang" == "2" ]; then
 	elif [[ $(which pacman 2> /dev/null) ]]; then
 		echo -n "Ein Arch oder Arch-basiertes System wurde erkannt. pacman wird benutzt. Ist das korrekt? [y/n] "
 		pm=pacman
-	elif [[ $(which apt-get 2> /dev/null) ]]; then
-		echo -n "Ein Debian oder Debian-basiertes System wurde erkannt. apt-get wird benutzt. Ist das korrekt? [y/n] "
-		pm=apt-get
+	elif [[ $(which apt 2> /dev/null) ]]; then
+		echo -n "Ein Debian oder Debian-basiertes System wurde erkannt. apt wird benutzt. Ist das korrekt? [y/n] "
+		pm=apt
 	elif [[ $(which nix 2> /dev/null) ]]; then
 		echo -n "Ein Nix-OS oder Nix-OS-basiertes System wurde erkannt. 'nix' wird benutzt (Also der Paket-Manager 'nix'). Ist das korrekt? [y/n] "
 		pm=nix
