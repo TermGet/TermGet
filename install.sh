@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # autodetection. If the incorrect one shows, it is possible that you have a program on your system that has the same name as a package manager.
-echo "Hello, can you tell what language do you want to use ?"
+echo "Hello, which language would you like to use?
+Hallo, welche Sprache möchtest du benutzen?"
 echo "1. English"
 echo "2. Deutsch"
 
@@ -71,7 +72,7 @@ if [ "$1" != "--no-detection" ] && [ "$lang" == "1" ]; then
 #German installation
 elif [ "$1" != "--no-detection" ] && [ "$lang" == "2" ]; then
 	if [[ $(which brew 2> /dev/null) ]]; then
-		echo -n "Warum schadest du dir selbst mit Mac OS? Ok, homebrew wird benutzt. Ist das korrekt? [y/n] "
+		echo -n "Warum schadest du dir selbst mit macOS? Ok, homebrew wird benutzt. Ist das korrekt? [y/n] "
 		pm=homebrew
 	elif [[ $(which xbps-install 2> /dev/null) ]]; then
 		echo -n "Void oder ein Void-basiertes System wurde erkannt. xbps wird benutzt. Ist das korrekt? [y/n] "
@@ -134,18 +135,18 @@ sudo bash -c "mkdir /usr/local/share 2> /dev/null"
 sudo bash -c "mkdir /usr/local/share/termget 2> /dev/null" # create new config directory if one doesn't exist
 
 if [ "$lang" == "1" ]; then
-	echo "... installing program to /usr/local/bin"
+	echo "... Installing TermGet to /usr/local/bin."
 	chmod +x termget.py
 	sudo cp termget.py /usr/local/bin/termget # copy program to PATH
 
 elif [ "$lang" == "2" ]; then
-	echo "... Installiere das Programm nach /usr/local/bin"
+	echo "... Installiere TermGet nach /usr/local/bin."
 	chmod +x termget-deutsch.py
 	sudo cp termget-deutsch.py /usr/local/bin/termget # copy program to PATH
 fi
 
 if [ "$1" != "--no-detection" ]; then
-	echo "... generating package file"
+	echo "... Generating package file."
 	sudo bash -c "echo -n $pm > /usr/local/share/termget/termget-package-manager" # copy package file to config directory
 fi
 
