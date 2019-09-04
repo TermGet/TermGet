@@ -6,7 +6,7 @@ TermGet is a package manager frontend for any Linux, BSD, macOS, or ChromeOS dis
 ### TermGet is a frontend for:
 
  - apm
- - apt-get
+ - apt
  - bower
  - chromebrew
  - dnf
