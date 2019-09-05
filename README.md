@@ -46,9 +46,9 @@ It's like a software center in your terminal!
 
 ### TermGet is developed by these fine developers:
 
- - [PizzaLovingNerd](https://github.com/pizzalovingnerd)
- - [Emil Engler](https://github.com/emilengler)
- - [Quint Burkley](https://github.com/qwow5)
+ - [PizzaLovingNerd](https://github.com/pizzalovingnerd) (Maintainer)
+ - [Emil Engler](https://github.com/emilengler) (Maintainer)
+ - [Quint Burkley](https://github.com/qwow5) (Maintainer)
  - [Dylan Cruz](https://npstn.us)
  - [NekoBit](https://github.com/nekobit1)
  - [TechBizmo](https://github.com/techbizmo)

@@ -58,9 +58,9 @@ try:
 
     credit = magenta + (
         "TermGet wurde erstellt von:\n"
-	"- PizzaLovingNerd\n"
-        "- Emil Engler\n"
-	"- Quint Burkley\n"
+	"- PizzaLovingNerd (Maintainer)\n"
+        "- Emil Engler (Maintainer)\n"
+	"- Quint Burkley (Maintainer)\n"
         "- NekoBit\n"
         "- TechBizmo"
         )
