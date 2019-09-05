@@ -77,18 +77,18 @@ try:
     def pickManager():
         return multichoicePrompt(
             "\nPlease choose a package manager:\n"
-            "\n1. apt (For Debian, and Debian based systems.)"
-            "\n2. dnf (For Fedora, and Fedora based systems.)"
-            "\n3. yum (For RHEL, CentOS, older versions of Fedora, and systems based on these distros.)"
-            "\n4. pacman (For Arch, PacBSD, and systems based on these distros.)"
-            "\n5. zypper (For OpenSUSE, and OpenSUSE based systems.)"
-            "\n6. eopkg (For Solus, and Solus based systems.)"
-            "\n7. emerge(For Gentoo, and Gentoo based systems.)"
-            "\n8. xbps (For Void Linux, and Void Linux based systems.)"
-            "\n9. pkg (for FreeBSD, and FreeBSD based systems.)"
-            "\n10. homebrew (for macOS/OS X)"
+            "\n1. apt (For Debian, and Debian-based systems.)"
+            "\n2. dnf (For Fedora, and Fedora-based systems.)"
+            "\n3. yum (For RHEL, and RHEL-based systems.)"
+            "\n4. pacman (For Arch, and Arch-based systems.)"
+            "\n5. zypper (For OpenSUSE, and OpenSUSE-based systems.)"
+            "\n6. eopkg (For Solus, and Solus-based systems.)"
+            "\n7. emerge(For Gentoo, and Gentoo-based systems.)"
+            "\n8. xbps (For Void, and Void-based systems.)"
+            "\n9. pkg (for FreeBSD, and FreeBSD-based systems.)"
+            "\n10. homebrew (for macOS)"
             "\n11. chromebrew (for Chrome OS, Chromium OS, CloudReady, NayuOS, and other systems based on Chromium OS.)"
-            "\n12. nix (For NixOS, and NixOS based systems.)"
+            "\n12. nix (For NixOS, and NixOS-based systems.)"
         )
 
     if getpass.getuser() == "chronos":
