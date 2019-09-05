@@ -54,7 +54,7 @@ try:
         except Exception:
             print(yellow + "Warnung: Einstellundsdatei nicht gefunden...")
 
-    version = "3.0.3" # version number
+    version = "3.1.2" # version number
 
     credit = magenta + (
         "TermGet wurde erstellt von:\n"
