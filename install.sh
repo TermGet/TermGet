@@ -2,7 +2,7 @@
 
 # autodetection. If the incorrect one shows, it is possible that you have a program on your system that has the same name as a package manager.
 echo "Hello, which language would you like to use?
-Hallo, welche Sprache möchtest du benutzen?"
+Hallo, welche Sprache möchten Sie verwenden?"
 echo "1. English"
 echo "2. Deutsch"
 
@@ -20,7 +20,7 @@ if [ "$1" != "--no-detection" ] && [ "$lang" == "1" ]; then
 		echo -n "A Fedora or Fedora-based system has been detected. dnf will be used. Is this correct? [y/n] "
 		pm=dnf
 	elif [[ $(which yum 2> /dev/null) ]]; then
-		echo -n "An RHEL, CentOS, older version of Fedora, or a system based on these distros has been detected. yum will be used. Is this correct? [y/n] "
+		echo -n "An RHEL or RHEL-based system has been detected. yum will be used. Is this correct? [y/n] "
 		pm=yum
 	elif [[ $(which zypper 2> /dev/null) ]]; then
 		echo -n "An openSUSE or openSUSE-based system has been detected. zypper will be used. Is this correct? [y/n] "
@@ -151,7 +151,7 @@ if [ "$1" != "--no-detection" ]; then
 fi
 
 if [ "$lang" == "1" ]; then
-	echo -e "\nSuccessfully Installed! If it's not working, try logging out and logging back in again to reset the PATH."
+	echo -e "\nSuccessfully Installed! If TermGet is not launching, restart your session to reset the PATH."
 
 elif [ "$lang" == "2" ]; then
 	echo -e "\nErfolgreich installiert! Falls es nicht funktioniert starte deine Sitzung neu damit der PATH zurückgesetzt wird."
